@@ -1,6 +1,7 @@
 
 import Header from "../../components/Header"
-import { Outlet } from "react-router-dom"
+import Account from "../../features/_profiles/Account"
+// import { Outlet } from "react-router-dom"
 
 const EditProfile = () =>{
     return(
@@ -26,7 +27,7 @@ const EditProfile = () =>{
                         </ul>
                     </div>
                 </div>
-                <Outlet/>                 
+                 <Account/>              
                 </div>
                 
             </div>

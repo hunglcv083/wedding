@@ -1,0 +1,74 @@
+import { Form, FormControl, FormField, FormItem, FormLabel,  } from "../../components/ui/form"
+import { Input } from "../../components/ui/input"
+import { Button } from "../../components/ui/button"
+import { useForm } from "react-hook-form"
+const Account = () => {
+    const form = useForm()
+    return (
+        <div className="w-full">
+                        <h3 className="font-[600] text-[24px] leading-[20px] mt-3">Account</h3>                    
+                        <Form {...form}>
+                            <form action="">
+                                <FormField
+                                    control={form.control}
+                                    name="xxx"
+                                    render={({field}) => (
+                                    <FormItem className="mt-8 gap-8">
+                                        <FormLabel className="flex font-[600] text-[14px] items-center">
+                                            Display name
+                                            <svg width="14" className="ml-2" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.6667 6.99992C13.6667 10.6818 10.6819 13.6666 7 13.6666C3.3181 13.6666 0.333336 10.6818 0.333336 6.99992C0.333336 3.31802 3.3181 0.333252 7 0.333252C10.6819 0.333252 13.6667 3.31802 13.6667 6.99992ZM7 6.33325C7.36819 6.33325 7.66667 6.63173 7.66667 6.99992V10.3338C7.66667 10.702 7.36819 11.0005 7 11.0005C6.63181 11.0005 6.33334 10.702 6.33334 10.3338V6.99992C6.33334 6.63173 6.63181 6.33325 7 6.33325ZM7 4.99992C7.36819 4.99992 7.66667 4.70144 7.66667 4.33325C7.66667 3.96506 7.36819 3.66659 7 3.66659C6.63181 3.66659 6.33334 3.96506 6.33334 4.33325C6.33334 4.70144 6.63181 4.99992 7 4.99992Z" fill="#9A9FA5"/>
+                                            </svg>
+                                        </FormLabel>                                
+                                        <FormControl  className="">
+                                            <Input {...field}/>
+                                        </FormControl>                               
+                                    </FormItem>
+                                    )}
+                                />
+                                <div className="grid grid-cols-2 gap-6">
+                                <FormField
+                                    control={form.control}
+                                    name="xxx"
+                                    render={({field}) => (
+                                    <FormItem className="mt-8 gap-8">
+                                        <FormLabel className="flex font-[600] text-[14px] items-center">
+                                            Display name
+                                            <svg width="14" className="ml-2" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.6667 6.99992C13.6667 10.6818 10.6819 13.6666 7 13.6666C3.3181 13.6666 0.333336 10.6818 0.333336 6.99992C0.333336 3.31802 3.3181 0.333252 7 0.333252C10.6819 0.333252 13.6667 3.31802 13.6667 6.99992ZM7 6.33325C7.36819 6.33325 7.66667 6.63173 7.66667 6.99992V10.3338C7.66667 10.702 7.36819 11.0005 7 11.0005C6.63181 11.0005 6.33334 10.702 6.33334 10.3338V6.99992C6.33334 6.63173 6.63181 6.33325 7 6.33325ZM7 4.99992C7.36819 4.99992 7.66667 4.70144 7.66667 4.33325C7.66667 3.96506 7.36819 3.66659 7 3.66659C6.63181 3.66659 6.33334 3.96506 6.33334 4.33325C6.33334 4.70144 6.63181 4.99992 7 4.99992Z" fill="#9A9FA5"/>
+                                            </svg>
+                                        </FormLabel>                                
+                                        <FormControl  className="">
+                                            <Input {...field}/>
+                                        </FormControl>                               
+                                    </FormItem>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="xxx"
+                                    render={({field}) => (
+                                    <FormItem className="mt-8 gap-8">
+                                        <FormLabel className="flex font-[600] text-[14px] items-center">
+                                            Display name
+                                            <svg width="14" className="ml-2" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.6667 6.99992C13.6667 10.6818 10.6819 13.6666 7 13.6666C3.3181 13.6666 0.333336 10.6818 0.333336 6.99992C0.333336 3.31802 3.3181 0.333252 7 0.333252C10.6819 0.333252 13.6667 3.31802 13.6667 6.99992ZM7 6.33325C7.36819 6.33325 7.66667 6.63173 7.66667 6.99992V10.3338C7.66667 10.702 7.36819 11.0005 7 11.0005C6.63181 11.0005 6.33334 10.702 6.33334 10.3338V6.99992C6.33334 6.63173 6.63181 6.33325 7 6.33325ZM7 4.99992C7.36819 4.99992 7.66667 4.70144 7.66667 4.33325C7.66667 3.96506 7.36819 3.66659 7 3.66659C6.63181 3.66659 6.33334 3.96506 6.33334 4.33325C6.33334 4.70144 6.63181 4.99992 7 4.99992Z" fill="#9A9FA5"/>
+                                            </svg>
+                                        </FormLabel>                                
+                                        <FormControl  className="">
+                                            <Input {...field}/>
+                                        </FormControl>                               
+                                    </FormItem>
+                                    )}
+                                />
+                                </div>
+                                <Button variant={"cus2"} className="">Update password</Button>
+                                <Button variant={"cus1"} className="mt-8">Save</Button>
+                            </form>
+                        </Form>          
+                                     
+                </div>  
+    )
+}
+
+export default Account
