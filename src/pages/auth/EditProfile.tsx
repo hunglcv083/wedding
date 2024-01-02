@@ -1,7 +1,6 @@
 
 import Header from "../../components/Header"
-import Account from "../../features/_profiles/Account"
-// import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 const EditProfile = () =>{
     return(
@@ -15,19 +14,19 @@ const EditProfile = () =>{
                     <div className="bg-white dark:bg-gray-800 ">
                         <ul className="space-y-2 font-medium">
                             <li>
-                                <a href="#" className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
+                                <Link to={`edit`} className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
                                 <span className="ms-3">Edit Profile</span>
-                                </a>
+                                </Link>
                             </li>
                             <li>
-                                <a href="#" className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
+                                <Link to={`account`} className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
                                 <span className="ms-3">Account</span>
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
                 </div>
-                 <Account/>              
+                 <Outlet/>              
                 </div>
                 
             </div>

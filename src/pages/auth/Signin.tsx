@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Signin = () => {
 
@@ -70,22 +71,23 @@ const Signin = () => {
                                     </label>
                                 </div>
                                 <div>
-                                    <a className="font-bold text-sm text-blue-500 hover:text-blue-800" href="#password-request">
+                                    <Link className="font-bold text-sm text-blue-500 hover:text-blue-800" to={`/profile/account`}>
                                         Forgot password
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
+                            <Link to={`/profile/edit`}>
                             <button
                                 type="submit"
                                 className="block w-full rounded-lg bg-[#2A85FF] px-5 py-3 text-sm font-medium text-white"
                             >
                                 Sign in
                             </button>
-
+                            </Link>
                             <p className="text-sm text-gray-500">
                                 Don't have an account?
-                                <a className="underline" href="">Sign up</a>
+                                <Link className="underline" to={`/signup`}>Sign up</Link>
                             </p>
                             </form>
                         </div>

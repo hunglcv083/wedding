@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 const Signup = () => {
 
@@ -41,18 +42,16 @@ const Signup = () => {
                                       </svg>
                                   </span>
                                   </div>
-                              </div>
-                              
+                              </div>                             
                               <button
                                   type="submit"
                                   className="block w-full rounded-lg bg-[#2A85FF] px-5 py-3 text-sm font-medium text-white"
                               >
                                   Sign up
                               </button>
-  
                               <p className="text-sm text-gray-500">
                                   Already a member?
-                                  <a className="underline" href="">Sign in</a>
+                                  <Link className="underline" to={`/signin`}>Sign in</Link>
                               </p>
                               </form>
                           </div>
