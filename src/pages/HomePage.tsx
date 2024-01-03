@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 
@@ -13,13 +14,13 @@ const HomePage = () => {
                 <h1 className="text-[#009DC4] font-[900] text-[56px] leading-[68px]">AI Face Swap Online</h1>
                 <h2 className="text-[#009DC4] font-[700] text-[40px] leading-[40px] my-3">Make Your Dream Wedding</h2>
                 <p className="text-[#000] font-[500] text-[24px] leading-[24px] w-[500px]">Upload your photos to swap the face with AI. Experience powerful realistic face swapping effects. Create gorgeous wedding photos!</p>
-                <button className="text-[#fff] bg-[#33C5E9] mt-8 rounded-3xl px-[20px] py-[10px] text-center font-[800] text-[20px] leading-[20px] flex">
+                <Link to={`/upload`}><button className="text-[#fff] bg-[#33C5E9] mt-8 rounded-3xl px-[20px] py-[10px] text-center font-[800] text-[20px] leading-[20px] flex">
                   <span>Start face swapping</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
                     <path fill-rule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" />
                   </svg>
 
-                </button>
+                </button></Link>
               </div>
               <div className="absolute right-2">
                 <img src="src\pages\img\ba-bpn.png " className="" alt="" />

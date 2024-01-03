@@ -5,6 +5,7 @@ import Signup from "../pages/auth/Signup"
 import EditProfile from "../pages/auth/EditProfile"
 import Editor from "../features/_profiles/Editor"
 import Account from "../features/_profiles/Account"
+import NewUpload from "../pages/upload_image/NewUpload"
 
 const Routers = () => {
     return (
@@ -17,6 +18,7 @@ const Routers = () => {
                     <Route path='edit' element={<Editor/>}/>
                     <Route path='account' element={<Account/>}/>
                 </Route>
+                <Route path="upload" element={<NewUpload/>} />
             </Routes>
         </>
     )
