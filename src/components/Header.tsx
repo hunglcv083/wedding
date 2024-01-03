@@ -10,7 +10,7 @@ const Header = () => {
               <div className="mx-auto max-w-screen-xl">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex-1 md:flex md:items-center md:gap-12">
-                    <img src="src\pages\img\logo.png" alt="" />
+                    <img src="img\logo.png" alt="" />
                   </div>
   
                   <div className="md:flex md:items-center md:gap-12">

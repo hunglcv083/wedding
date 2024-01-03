@@ -5,11 +5,11 @@ const Signin = () => {
   return (
     <div className="w-[1440px]">
         <header className="pt-[24px] pl-[24px]">
-            <img src="src\pages\img\logo.png" alt="" />
+            <img src="img\logo.png" alt="" />
         </header>
         <div className="grid grid-cols-2 pt-[100px]">
             <div className="w-[602px]">
-                <img className="px-[29px] my-auto" src="src\pages\img\signin.png" alt="" />
+                <img className="px-[29px] my-auto" src="img\signin.png" alt="" />
             </div>
             <div className="mx-auto w-[602px] max-w-screen-xl px-4 sm:px-6 lg:px-8">
                         <div className="mx-auto max-w-lg">

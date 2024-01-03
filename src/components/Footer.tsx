@@ -5,7 +5,7 @@ const Footer = () => {
     <>
         <div className="bg-[#F2FDFF] h-[333px] px-[160px] pt-[80px]">
             <div className="w-[110px] h-[144px] mx-auto">
-                <img className="" src="src\pages\img\lo 1.png" alt="" />
+                <img className="" src="img\lo 1.png" alt="" />
                 <div className="mx-auto items-center">
                     <h6 className="font-[400] text-[14px] leading-[20px] my-[15px] mx-auto">Follow us</h6>
                     <div className="flex gap-4">

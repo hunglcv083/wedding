@@ -23,7 +23,7 @@ const HomePage = () => {
                 </button></Link>
               </div>
               <div className="absolute right-2">
-                <img src="src\pages\img\ba-bpn.png " className="" alt="" />
+                <img src="img\ba-bpn.png " className="" alt="" />
               </div>
           </div>
           <div className="bg-[#FFF] w-[1440px] mx-auto mb-[100px]">
@@ -67,7 +67,7 @@ const HomePage = () => {
               </ul>
               </div>
                 <div className="">
-                  <img src="src\pages\img\swap-online.png" alt="" />
+                  <img src="img\swap-online.png" alt="" />
                 </div>
               </div>
           </div>
@@ -75,21 +75,21 @@ const HomePage = () => {
           <h1 className="w-[1064px] font-[800] text-[48px] leading-[58px] text-black text-center mx-auto">Your Ultimate AI Maker to Generate Wedding Photos for Free</h1>
             <div className="grid grid-cols-3 gap-[48px] mx-[100px] my-auto mt-[45px]">
               <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                <img src="src\pages\img\easy-to-use 2.png" alt="" />
+                <img src="img\easy-to-use 2.png" alt="" />
                 <div className="mt-[10px] text-left">
                   <h5 className="font-[700] text-[24px]">Easy to use</h5>
                   <p className="mt-[10px] font-[500] text-[16px] leading-[19px]">All you need to do is upload 2 excellent face portrait. AI will swap faces smoothly without requiring manual editing.</p>
                 </div>
               </div>
               <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                <img src="src\pages\img\easy-to-use 2.png" alt="" />
+                <img src="img\easy-to-use 2.png" alt="" />
                 <div className="mt-[10px] text-left">
                   <h5 className="font-[700] text-[24px]">Privacy Protection</h5>
                   <p className="mt-[10px] font-[500] text-[16px] leading-[19px]">We promise that all your uploaded images and other data will be protected well. No one will see these things except yourself. We make sure the face swapping procedure is highly private.</p>
                 </div>
               </div>
               <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                <img src="src\pages\img\easy-to-use 2.png" alt="" />
+                <img src="img\easy-to-use 2.png" alt="" />
                 <div className="mt-[10px] text-left">
                   <h5 className="font-[700] text-[24px]">One-sec Face Swap</h5>
                   <p className="mt-[10px] font-[500] text-[16px] leading-[19px]">This online AI face swap app can switch to the faces of anyone online. No installation, no ads, and no watermarks! Create your face magic in fantastic style and without too much effort!</p>
@@ -101,31 +101,31 @@ const HomePage = () => {
           <h1 className="w-[1064px] font-[800] text-[48px] leading-[58px] text-black text-center mx-auto">Jump Start Your Creation with 50+ Wedding Photos Template</h1>
           <div className="grid grid-cols-3 gap-6 mx-[125px] mt-[50px]">
             <div className="">
-              <img src="src\pages\img\gal1.png" alt="" />
+              <img src="img\gal1.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal2.png" alt="" />
+              <img src="img\gal2.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal3.png" alt="" />
+              <img src="img\gal3.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal4.png" alt="" />
+              <img src="img\gal4.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal5.png" alt="" />
+              <img src="img\gal5.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal6.png" alt="" />
+              <img src="img\gal6.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal7.png" alt="" />
+              <img src="img\gal7.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal8.png" alt="" />
+              <img src="img\gal8.png" alt="" />
             </div>
             <div className="">
-              <img src="src\pages\img\gal9.png" alt="" />
+              <img src="img\gal9.png" alt="" />
             </div>
           </div>
           </div>
@@ -134,7 +134,7 @@ const HomePage = () => {
             <div className="grid grid-cols-2 px-[120px] mt-10">
               <div className="w-[544px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                 <h5 className="font-[700] text-[24px] leading-[30px] text-black text-center mx-auto">Traditional Wedding Photo</h5>
-                <img className="mt-[30px]" src="src\pages\img\cd1.png" alt="" />
+                <img className="mt-[30px]" src="img\cd1.png" alt="" />
                 <div className="mt-[30px]">
                   <li className="flex font-[500] text-[16px] leading-[19px] mt-2">
                     <svg className="mr-[15px]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +164,7 @@ const HomePage = () => {
               </div>
               <div className="w-[544px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                 <h5 className="font-[700] text-[24px] leading-[30px] text-black text-center mx-auto">Traditional Wedding Photo</h5>
-                <img className="mt-[30px]" src="src\pages\img\cd2.png" alt="" />
+                <img className="mt-[30px]" src="img\cd2.png" alt="" />
                 <div className="mt-[30px]">
                   <li className="flex font-[500] text-[16px] leading-[19px] mt-1">
                   <svg width="28" className="mr-[15px]" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -202,11 +202,11 @@ const HomePage = () => {
               <h1 className="w-[1064px] font-[800] text-[48px] leading-[58px] text-black text-center mx-auto">Trusted by Millions of Creators and Companies Worldwide</h1>
               <div className="grid grid-cols-3 mt-10 gap-10">
                 <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                  <img src="src\pages\img\cdl1.png" alt="" />
+                  <img src="img\cdl1.png" alt="" />
                   <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
                 </div>
                 <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                  <img src="src\pages\img\cdl2.png" alt="" />
+                  <img src="img\cdl2.png" alt="" />
                   <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
                 </div>
                 <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
