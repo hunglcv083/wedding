@@ -1,37 +1,54 @@
+import { Button } from "../../components/ui/button"
+import { Card, CardContent } from "../../components/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel"
+
 const Preview = () => {
     return (
-        
-
-        <div id="controls-carousel" className="relative w-full" data-carousel="static">
-            <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/docs/images/carousel/carousel-1.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+        <div className="w-[1440px] h-[1688px] bg-[#C2E9F0] py-[70px]">
+            <div className="w-[1120px] h-[1544px] bg-white rounded-3xl shadow-sm mx-auto">
+        <Carousel className="w-full pt-11">
+                        <div className="flex ml-14 mb-8">
+                        <Button variant={"cus3"} className="w-[190px] h-[50px]">
+                            Download
+                            <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </Button>
+                        <Button variant={"cus3"} className="w-[295px] h-[50px] ml-4">
+                            Save to your collection
+                            <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </Button>
+                        </div>
+                        
+            <CarouselContent className="ml-11">
+                {Array.from({ length: 5 }).map((_, index) => (
+                <CarouselItem key={index}>
+                    <div className="w-[992px] h-[992px] rounded-3xl overflow-hidden">
+                    <img className="w-full" src="https://picsum.photos/1000" alt="" />
+                    </div>
+                </CarouselItem>
+                ))}
+            </CarouselContent>
+            <div className="w-[992px] flex gap-10 mx-auto mt-10">
+                <div className="w-[308px] h-[308px] rounded-3xl overflow-hidden">
+                <img className="w-full" src="https://picsum.photos/200" alt="" />
                 </div>
-                <div className="hidden duration-700 ease-in-out" data-carousel-item="active">
-                    <img src="/docs/images/carousel/carousel-2.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                <div  className="w-[308px] h-[308px] rounded-3xl overflow-hidden">
+                <img className="w-full" src="https://picsum.photos/200" alt="" />
                 </div>
-                <div className="hidden duration-700 ease-in-out" data-carousel-item>
-                    <img src="/docs/images/carousel/carousel-3.svg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..."/>
+                <div className="w-[308px] h-[308px] rounded-3xl overflow-hidden">
+                <img className="w-full" src="https://picsum.photos/200" alt="" />
                 </div>
             </div>
-            <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
-                    </svg>
-                    <span className="sr-only">Previous</span>
-                </span>
-            </button>
-            <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                    <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                    </svg>
-                    <span className="sr-only">Next</span>
-                </span>
-            </button>
+        <CarouselPrevious />
+        <CarouselNext />
+        </Carousel>
         </div>
-
-    )
+        </div>
+        )
 }
 export default Preview

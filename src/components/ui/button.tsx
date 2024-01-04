@@ -20,7 +20,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         cus1: "text-[#fff] w-[120px] bg-[#16B6D4] h-[60px] my-auto rounded-3xl px-[20px] py-[15px] text-center font-[700] text-[14px]",
         cus2: "text-[#16B6D4] border-2 border-[#16B6D4] w-[227px] h-[54px] bg-[#fff] rounded-[27px] px-[18px] py-[8px] font-[600] text-[16px] leading-[20px] flex items-center mt-8",
-        cus3: "text-[#fff] bg-[#16B6D4] h-[60px] my-auto rounded-3xl px-[20px] py-[15px] font-[700] text-[14px]",
+        cus3: "text-[#fff] bg-[#16B6D4] h-[60px] my-auto rounded-3xl px-[30px] py-[15px] font-[700] text-[14px]",
       },
       size: {
         default: "h-10 px-4 py-2",
