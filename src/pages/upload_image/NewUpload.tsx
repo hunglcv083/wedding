@@ -5,9 +5,9 @@ const NewUpload = () => {
         <>
             <div className="bg-[#F2FDFF]">
             <Header/>
-            <div className="pb-[70px] pt-[40px]">
+            <div className="pb-[70px] pt-[40px] w-[1440px]">
             <h1 className="font-[700] text-[24px] leading-[20px] mb-[40px] mt-[60px] text-center">Make Your Dream Wedding</h1> 
-            <div className="flex gap-6 mx-auto">
+            <div className="flex gap-6 text-center" style={{marginLeft:'360px'}}>
                 <div className="">
                     <div className="w-[256px] h-[256px] rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                         <svg width="123" className="mx-auto mt-[60px]" height="116" viewBox="0 0 123 116" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +43,15 @@ const NewUpload = () => {
                     </Button> 
                 </div>
 
-            </div>              
+            </div>
+            <Button variant="cus1" className="flex items-center mt-8 mx-auto" style={{width:"725Apx"}}>
+                            GENERATE
+                            <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                </Button>               
             </div>
             </div>
         </>
