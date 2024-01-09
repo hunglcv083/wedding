@@ -38,6 +38,7 @@ const Signin = () => {
         try {
           const response:any = await signin(formData);
           const { message } = response;
+          
             if(message === "Invalid Password!!") {
               toast({
                 variant: "destructive",
@@ -51,9 +52,9 @@ const Signin = () => {
                     description: `Login successfully!!`,
                     });
                     const account = JSON.stringify(response)
+                    localStorage.setItem('accessToken',response.token)
                     localStorage.setItem('user',account)
-                    
-                    navi('/')
+                    navi(`/profile/edit/${response.id_user}`)
             }            
         } catch (error) {
           console.log(error);

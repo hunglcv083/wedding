@@ -3,6 +3,11 @@ import { Input } from "../../components/ui/input"
 import { Button } from "../../components/ui/button"
 import { useForm } from "react-hook-form"
 import axios from "axios"
+import { changePassword } from "../../services/auth"
+import { useNavigate, useParams } from "react-router-dom"
+import { useToast } from "../../components/ui/use-toast"
+import { ToastAction } from "@radix-ui/react-toast"
+
 const Account = () => {
     const form = useForm({
         defaultValues: {
@@ -11,15 +16,31 @@ const Account = () => {
             cf_pw:''
         }
     })
-    const handleSubmit = async () =>{
+    const navi = useNavigate()
+    const {id} = useParams()
+    const { toast } = useToast()
+    const handleSubmit = async (e:any) =>{
+    e.preventDefault()
     const formData = new FormData()
     formData.append('old_password', form.getValues('old_password'))
     formData.append('new_password', form.getValues('new_password'))
-    // try {
-    //     const response:any = await axios.post(`/changepassword/`)
-    // } catch (error) {
-        
-    // }
+    try {
+        const response:any = await changePassword(formData, id)
+        toast({
+            variant: "default",
+            description: `Password has been changed! `,
+          });
+        return response
+    } catch (error) {
+        console.log(error)
+        const { response } = error
+        toast({
+            variant: "destructive",
+            description: `${response.data.detail}`,
+            action: <ToastAction altText="Try again">Try again</ToastAction>
+          });
+          return;
+    }
     }
     return (
         <div className="w-full">
@@ -79,11 +100,10 @@ const Account = () => {
                                     )}
                                 />
                                 </div>
-                                <Button variant={"cus2"} className="">Update password</Button>
-                                <Button variant={"cus1"} className="mt-8">Save</Button>
+                                <Button type="submit" variant={"cus2"} className="">Update password</Button>
                             </form>
                         </Form>          
-                                     
+                        <Button onClick={()=>(confirm('Are you sure?')&&navi(-1))} variant={"cus1"} className="mt-8 w-[180px]">Back to profile</Button>     
                 </div>  
     )
 }

@@ -1,8 +1,9 @@
 
 import Header from "../../components/Header"
-import { Link, Outlet } from "react-router-dom"
+import { Link, Outlet, useParams } from "react-router-dom"
 
 const EditProfile = () =>{
+    const {id} = useParams()
     return(
         <>
             <div className="bg-[#F2FDFF]">
@@ -14,12 +15,12 @@ const EditProfile = () =>{
                     <div className="bg-white dark:bg-gray-800 ">
                         <ul className="space-y-2 font-medium">
                             <li>
-                                <Link to={`edit`} className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
+                                <Link to={`edit/${id}`} className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
                                 <span className="ms-3">Edit Profile</span>
                                 </Link>
                             </li>
                             <li>
-                                <Link to={`account`} className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
+                                <Link to={`account/${id}`} className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
                                 <span className="ms-3">Account</span>
                                 </Link>
                             </li>
