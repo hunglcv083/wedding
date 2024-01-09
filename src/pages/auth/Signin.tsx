@@ -50,7 +50,10 @@ const Signin = () => {
                     variant: "default",
                     description: `Login successfully!!`,
                     });
-                    navi('/signin')
+                    const account = JSON.stringify(response)
+                    localStorage.setItem('user',account)
+                    
+                    navi('/')
             }            
         } catch (error) {
           console.log(error);
@@ -59,8 +62,7 @@ const Signin = () => {
             description: `Login fail!!`,
             action: <ToastAction altText="Try again">Try again</ToastAction>
           });
-        }
-        
+        }       
       };
   return (
     <div className="w-[1440px]">
@@ -141,7 +143,7 @@ const Signin = () => {
                                     </label>
                                 </div>
                                 <div>
-                                    <Link className="font-bold text-sm text-blue-500 hover:text-blue-800" to={`/profile/account`}>
+                                    <Link className="font-bold text-sm text-blue-500 hover:text-blue-800" to={`/forgotpassword`}>
                                         Forgot password
                                     </Link>
                                 </div>

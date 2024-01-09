@@ -9,6 +9,7 @@ import NewUpload from "../pages/upload_image/NewUpload"
 import FaceUpload from "../pages/upload_image/FaceUpload"
 import Generate from "../pages/upload_image/Generate"
 import Preview from "../pages/upload_image/Preview"
+import ForgotPassword from "../pages/auth/ForgotPassword"
 
 const Routers = () => {
     return (
@@ -25,6 +26,7 @@ const Routers = () => {
                 <Route path="faceupload" element={<FaceUpload/>} />
                 <Route path="generate" element={<Generate/>} />
                 <Route path="preview" element={<Preview/>} />
+                <Route path="forgotpassword" element={<ForgotPassword/>}/>
             </Routes>
         </>
     )
