@@ -11,8 +11,7 @@ const ForgotPassword = () => {
 
     const handleSubmit = async (e:any) => {
         e.preventDefault();
-        
-        
+          
        if (!email) {
           toast({
             variant: "destructive",
@@ -54,15 +53,15 @@ const ForgotPassword = () => {
       };
     return (
       <div className="w-[1440px]">
-          <header className="pt-[24px] pl-[24px]">
-              <img src="img\logo.png" alt="" />
-          </header>
-          <div className="grid grid-cols-2 pt-[100px]">
-              <div className="w-[602px]">
-                  <img className="px-[29px] my-auto" src="img\signin.png" alt="" />
+          <div className="grid grid-cols-2">
+              <div className="bg-[#F2FDFF] items-center w-[750px]">
+                  <header className="pt-[20px] pl-[28px]">
+                    <img src="img\logo.png" alt="" />
+                </header>
+                  <img className="px-[29px] mt-[150px] mb-[90px]" src="img\signin.png" alt="" />
               </div>
               <div className="mx-auto w-[602px] max-w-screen-xl px-4 sm:px-6 lg:px-8">
-                          <div className="mx-auto max-w-lg">
+                          <div className="mx-auto max-w-lg mt-[260px]">
                               <form onSubmit={handleSubmit} className="mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8" >
                               <h1 className="text-2xl font-bold text-[#2A85FF]-600 sm:text-3xl">Forgot Password?</h1>
                               <h4 className="text-sm text-black font-[600] mb-[15px]">No worries, we'll send you reset introduction.</h4>
@@ -94,7 +93,7 @@ const ForgotPassword = () => {
                               >
                                   Send
                               </button>
-                                <Link className="flex ml-[150px]" to={`/login`}>
+                                <Link className="flex ml-[150px]" to={`/signin`}>
                                   <svg className="mr-2" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8.70708 13.7929C9.0976 14.1834 9.0976 14.8166 8.70708 15.2071C8.31655 15.5976 7.68339 15.5976 7.29286 15.2071L1.49997 9.41421C0.718923 8.63317 0.718921 7.36684 1.49997 6.58579L7.29286 0.792894C7.68339 0.402369 8.31655 0.402369 8.70708 0.792894C9.0976 1.18342 9.0976 1.81658 8.70708 2.20711L3.91419 7H18C18.5523 7 19 7.44772 19 8C19 8.55229 18.5523 9 18 9H3.91418L8.70708 13.7929Z" fill="#1A1D1F"/>
                                   </svg>

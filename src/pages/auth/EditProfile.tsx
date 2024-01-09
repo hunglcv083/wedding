@@ -1,9 +1,14 @@
 
 import Header from "../../components/Header"
-import { Link, Outlet, useParams } from "react-router-dom"
+import { Link, Outlet, useNavigate, useParams } from "react-router-dom"
 
 const EditProfile = () =>{
     const {id} = useParams()
+    const navi = useNavigate()
+    const logOut = () =>{
+        localStorage.clear();
+        navi('/')
+    }
     return(
         <>
             <div className="bg-[#F2FDFF]">
@@ -25,7 +30,7 @@ const EditProfile = () =>{
                                 </Link>
                             </li>
                             <li>
-                                <span onClick={()=>{localStorage.clear()}} className="flex cursor-pointer items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
+                                <span onClick={()=>{confirm('Are you fucking sure?')&&logOut()}} className="flex cursor-pointer items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
                                 <span className="ms-3 flex">Logout <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                                 </svg>

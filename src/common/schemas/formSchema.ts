@@ -12,5 +12,4 @@ export const formSchema = Joi.object({
     device_register: Joi.string(),
     link_avatar: Joi.string(),
     email_or_username: Joi.string()
-
 })

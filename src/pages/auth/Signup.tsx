@@ -86,15 +86,16 @@ const Signup = () => {
       };
     return (
       <div className="w-[1440px]">
-          <header className="pt-[24px] pl-[24px]">
-              <img src="img\logo.png" alt="" />
-          </header>
-          <div className="grid grid-cols-2 pt-[100px]">
-              <div className="w-[602px]">
-                  <img className="px-[29px] my-auto" src="img\signin.png" alt="" />
+          
+          <div className="grid grid-cols-2">
+              <div className="bg-[#F2FDFF] items-center w-[750px]">
+                  <header className="pt-[20px] pl-[28px]">
+                    <img src="img\logo.png" alt="" />
+                </header>
+                  <img className="px-[29px] mt-[150px] mb-[90px]" src="img\signin.png" alt="" />
               </div>
               <div className="mx-auto w-[602px] max-w-screen-xl px-4 sm:px-6 lg:px-8">
-                          <div className="mx-auto max-w-lg">
+                          <div className="mx-auto max-w-lg mt-[180px]">
                               <form onSubmit={handleSubmit} className="mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8" >
                               <h1 className="text-2xl font-bold text-[#2A85FF]-600 sm:text-3xl">Sign Up</h1>
                               <h4 className="text-sm text-black font-[600] mb-[15px]">Sign up with Open accounts</h4>

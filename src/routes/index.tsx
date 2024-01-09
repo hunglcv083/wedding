@@ -10,6 +10,7 @@ import FaceUpload from "../pages/upload_image/FaceUpload"
 import Generate from "../pages/upload_image/Generate"
 import Preview from "../pages/upload_image/Preview"
 import ForgotPassword from "../pages/auth/ForgotPassword"
+import PrivateRoute from "../components/PrivateRouter"
 
 const Routers = () => {
     return (
@@ -18,14 +19,14 @@ const Routers = () => {
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='signin' element={<Signin/>}/>
                 <Route path='signup' element={<Signup/>}/>
-                <Route path='profile' element={<EditProfile/>}>
-                    <Route path='edit/:id' element={<Editor/>}/>
-                    <Route path='account/:id' element={<Account/>}/>
+                <Route path='profile' element={<PrivateRoute><EditProfile/></PrivateRoute>}>
+                    <Route path='edit/:id' element={<PrivateRoute><Editor/></PrivateRoute>}/>
+                    <Route path='account/:id' element={<PrivateRoute><Account/></PrivateRoute>}/>
                 </Route>
-                <Route path="upload" element={<NewUpload/>} />
-                <Route path="faceupload" element={<FaceUpload/>} />
-                <Route path="generate" element={<Generate/>} />
-                <Route path="preview" element={<Preview/>} />
+                <Route path="upload" element={<PrivateRoute><NewUpload/></PrivateRoute>} />
+                <Route path="faceupload" element={<PrivateRoute><FaceUpload/></PrivateRoute>} />
+                <Route path="generate" element={<PrivateRoute><Generate/></PrivateRoute>} />
+                <Route path="preview" element={<PrivateRoute><Preview/></PrivateRoute>} />
                 <Route path="forgotpassword" element={<ForgotPassword/>}/>
             </Routes>
         </>
