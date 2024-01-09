@@ -19,8 +19,8 @@ const Routers = () => {
                 <Route path='signin' element={<Signin/>}/>
                 <Route path='signup' element={<Signup/>}/>
                 <Route path='profile' element={<EditProfile/>}>
-                    <Route path='edit' element={<Editor/>}/>
-                    <Route path='account' element={<Account/>}/>
+                    <Route path='edit/:id' element={<Editor/>}/>
+                    <Route path='account/:id' element={<Account/>}/>
                 </Route>
                 <Route path="upload" element={<NewUpload/>} />
                 <Route path="faceupload" element={<FaceUpload/>} />
