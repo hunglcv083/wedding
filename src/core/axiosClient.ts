@@ -1,10 +1,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: `${process.env}`,
-  headers: {
-    "Content-Type": "application/json",
-  },
+  baseURL: `${''}`,
 });
 // Add a request interceptor
 axiosClient.interceptors.request.use(
