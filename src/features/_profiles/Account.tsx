@@ -1,15 +1,17 @@
-import { Form, FormControl, FormField, FormItem, FormLabel,  } from "../../components/ui/form"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage,  } from "../../components/ui/form"
 import { Input } from "../../components/ui/input"
 import { Button } from "../../components/ui/button"
 import { useForm } from "react-hook-form"
-import axios from "axios"
 import { changePassword } from "../../services/auth"
 import { useNavigate, useParams } from "react-router-dom"
 import { useToast } from "../../components/ui/use-toast"
 import { ToastAction } from "@radix-ui/react-toast"
+import { changePassSchema } from "../../common/schemas/formSchema"
+import { useState } from "react"
 
 const Account = () => {
-    const form = useForm({
+    const [errors, setErrors] = useState({old_password:'', new_password:'', cf_pw:''});
+    const form = useForm<{old_password:string, new_password:string, cf_pw:string}>({
         defaultValues: {
             old_password:'',
             new_password:'',
@@ -21,6 +23,20 @@ const Account = () => {
     const { toast } = useToast()
     const handleSubmit = async (e:any) =>{
     e.preventDefault()
+    const {error} = changePassSchema.validate({
+        old_password:form.getValues('old_password'),
+        new_password:form.getValues('new_password'), 
+        cf_pw: form.getValues('cf_pw')}, 
+        { abortEarly: false })
+    if (error) {
+        const validationErrors = {old_password:'', new_password:'', cf_pw:''};
+        error.details.forEach((detail) => {
+        validationErrors[detail.context.key] = detail.message;
+            });
+        setErrors(validationErrors);
+        return
+    }else{
+    setErrors({old_password:'', new_password:'', cf_pw:''})
     const formData = new FormData()
     formData.append('old_password', form.getValues('old_password'))
     formData.append('new_password', form.getValues('new_password'))
@@ -30,8 +46,9 @@ const Account = () => {
             variant: "default",
             description: `Password has been changed! `,
           });
+        form.reset()
         return response
-    } catch (error) {
+    } catch (error:any) {
         console.log(error)
         const { response } = error
         toast({
@@ -40,6 +57,7 @@ const Account = () => {
             action: <ToastAction altText="Try again">Try again</ToastAction>
           });
           return;
+    }
     }
     }
     return (
@@ -60,7 +78,8 @@ const Account = () => {
                                         </FormLabel>                                
                                         <FormControl  className="">
                                             <Input {...field}/>
-                                        </FormControl>                               
+                                        </FormControl>
+                                        <FormMessage>{errors.old_password}</FormMessage>                                         
                                     </FormItem>
                                     )}
                                 />
@@ -78,7 +97,8 @@ const Account = () => {
                                         </FormLabel>                                
                                         <FormControl  className="">
                                             <Input {...field}/>
-                                        </FormControl>                               
+                                        </FormControl>
+                                        <FormMessage>{errors.new_password}</FormMessage>                              
                                     </FormItem>
                                     )}
                                 />
@@ -95,7 +115,8 @@ const Account = () => {
                                         </FormLabel>                                
                                         <FormControl  className="">
                                             <Input {...field}/>
-                                        </FormControl>                               
+                                        </FormControl>
+                                        <FormMessage>{errors.cf_pw}</FormMessage>                               
                                     </FormItem>
                                     )}
                                 />
