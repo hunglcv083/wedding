@@ -14,7 +14,7 @@ const Header = () => {
     
     return (
       <>
-            <header className="bg-white md:w-[1440px] w-[360px]">
+            <header className="bg-white md:w-[1440px]">
               <div className="mx-auto">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex-1 md:flex md:items-center md:gap-12">
@@ -53,9 +53,10 @@ const Header = () => {
                     </nav>
                     <div className="md:hidden block mr-4">
                     <DropdownMenu>
-                    <DropdownMenuTrigger><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                      </svg>
+                    <DropdownMenuTrigger>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        </svg>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent>
                       <DropdownMenuItem>Services</DropdownMenuItem>

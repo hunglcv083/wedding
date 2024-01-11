@@ -10,11 +10,11 @@ const HomePage = () => {
   return (
     <div className="text-center">
           <Header/>
-          <div className="bg-[#F2FDFF] md:w-[1440px] md:h-[790px] h-[602px] relative md:mx-auto w-[360px]">  
+          <div className="bg-[#F2FDFF] md:w-[1440px] md:h-[790px] h-[620px] relative md:mx-auto">  
               <div className="absolute md:right-2 ml-[-60px] mt-[-60px]">
                 <img src="img\ba-bpn.png " className="" alt="" />
               </div>
-              <div className="absolute md:w-[623px] text-left md:top-[240px] md:left-[200px] md:ml-0 ml-[40px] md:mt-0 mt-[340px]">
+              <div className="absolute md:w-[623px] text-left md:top-[240px] md:left-[200px] md:ml-0 ml-[40px] md:mt-0 mt-[360px]">
                 <h1 className="text-[#009DC4] md:font-[900] md:text-[56px] md:leading-[68px] font-black text-[28px]">AI Face Swap Online</h1>
                 <h2 className="text-[#009DC4] md:font-[700] md:text-[40px] md:leading-[40px] md:my-3 font-extrabold text-[20px]">Make Your Dream Wedding</h2>
                 <p className="text-[#000] md:font-[500] md:text-[24px] md:leading-[24px] md:w-[500px] font-semibold text-[16px] w-[300px]">Upload your photos to swap the face with AI. Experience powerful realistic face swapping effects. Create gorgeous wedding photos!</p>
@@ -28,7 +28,7 @@ const HomePage = () => {
               </div>
               
           </div>
-          <div className="bg-[#FFF] md:w-[1440px] md:mx-auto md:mb-[100px] w-[360px]">
+          <div className="bg-[#FFF] md:w-[1440px] md:mx-auto md:mb-[100px] mt-5 md:mt-0">
               <h1 className="md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center md:mt-[100px] md:mb-[50px] text-[24px] font-extrabold">How to Swap a Face Online</h1>
               <div className="md:grid md:grid-cols-2 md:px-[100px] md:gap-8 mt-10">
               <div className="">
@@ -118,7 +118,7 @@ const HomePage = () => {
           </div>
           <div className="bg-[#F2FDFF] md:h-[707px] md:py-[95px] py-11">
           <h1 className="md:w-[1064px] w-[310px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Your Ultimate AI Maker to Generate Wedding Photos for Free</h1>
-            <div className="md:grid md:grid-cols-3 md:gap-[48px] md:mx-[100px] md:my-auto md:mt-[45px] ml-10 mt-5 md:ml-0">
+            <div className="md:grid md:grid-cols-3 md:gap-[48px] md:mx-[100px] md:my-auto md:mt-[45px] mt-5 w-[352px] md:w-auto mx-auto">
               <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                 <img src="img\easy-to-use 2.png" alt="" />
                 <div className="mt-[10px] text-left">
@@ -214,13 +214,13 @@ const HomePage = () => {
           </Carousel>
           </div>
           </div>
-          <div className="bg-[#F2FDFF] h-[1061px] py-[110px]">
-            <h1 className="w-[1064px] font-[800] text-[48px] leading-[58px] text-black text-center mx-auto">Say Goodbye to Photographer, Studios, Expense and More</h1>
-            <div className="grid grid-cols-2 px-[120px] mt-10">
-              <div className="w-[544px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
+          <div className="bg-[#F2FDFF] md:h-[1061px] md:py-[110px] py-11 ">
+            <h1 className="md:w-[1064px] w-[300px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Say Goodbye to Photographer, Studios, Expense and More</h1>
+            <div className="md:grid grid-cols-2 md:px-[120px] mt-10 w-[352px] md:w-auto mx-auto">
+              <div className="md:w-[544px] w-[352px] md:p-[32px] p-8 block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                 <h5 className="font-[700] text-[24px] leading-[30px] text-black text-center mx-auto">Traditional Wedding Photo</h5>
                 <img className="mt-[30px]" src="img\cd1.png" alt="" />
-                <div className="mt-[30px]">
+                <div className="mt-[30px] text-left">
                   <li className="flex font-[500] text-[16px] leading-[19px] mt-2">
                     <svg className="mr-[15px]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M2.43884 0.418419C1.88095 -0.139473 0.976437 -0.139473 0.418549 0.418418C-0.139339 0.97631 -0.139339 1.88083 0.418549 2.43872L7.9797 9.99993L0.418416 17.5613C-0.139472 18.1192 -0.139472 19.0237 0.418416 19.5816C0.976304 20.1395 1.88082 20.1395 2.43871 19.5816L9.99999 12.0202L17.5613 19.5816C18.1192 20.1395 19.0237 20.1395 19.5816 19.5816C20.1395 19.0237 20.1395 18.1192 19.5816 17.5613L12.0203 9.99993L19.5814 2.43872C20.1393 1.88083 20.1393 0.976312 19.5814 0.41842C19.0236 -0.139471 18.119 -0.139471 17.5612 0.41842L10 7.97962L2.43884 0.418419Z" fill="#FF6A55"/>
@@ -247,10 +247,10 @@ const HomePage = () => {
                   </li>
                 </div>
               </div>
-              <div className="w-[544px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
+              <div className="md:w-[544px] w-[352px] md:p-[32px] p-8 block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring mt-9 md:mt-0">
                 <h5 className="font-[700] text-[24px] leading-[30px] text-black text-center mx-auto">Traditional Wedding Photo</h5>
                 <img className="mt-[30px]" src="img\cd2.png" alt="" />
-                <div className="mt-[30px]">
+                <div className="mt-[30px] text-left">
                   <li className="flex font-[500] text-[16px] leading-[19px] mt-1">
                   <svg width="28" className="mr-[15px]" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fillRule="evenodd" clipRule="evenodd" d="M23.6554 7.40201C24.1149 7.93802 24.1149 8.80707 23.6554 9.34309L13.5545 21.1275C12.1762 22.7355 9.94148 22.7355 8.56315 21.1275L4.34458 16.2058C3.88514 15.6698 3.88514 14.8008 4.34458 14.2648C4.80402 13.7287 5.54892 13.7287 6.00836 14.2648L10.2269 19.1864C10.6864 19.7224 11.4313 19.7224 11.8907 19.1864L21.9916 7.40201C22.4511 6.866 23.196 6.866 23.6554 7.40201Z" fill="#61DE35"/>
@@ -279,34 +279,53 @@ const HomePage = () => {
               </div>
             </div>
           </div>
-          <div className="bg-[#FFF] h-[876px] py-[110px] flex gap-2">
-              <svg width="81" className="my-auto" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fillRule="evenodd" clipRule="evenodd" d="M51.2933 19.0337C52.4174 20.1698 52.4174 22.0117 51.2933 23.1478L34.6201 39.9998L51.2933 56.8519C52.4174 57.9879 52.4174 59.8299 51.2933 60.9659C50.1693 62.102 48.3469 62.102 47.2229 60.9659L30.5496 44.1139C28.3016 41.8418 28.3016 38.1579 30.5496 35.8857L47.2229 19.0337C48.3469 17.8976 50.1693 17.8976 51.2933 19.0337Z" fill="#6F767E"/>
-            </svg>
+          <div className="bg-[#FFF] md:h-[876px] md:py-[110px] py-11 flex gap-2">
+              
             <div className="">
-              <h1 className="w-[1064px] font-[800] text-[48px] leading-[58px] text-black text-center mx-auto">Trusted by Millions of Creators and Companies Worldwide</h1>
-              <div className="grid grid-cols-3 mt-10 gap-10">
-                <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                  <img src="img\cdl1.png" alt="" />
-                  <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
-                </div>
-                <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                  <img src="img\cdl2.png" alt="" />
-                  <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
-                </div>
-                <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
-                  <img src="src\pages\img\cdl3.png" alt="" />
-                  <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
-                </div>
+              <h1 className="md:w-[1064px] w-[360px] md:font-[800] md:text-[48px] leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Trusted by Millions of Creators and Companies Worldwide</h1>
+              <div className="md:w-[1200px] w-[360px] md:ml-[120px] md:mt-[40px] ml-5 mt-5">
+              <Carousel
+              opts={{
+                align: "start",
+              }}
+              >
+                <CarouselContent>
+                  <CarouselItem className="md:basis-1/3">
+                    <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
+                    <img src="img\cdl1.png" alt="" />
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                  </div>
+                  </CarouselItem >
+                  <CarouselItem className="md:basis-1/3">
+                    <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
+                    <img src="img\cdl2.png" alt="" />
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                  </div>
+                  </CarouselItem>
+                  <CarouselItem className="md:basis-1/3">
+                    <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
+                    <img src="img\cdl3.png" alt="" />
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                  </div>
+                  </CarouselItem>
+                  <CarouselItem className="md:basis-1/3">
+                    <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
+                    <img src="img\cdl2.png" alt="" />
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                  </div>
+                  </CarouselItem>
+                  
+                </CarouselContent> 
+                <CarouselPrevious className="md:block hidden"/>
+                  <CarouselNext  className="md:block hidden"/>   
+              </Carousel>
               </div>
             </div>
-            <svg className="my-auto" width="81" height="80" viewBox="0 0 81 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" clipRule="evenodd" d="M29.7067 60.9663C28.5826 59.8302 28.5826 57.9883 29.7067 56.8522L46.3799 40.0002L29.7067 23.1481C28.5826 22.0121 28.5826 20.1701 29.7067 19.034C30.8307 17.898 32.6531 17.898 33.7771 19.034L50.4504 35.8861C52.6984 38.1582 52.6984 41.8421 50.4504 44.1143L33.7771 60.9663C32.6531 62.1024 30.8307 62.1024 29.7067 60.9663Z" fill="#6F767E"/>
-            </svg>
+            
           </div>
-          <div className="bg-white h-[400px]">
-            <h2 className="font-[800] text-[48px] leading-[58px] ">Make Wedding Photo Easy for All!</h2>
-            <h5 className="font-[500] text-[24px] leading-[30px] mt-10 w-[1120px] px-[5px] mx-auto">Use the power of AI to create professional wedding photos faster, with less effort and cost. Create your dream wedding . Get started with Wedding AI!</h5> 
+          <div className="bg-white md:h-[400px]">
+            <h2 className="md:w-[1064px] w-[300px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Make Wedding Photo Easy for All!</h2>
+            <h5 className="font-[500] text-[24px] md:leading-[30px] mt-10 md:w-[1120px] w-[300px] px-[5px] mx-auto">Use the power of AI to create professional wedding photos faster, with less effort and cost. Create your dream wedding . Get started with Wedding AI!</h5> 
             <button className="text-[#fff] w-[340px] bg-[#009DC4] mt-11 rounded-3xl px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] flex mx-auto items-center">
               <div className="mx-auto flex">
                   <span className="">Create Free Wedding Photo</span>
