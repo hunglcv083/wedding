@@ -1,3 +1,4 @@
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -13,8 +14,8 @@ const Header = () => {
     
     return (
       <>
-            <header className="bg-white w-[1440px]">
-              <div className="mx-auto max-w-screen-xl">
+            <header className="bg-white md:w-[1440px] w-[360px]">
+              <div className="mx-auto">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex-1 md:flex md:items-center md:gap-12">
                     <img src="img\logo.png" alt="" />
@@ -50,6 +51,33 @@ const Header = () => {
                         
                       </ul>
                     </nav>
+                    <div className="md:hidden block mr-4">
+                    <DropdownMenu>
+                    <DropdownMenuTrigger><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                      </svg>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                      <DropdownMenuItem>Services</DropdownMenuItem>
+                      <DropdownMenuItem>Careers</DropdownMenuItem>
+                      <DropdownMenuItem>
+                      {
+                        checkUser 
+                        ?
+                        <Link to={`/profile/edit/${user?.id_user}`}>
+                          Profile
+                        </Link>                        
+                        
+                         :
+                         <Link to={`/signin`}>
+                          Sign In
+                        </Link>                        
+                        
+                        }
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>                  
+                    </DropdownMenu>
+                    </div>
                     
                   </div>
                 </div>

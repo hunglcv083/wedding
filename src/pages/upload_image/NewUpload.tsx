@@ -90,7 +90,7 @@ const NewUpload = () => {
             const image_2_formData = new FormData();
             image_2_formData.append('src_img', original_Image_2)
 
-            const userData = JSON.parse(localStorage.getItem("user"));
+            const userData = JSON.parse(localStorage.getItem("user")||"{}");
             console.log(userData)
             const req_post_img_1 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
                 headers: {
