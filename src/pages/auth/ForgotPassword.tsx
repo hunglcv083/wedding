@@ -52,16 +52,16 @@ const ForgotPassword = () => {
         }
       };
     return (
-      <div className="w-[1440px]">
-          <div className="grid grid-cols-2">
+      <div className="md:w-[1440px] w-[390px]">
+          <div className="md:grid grid-cols-2">
               <div className="bg-[#F2FDFF] items-center w-[750px]">
-                  <header className="pt-[20px] pl-[28px]">
+                  <header className="pt-[20px] md:pl-[28px] pl-[150px] pb-[20px]">
                     <img src="img\logo.png" alt="" />
                 </header>
-                  <img className="px-[29px] mt-[150px] mb-[90px]" src="img\signin.png" alt="" />
+                  <img className="px-[29px] mt-[150px] mb-[90px] md:block hidden" src="img\signin.png" alt="" />
               </div>
-              <div className="mx-auto w-[602px] max-w-screen-xl px-4 sm:px-6 lg:px-8">
-                          <div className="mx-auto max-w-lg mt-[260px]">
+              <div className="mx-auto md:w-[602px] max-w-screen-xl px-4 sm:px-6 lg:px-8">
+                          <div className="mx-auto max-w-lg md:mt-[260px] mt-[100px]">
                               <form onSubmit={handleSubmit} className="mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8" >
                               <h1 className="text-2xl font-bold text-[#2A85FF]-600 sm:text-3xl">Forgot Password?</h1>
                               <h4 className="text-sm text-black font-[600] mb-[15px]">No worries, we'll send you reset introduction.</h4>
