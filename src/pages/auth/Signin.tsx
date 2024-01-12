@@ -4,7 +4,8 @@ import { useState } from "react";
 import { ToastAction } from "@radix-ui/react-toast";
 import { signin } from "../../services/auth";
 
-const Signin = () => {
+const Signin = (props:any) => {
+    const {setPrivateId} = props
     const [noticePw, setNoticePw] = useState("")
     const [noticeEm, setNoticeEm] = useState("")
     const [pwClasslist, setPwClasslist] = useState("focus:outline-none w-full rounded-lg border-gray-200 p-4 ps-12 text-sm shadow-sm bg-[#F4F4F4]")
@@ -13,6 +14,7 @@ const Signin = () => {
     const { toast } = useToast()
     const [email, setEmail] = useState("");
     const [password, setPassword ] = useState("");
+
     const handleSubmit = async (e:any) => {
         e.preventDefault();
        if (!email) {
@@ -54,6 +56,7 @@ const Signin = () => {
                     const account = JSON.stringify(response)
                     localStorage.setItem('accessToken',response.token)
                     localStorage.setItem('user',account)
+                    setPrivateId(response.id_user)
                     navi(`/profile/edit/${response.id_user}`)
             }            
         } catch (error) {

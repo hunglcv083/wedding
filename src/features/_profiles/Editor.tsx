@@ -2,7 +2,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, } from "../../compon
 import { Input } from "../../components/ui/input"
 import { Button } from "../../components/ui/button"
 import { useForm } from "react-hook-form"
-import { useParams } from "react-router-dom"
 import { useCallback, useEffect, useState } from "react"
 import { useDropzone } from "react-dropzone"
 import axios, { AxiosError } from "axios"
@@ -12,7 +11,7 @@ const Editor = () => {
     const token = localStorage.getItem('accessToken')
     const { toast } = useToast();
 
-    const [user, setUser] = useState<any>()
+    const [user, setUser] = useState<any>({user_name:'',email:'',link_avatar:''})
     const [avatarUploadFile, setAvatarUploadFile] = useState<File | null>(null);
     const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
     const [seeMore, setSeeMore] = useState<boolean>(false);
@@ -180,7 +179,7 @@ const Editor = () => {
                                     </svg>
                                 </FormLabel>
                                 <FormControl className="">
-                                    <Input {...field} value={user.user_name} />
+                                    <Input {...field} value={user?.user_name} />
                                 </FormControl>
                             </FormItem>
                         )}
@@ -197,7 +196,7 @@ const Editor = () => {
                                     </svg>
                                 </FormLabel>
                                 <FormControl className="">
-                                    <Input {...field} value={user.email} />
+                                    <Input {...field} value={user?.email} />
                                 </FormControl>
                             </FormItem>
                         )}
