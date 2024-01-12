@@ -11,7 +11,6 @@ type PrivateRouteProps = {
 const PrivateRoute = ({children, redirectPath = '/signin' , privateId}: PrivateRouteProps) => {
     const {toast} = useToast()
     const user = JSON.parse(localStorage.getItem('user')||"{}")
-    console.log('1:',user.id_user,'2:', privateId)
     if (!user || Object.keys(user).length === 0) {
         toast({
             variant: "destructive",
@@ -26,8 +25,8 @@ const PrivateRoute = ({children, redirectPath = '/signin' , privateId}: PrivateR
             description: `Session ended!You have to re login`,
             action: <ToastAction altText="Try again">Try again</ToastAction>
           });
-        
-        return 
+        localStorage.clear()
+        return <Navigate to={redirectPath} replace />
     }
     return children ? children : <Outlet />
 }
