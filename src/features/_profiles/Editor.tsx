@@ -98,7 +98,7 @@ const Editor = () => {
                             'Content-Type': 'multipart/form-data',
                             Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         }
-                    }).then(res => {
+                    }).then(() => {
                         fetchUserData();
                         toast({
                             variant:"default",
@@ -118,11 +118,11 @@ const Editor = () => {
     }
 
     return (
-        <div className="">
-            <h3 className="font-[600] text-[20px] leading-[32px]">Profile information</h3>
+        <div className="p-4 w-[390px] md:p-0 md:w-fit">
+            <h3 className="font-[600] md:text-[20px] leading-[32px] text-[18px]">Profile information</h3>
             <Form {...form}>
                 <form action="" onSubmit={form.handleSubmit(handleSaveForm)}>
-                    <div className="flex my-auto mt-[45px]">
+                    <div className="flex my-auto md:mt-[45px] mt-[24px]">
                         <input
                             {...getUploaderInputProps()}
                             className="w-full h-full"
@@ -136,7 +136,7 @@ const Editor = () => {
                             }
                             
                         </div>
-                        <button onClick={openUploader} className="text-[#fff] w-[253px] bg-[#16B6D4] h-[54px] my-auto ml-8 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[24px] flex mx-auto items-center">
+                        <button onClick={openUploader} className="text-[#fff] w-[253px] bg-[#16B6D4] h-[54px] my-auto md:ml-8 ml-2 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[24px] flex mx-auto items-center">
                             <div className="mx-auto flex items-center ">
                                 <span className="mr-2">Upload new picture</span>
                                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -144,23 +144,23 @@ const Editor = () => {
                                 </svg>
                             </div>
                         </button>
-                        <button className="text-[#16B6D4] border-4 border-[#16B6D4] w-[142px] h-[54px] my-auto ml-2 bg-[#fff] rounded-[27px] px-[18px] py-[8px] font-[700] text-[16px] leading-[24px] flex mx-auto items-center">
+                        <button className="text-[#16B6D4] hidden md:block border-4 border-[#16B6D4] w-[142px] h-[54px] my-auto ml-2 bg-[#fff] rounded-[27px] px-[18px] py-[8px] font-[700] text-[16px] leading-[24px] mx-auto items-center">
                             <div className="mx-auto items-center">
                                 <span className="mr-2">Remove</span>
                             </div>
                         </button>
                     </div>
-                    <h3 className="font-[600] text-[16px] leading-[20px] mt-10">Uploaded</h3>
-                    <div className="grid grid-cols-4 gap-8 w-[638px] h-[136px] rounded-[20px] overflow-hidden mt-6">
+                    <h3 className="font-[600] text-[16px] leading-[20px] mt-10 hidden md:block">Uploaded</h3>
+                    <div className="md:grid grid-cols-4 gap-8 w-[638px] h-[136px] rounded-[20px] hidden overflow-hidden mt-6">
                         {seeMore ?
                             uploadedImage.map((image, index) => {
-                                return (<img src={image} alt="" key={index} />)
+                                return (<img src={image} className="object-cover h-full" alt="" key={index} />)
                             })
                             : uploadedImage.slice(0, 4).map((image, index) => {
-                                return (<img src={image} alt="" key={index} />)
+                                return (<img src={image} className="object-cover h-full" alt="" key={index} />)
                             })}
                     </div>
-                    <button onClick={() => { setSeeMore(prev => { return !prev }) }} className="text-[#fff] w-[638px] bg-[#16B6D4] h-[54px] my-auto mt-4 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] flex mx-auto items-center">
+                    <button onClick={() => { setSeeMore(prev => { return !prev }) }} className="text-[#fff] hidden md:block w-[638px] bg-[#16B6D4] h-[54px] my-auto mt-4 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] mx-auto items-center">
                         <span className="mx-auto">See {seeMore ? 'less' : 'more'}</span>
                     </button>
 
@@ -175,7 +175,7 @@ const Editor = () => {
                                         <path fillRule="evenodd" clipRule="evenodd" d="M13.6667 6.99992C13.6667 10.6818 10.6819 13.6666 7 13.6666C3.3181 13.6666 0.333336 10.6818 0.333336 6.99992C0.333336 3.31802 3.3181 0.333252 7 0.333252C10.6819 0.333252 13.6667 3.31802 13.6667 6.99992ZM7 6.33325C7.36819 6.33325 7.66667 6.63173 7.66667 6.99992V10.3338C7.66667 10.702 7.36819 11.0005 7 11.0005C6.63181 11.0005 6.33334 10.702 6.33334 10.3338V6.99992C6.33334 6.63173 6.63181 6.33325 7 6.33325ZM7 4.99992C7.36819 4.99992 7.66667 4.70144 7.66667 4.33325C7.66667 3.96506 7.36819 3.66659 7 3.66659C6.63181 3.66659 6.33334 3.96506 6.33334 4.33325C6.33334 4.70144 6.63181 4.99992 7 4.99992Z" fill="#9A9FA5" />
                                     </svg>
                                 </FormLabel>
-                                <FormControl className="">
+                                <FormControl className="w-full">
                                     <Input {...field} value={user?.user_name} />
                                 </FormControl>
                             </FormItem>
