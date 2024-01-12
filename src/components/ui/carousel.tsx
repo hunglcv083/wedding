@@ -1,10 +1,12 @@
+
+import useEmblaCarousel from 'embla-carousel-react'
 import * as React from "react"
 import { ChevronLeftIcon, ChevronRightIcon } from "@radix-ui/react-icons"
-import useEmblaCarousel, {
+import  {
   type EmblaCarouselType as CarouselApi,
   type EmblaOptionsType as CarouselOptions,
   type EmblaPluginType as CarouselPlugin,
-} from "embla-carousel-react"
+} from "embla-carousel"
 
 import { cn } from "../../utils"
 import { Button } from "./button"

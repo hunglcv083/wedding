@@ -1,4 +1,3 @@
-import { IUser } from "../common/types/User" 
 import apiAuth from "../core/apiAuth"
 
 const token = localStorage.getItem('accessToken')

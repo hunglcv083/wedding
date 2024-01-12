@@ -69,7 +69,6 @@ const Editor = () => {
         getRootProps: getUploaderRootProps,
         getInputProps: getUploaderInputProps,
         open: openUploader,
-        isDragActive: isUploaderDragActive,
     } = useDropzone({
         onDrop: OnUploaderDrop,
         accept: {
@@ -79,7 +78,7 @@ const Editor = () => {
         multiple: false,
     });
 
-    const handleSaveForm = (values: unknown) => {
+    const handleSaveForm = () => {
         if (avatarUploadFile) {
             const formData = new FormData();
             formData.append("src_img", avatarUploadFile);

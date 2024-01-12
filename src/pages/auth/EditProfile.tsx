@@ -29,7 +29,7 @@ const EditProfile = () =>{
                     </svg>
                 </Link>
                 <h1 className="font-[600] text-[40px] leading-[48px] md:ml-[210px] m-[30px] mb-[30px] mt-[10px]">Profile</h1>
-                <div className="mx-auto md:w-[1020px] w-[390px] rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring md:flex gap-8">
+                <div className="mx-auto md:w-[1020px] w-[390px] rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring md:flex gap-8 md:p-[24px]">
                 <div className="transition-transform -translate-x-full sm:translate-x-0 w-[280px] hidden md:block">
                     <div className="bg-white dark:bg-gray-800 ">
                         <ul className="space-y-2 font-medium">
@@ -57,7 +57,7 @@ const EditProfile = () =>{
                 
                 </div>
                 </div>
-                <div className="">
+                <div className="md:hidden">
                 <DropdownMenu>
                 <DropdownMenuTrigger asChild className="mx-auto">
                     <Button variant="outline" className="w-[345px] justify-between ml-6 mt-3"> 

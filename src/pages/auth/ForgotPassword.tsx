@@ -1,7 +1,7 @@
 import { Link, useNavigate, } from "react-router-dom"
 import { useToast } from "../../components/ui/use-toast"
-import { useEffect, useState } from "react"
-import { resetPassword, signup } from "../../services/auth"
+import { useState } from "react"
+import { resetPassword } from "../../services/auth"
 import { ToastAction } from "../../components/ui/toast"
 const ForgotPassword = () => {
 

@@ -11,7 +11,7 @@ import { useState } from "react"
 
 const Account = () => {
     const [errors, setErrors] = useState({old_password:'', new_password:'', cf_pw:''});
-    const form = useForm<{old_password:string, new_password:string, cf_pw:string}>({
+    const form = useForm<any>({
         defaultValues: {
             old_password:'',
             new_password:'',
@@ -31,7 +31,12 @@ const Account = () => {
     if (error) {
         const validationErrors = {old_password:'', new_password:'', cf_pw:''};
         error.details.forEach((detail) => {
-        validationErrors[detail.context.key] = detail.message;
+            if(detail.context?.key == 'old_password')
+            validationErrors['old_password'] = detail.message;
+            if(detail.context?.key == 'new_password')
+            validationErrors['new_password'] = detail.message;
+            if(detail.context?.key == 'cf_pw')
+            validationErrors['cf_pw'] = detail.message;
             });
         setErrors(validationErrors);
         return
