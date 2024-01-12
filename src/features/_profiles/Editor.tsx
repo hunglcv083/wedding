@@ -32,26 +32,20 @@ const Editor = () => {
     }, [])
 
     useEffect(() => {
-        if (user.link_avatar) {
-            axios.get(`https://futurelove.online/${user.link_avatar.split("/var/www/build_futurelove/")}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }).then(res => setAvatarLink(res.data))
-        }
+        setAvatarLink(`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`)
     }, [user])
 
     useEffect(() => {
         //@ts-ignore
         const userData = JSON.parse(localStorage.getItem("user"));
-        axios.get(`https://metatechvn.store/images/${userData.id_user}?type=nam`, {
+        axios.get(`https://metatechvn.store/images/${userData.id_user}?type=video`, {
             headers: {
                 ContentType: 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         }).then(res => {
             if (res.status.toString().startsWith('2')) {
-                setUploadedImage(res.data.image_links_nam);
+                setUploadedImage(res.data.image_links_video);
             }
         })
     }, [])
@@ -106,15 +100,18 @@ const Editor = () => {
                         }
                     }).then(res => {
                         fetchUserData();
-                        console.log(res.data)
+                        toast({
+                            variant:"default",
+                            description: "Update avatar successfully!"
+                        })
                     })
                 }
             }).catch((err: AxiosError) => {
                 console.log(err)
                 setAvatarUploadFile(null);
                 toast({
-                    title: "upload failed",
-                    description: "avatar upload failed, pls try again"
+                    title: "Upload failed",
+                    description: "Avatar upload failed, please try again!"
                 })
             })
         }
@@ -134,7 +131,7 @@ const Editor = () => {
                             {avatarUploadFile ? (
                                 <img className="aspect-square w-full" src={URL.createObjectURL(avatarUploadFile)} />
                             ) : (
-                                <img src={`${avatarLink}`} className="h-full" alt="" />
+                                <img src={`${avatarLink}`} className="object-cover h-full" alt="" />
                                 )
                             }
                             

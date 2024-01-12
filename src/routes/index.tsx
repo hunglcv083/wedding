@@ -12,6 +12,7 @@ import Preview from "../pages/upload_image/Preview"
 import ForgotPassword from "../pages/auth/ForgotPassword"
 import PrivateRoute from "../components/PrivateRouter"
 import { useState } from "react"
+import Profile from "../pages/client/Profile"
 
 const Routers = () => {
     const [privateId, setPrivateId] = useState('')
@@ -32,6 +33,7 @@ const Routers = () => {
                 <Route path="generate" element={<PrivateRoute privateId={privateId}><Generate/></PrivateRoute>} />
                 <Route path="preview" element={<PrivateRoute privateId={privateId}><Preview/></PrivateRoute>} />
                 <Route path="forgotpassword" element={<ForgotPassword/>}/>
+                <Route path="profile/:id" element={<Profile/>}/>
             </Routes>
         </>
     )
