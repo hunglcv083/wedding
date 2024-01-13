@@ -27,7 +27,12 @@ const Editor = () => {
             }
         }).then((res) => {
             setUser(res.data)
-            setAvatarLink(`https://futurelove.online/${res.data.link_avatar.replace("/var/www/build_futurelove/","")}`)
+        }).then(()=>{
+            user.link_avatar.includes("/var/www/build_futurelove/") 
+            ?
+            setAvatarLink(`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`)
+            :
+            setAvatarLink(user.link_avatar)
         })
     }, [user])
 

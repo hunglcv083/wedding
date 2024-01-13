@@ -87,7 +87,7 @@ const Signup = () => {
         formData.append("password", password);
         formData.append("ip_register", ipAddress);
         formData.append("device_register", deviceRegister);
-        formData.append("link_avatar", `https://picsum.photos/200`);
+        formData.append("link_avatar", `https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw`);
         try {
           const response:any = await signup(formData);
           const { message } = response;

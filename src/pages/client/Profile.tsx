@@ -31,7 +31,12 @@ const Profile = () =>{
                     <div className="bg-white dark:bg-gray-800 ">
                         <img src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                         <p>{user.user_name}</p>
-                        <p>{user.email}</p>
+                        <p>Email: {user.email}</p>
+                        <p>IP: {user.ip_register}</p>
+                        <p>Device: {user.device_register}</p>
+                        <p>Events: {user.count_sukien}</p>
+                        <p>Comments: {user.count_comment}</p>
+                        <p>Views: {user.count_view}</p>
                     </div>
                 </div>
                 <div className="">
