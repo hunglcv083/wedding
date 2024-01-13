@@ -82,7 +82,7 @@ const Account = () => {
                                             </svg>
                                         </FormLabel>                                
                                         <FormControl  className="">
-                                            <Input {...field}/>
+                                            <Input type='password' {...field}/>
                                         </FormControl>
                                         <FormMessage>{errors.old_password}</FormMessage>                                         
                                     </FormItem>
@@ -101,7 +101,7 @@ const Account = () => {
                                             </svg>
                                         </FormLabel>                                
                                         <FormControl  className="">
-                                            <Input {...field}/>
+                                            <Input type='password' {...field}/>
                                         </FormControl>
                                         <FormMessage>{errors.new_password}</FormMessage>                              
                                     </FormItem>
@@ -119,7 +119,7 @@ const Account = () => {
                                             </svg>
                                         </FormLabel>                                
                                         <FormControl  className="">
-                                            <Input {...field}/>
+                                            <Input type='password' {...field}/>
                                         </FormControl>
                                         <FormMessage>{errors.cf_pw}</FormMessage>                               
                                     </FormItem>

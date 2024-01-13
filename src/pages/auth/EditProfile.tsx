@@ -31,7 +31,7 @@ const EditProfile = () =>{
                 <h1 className="font-[600] text-[40px] leading-[48px] md:ml-[210px] m-[30px] mb-[30px] mt-[10px]">Profile</h1>
                 <div className="mx-auto md:w-[1020px] w-[390px] rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring md:flex gap-8 md:p-[24px]">
                 <div className="transition-transform -translate-x-full sm:translate-x-0 w-[280px] hidden md:block">
-                    <div className="bg-white dark:bg-gray-800 ">
+                    <div className="bg-white">
                         <ul className="space-y-2 font-medium">
                             <li>
                                 <Link to={`edit/${id}`} className="flex items-center p-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
