@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Header from "../../components/Header"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
@@ -8,31 +8,12 @@ const Profile = () =>{
 
     const {id} = useParams()
     const [user, setUser] = useState<any>({user_name:'',email:'',link_avatar:''})
-    const token = localStorage.getItem('accessToken')
-    const [avatarLink, setAvatarLink] = useState<string>("")
     const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
-    axios.get(`https://metatechvn.store/profile/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((res) => setUser(res.data))
-        useEffect(() => {
-            setAvatarLink(`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`)
-        }, [user])
-    useEffect(() => {
-        //@ts-ignore
-        const userData = JSON.parse(localStorage.getItem("user"));
-        axios.get(`https://metatechvn.store/images/${userData.id_user}?type=video`, {
-            headers: {
-                ContentType: 'application/json',
-                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        }).then(res => {
-            if (res.status.toString().startsWith('2')) {
+    axios.get(`https://metatechvn.store/profile/${id}`)
+        .then((res) => setUser(res.data))
+    axios.get(`https://metatechvn.store/images/${id}?type=video`).then(res => {
                 setUploadedImage(res.data.image_links_video);
-            }
-        })
-    }, [])    
+        })  
 
     return(
         <>
@@ -48,7 +29,7 @@ const Profile = () =>{
                 <div className="mx-auto p-[24px] w-[1020px] rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring flex gap-8">
                 <div className="transition-transform -translate-x-full sm:translate-x-0 w-[280px]">
                     <div className="bg-white dark:bg-gray-800 ">
-                        <img src={`${avatarLink}`} alt="" />
+                        <img src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                         <p>{user.user_name}</p>
                         <p>{user.email}</p>
                     </div>
@@ -57,8 +38,8 @@ const Profile = () =>{
                     <h1 className="font-[600] text-[40px] leading-[48px] ml-[10px] mb-[30px] mt-[10px]">Library</h1>
                     <div className="grid grid-cols-2">
                         {
-                           uploadedImage.map((image, index) => {
-                            return (<img src={image} alt="" key={index} />)
+                        uploadedImage.map((image, index) => {
+                            return (<img src={image} className="" alt={`Image ${index}`} key={index} />)
                         })
                         }
                     </div>
