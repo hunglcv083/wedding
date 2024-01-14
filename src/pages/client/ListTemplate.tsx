@@ -17,7 +17,7 @@ type listItemType = {
 const ListTemplate = () =>{
 
     const [listTemp, setListTemp] = useState<listItemType[]|[]>([]);
-    axios.get(`https://api.santacall.online/get/list_image/all_wedding/1`).then(res => {
+    axios.get(`https://api.santacall.online/get/list_image/all_wedding`).then(res => {
                 setListTemp(res.data.list_sukien_video);
                 
         })
@@ -40,7 +40,7 @@ const ListTemplate = () =>{
                     <div className="grid grid-cols-2 gap-2">
                         {
                         listTemp.slice(0,1).map((image, index) => {
-                            const src_img = image.image.slice(0,47) + "%E1%BA%A2NH_WEDDING/" +image.image.slice(47)
+                            const src_img = image.image
                             return (
                                 <div className="group relative overflow-hidden flex items-center justify-center">
                                 <div className="w-[450px] h-[630px] ">
@@ -69,7 +69,7 @@ const ListTemplate = () =>{
                         <div className="grid grid-cols-2 gap-2">
                         {
                         listTemp.slice(1,5).map((image, index) => {
-                            const src_img = image.image.slice(0,47) + "%E1%BA%A2NH_WEDDING/" +image.image.slice(47)
+                            const src_img = image.image
                             return (
                                 <div className="group relative overflow-hidden flex items-center justify-center">
                                 <div className="w-[225px] h-[300px] ">
@@ -103,7 +103,7 @@ const ListTemplate = () =>{
                     <div className="grid grid-cols-4 gap-2 mt-4">
                         {
                         listTemp.slice(5, 29).map((image, index) => {
-                            const src_img = image.image.slice(0,47) + "%E1%BA%A2NH_WEDDING/" +image.image.slice(47)
+                            const src_img = image.image
                             return (
                                 <div className="group relative overflow-hidden flex items-center justify-center">
                                 <div className="w-[225px] h-[300px] ">
