@@ -13,6 +13,7 @@ import ForgotPassword from "../pages/auth/ForgotPassword"
 import PrivateRoute from "../components/PrivateRouter"
 import Profile from "../pages/client/Profile"
 import ListTemplate from "../pages/client/ListTemplate"
+import PrivateUser from "../components/PrivateUser"
 
 const Routers = () => {
     // const [, setPrivateId] = useState('')
@@ -24,7 +25,7 @@ const Routers = () => {
                 <Route path='/' element={<HomePage/>}/>
                 <Route path='signin' element={<Signin />}/>
                 <Route path='signup' element={<Signup/>}/>
-                <Route path='profile' element={<PrivateRoute  ><EditProfile/></PrivateRoute>}>
+                <Route path='profile' element={<PrivateUser><PrivateRoute><EditProfile/></PrivateRoute></PrivateUser>}>
                     <Route path='edit/:id' element={<PrivateRoute ><Editor/></PrivateRoute>}/>
                     <Route path='account/:id' element={<PrivateRoute ><Account/></PrivateRoute>}/>
                 </Route>
@@ -34,7 +35,7 @@ const Routers = () => {
                 <Route path="preview" element={<PrivateRoute ><Preview/></PrivateRoute>} />
                 <Route path="forgotpassword" element={<ForgotPassword/>}/>
                 <Route path="profile/:id" element={<Profile/>}/>
-                <Route path="listtemplate" element={<ListTemplate/>}/>
+                <Route path="listtemplate" element={<PrivateRoute ><ListTemplate/></PrivateRoute>}/>
             </Routes>
         </>
     )
