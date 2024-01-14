@@ -3,8 +3,6 @@ import { useState } from "react"
 import Header from "../../components/Header"
 import { Link, useParams } from "react-router-dom"
 import axios from "axios"
-import { Button } from "../../components/ui/button"
-import { Dialog, DialogContent, DialogTrigger } from "@radix-ui/react-dialog"
 
 const Profile = () =>{
 
