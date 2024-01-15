@@ -1,7 +1,7 @@
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Header from "../../components/Header"
-import { Link } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import axios from "axios"
 import { Dialog, DialogContent } from "../../components/ui/dialog"
 import { DialogTrigger } from "@radix-ui/react-dialog"
@@ -15,13 +15,15 @@ type listItemType = {
         IDCategories: number
 }
 const ListTemplate = () =>{
-
+    const {id} = useParams()
     const [listTemp, setListTemp] = useState<listItemType[]|[]>([]);
-    axios.get(`https://api.santacall.online/get/list_image/all_wedding`).then(res => {
-                setListTemp(res.data.list_sukien_video);
-                
+    useEffect(()=>{
+        axios.get(`https://api.santacall.online/get/list_image_wedding/1?album=${id}`).then(res => {
+                setListTemp(res.data.list_sukien_video);                
         })
 
+    },[])
+    
     return(
         <>
             <div className="bg-[#F2FDFF]">
@@ -42,7 +44,7 @@ const ListTemplate = () =>{
                         listTemp.slice(0,1).map((image, index) => {
                             const src_img = image.image
                             return (
-                                <div className="group relative overflow-hidden flex items-center justify-center">
+                                <div className="group relative overflow-hidden flex items-center justify-center" key={index}>
                                 <div className="w-[450px] h-[630px] ">
                                 <div className="">
                                         <img src={src_img} className=" absolute group-hover:opacity-50 h-full object-cover w-full" alt={`Image ${index}`} key={index} />

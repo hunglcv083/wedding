@@ -14,6 +14,7 @@ import PrivateRoute from "../components/PrivateRouter"
 import Profile from "../pages/client/Profile"
 import ListTemplate from "../pages/client/ListTemplate"
 import PrivateUser from "../components/PrivateUser"
+import ListCategory from "../pages/client/ListCategories"
 
 const Routers = () => {
     // const [, setPrivateId] = useState('')
@@ -35,7 +36,8 @@ const Routers = () => {
                 <Route path="preview" element={<PrivateRoute ><Preview/></PrivateRoute>} />
                 <Route path="forgotpassword" element={<ForgotPassword/>}/>
                 <Route path="profile/:id" element={<Profile/>}/>
-                <Route path="listtemplate" element={<PrivateRoute ><ListTemplate/></PrivateRoute>}/>
+                <Route path="listtemplate/:id" element={<PrivateRoute ><ListTemplate/></PrivateRoute>}/>
+                <Route path="listcategories" element={<PrivateRoute ><ListCategory/></PrivateRoute>}/>
             </Routes>
         </>
     )
