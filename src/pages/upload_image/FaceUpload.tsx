@@ -24,7 +24,7 @@ const FaceUpload = () => {
                 </span>
                 </div>
                 <Button variant="cus1" className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
-                            GENERATE
+                            Upload photo
                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
@@ -39,7 +39,7 @@ const FaceUpload = () => {
                         <img src="https://picsum.photos/200" alt="" />
                     </div>       
                 <Button variant="cus1" className="flex items-center mx-auto mt-6" style={{width:"736px"}}>
-                            GENERATE
+                            See more
                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
