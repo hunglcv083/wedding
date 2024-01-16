@@ -36,8 +36,8 @@ const Routers = () => {
                 <Route path="preview" element={<PrivateRoute ><Preview/></PrivateRoute>} />
                 <Route path="forgotpassword" element={<ForgotPassword/>}/>
                 <Route path="profile/:id" element={<Profile/>}/>
-                <Route path="listtemplate/:id" element={<PrivateRoute ><ListTemplate/></PrivateRoute>}/>
-                <Route path="listcategories" element={<PrivateRoute ><ListCategory/></PrivateRoute>}/>
+                <Route path="listtemplate/:id" element={<ListTemplate/>}/>
+                <Route path="listcategories" element={<ListCategory/>}/>
             </Routes>
         </>
     )

@@ -59,15 +59,18 @@ const Header = () => {
                         
                       </ul>
                     </nav>
-                    <div className="md:hidden block mr-4">
+                    <div className="block mr-4">
+                      
                     <DropdownMenu>
-                    <DropdownMenuTrigger>
+                    <DropdownMenuTrigger asChild>
+                        <button>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                         </svg>
+                        </button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                      <DropdownMenuItem>Services</DropdownMenuItem>
+                    <DropdownMenuContent className="bg-white">
+                      <DropdownMenuItem className="">Services</DropdownMenuItem>
                       <DropdownMenuItem>Careers</DropdownMenuItem>
                       <DropdownMenuItem>
                       {
