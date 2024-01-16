@@ -158,7 +158,7 @@ const NewUpload = () => {
                 <Header />
                 <div className="pb-[70px] pt-[40px] md:w-[1440px] w-[390px]">
                     <h1 className="font-[700] md:text-[24px] text-[20px] leading-[20px] mb-[40px] mt-[60px] text-center items-center justify-center">Make Your Dream Wedding</h1>
-                    <div className="md:flex grid grid-cols-2 gap-6 text-center md:ml-[360px] ml-[45px]">
+                    <div className="md:flex grid grid-cols-2 gap-6 text-center md:ml-[360px] ml-[30px] items-center justify-center">
                         <div className="">
                             {/* image uploader 1 */}
                             <div className="flex gap-3">
@@ -195,20 +195,20 @@ const NewUpload = () => {
                             </div>
                             {/* onclick will trigger open upload file*/}
                             <Dialog>
-                                <DialogTrigger className="flex items-center w-[116px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl px-[15px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
+                                <DialogTrigger className="flex items-center w-[140px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl md:px-[15px] px-[10px] md:py-[10px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
                                     Upload your face
                                     <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </DialogTrigger>
-                                <DialogContent className="max-w-[818px]">
+                                <DialogContent className="md:w-[818px] w-[360px]">
                                 <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload your face</h3>
                                 <div className="flex items-center mt-8">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="6" cy="6" r="6" fill="#D9D9D9"/>
                                     </svg>
-                                <span className="font-[600] text-[20px] leading-[20px] ml-2">
+                                <span className="font-[600] md:text-[20px] text-[14px] leading-[20px] ml-2">
                                     Your image need to move closer or away from the camera to complete
                                 </span>
                                 </div>
@@ -216,20 +216,20 @@ const NewUpload = () => {
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="6" cy="6" r="6" fill="#D9D9D9"/>
                                     </svg>
-                                <span className="font-[600] text-[20px] leading-[20px] ml-2">
+                                <span className="font-[600] md:text-[20px] text-[14px] leading-[20px] ml-2">
                                     Make sure you are in the bright environment.
                                 </span>
                                 </div>
-                                <DialogClose onClick={()=>{openUploader1( );setCheckChosen1(false)}}><Button variant="cus1"  className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
+                                <DialogClose onClick={()=>{openUploader1();setCheckChosen1(false)}}><Button variant="cus1"  className="flex items-center mt-4 mx-auto md:w-[736px] w-[320px]">
                                             Upload photo
                                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
-                                </Button></DialogClose>
+                                </Button></DialogClose> 
                                 <h3 className="font-[600] text-[24px] leading-[20px] mt-8">Uploaded</h3>
                                     {
-                                        <ScrollArea className="w-[729px] whitespace-nowrap rounded-md border">
+                                        <ScrollArea className="md:w-[729px] whitespace-nowrap rounded-md border">
                                         <div className="flex w-max space-x-4 p-4">
                                           {uploadedImage.map((img,index) => (
                                             <div key={index} className="shrink-0">
@@ -246,10 +246,10 @@ const NewUpload = () => {
                                     <div className="">
 
                                     </div>
-                                <p className="font-[400] text-[20px] leading-[20px] mt-8 ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
+                                <p className="font-[400] md:text-[20px] text-[14px] leading-[20px] md:mt-8 ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
 
                                 <DialogClose asChild>
-                                <Button variant="cus1" className="flex items-center mx-auto mt-6" style={{width:"736px"}}>Save changes</Button>
+                                <Button variant="cus1" className="flex items-center mx-auto mt-6 md:w-[736px] w-[320px]">Save changes</Button>
                                 </DialogClose>                            
                             </DialogContent>
 
@@ -295,20 +295,20 @@ const NewUpload = () => {
                             </div>
                             {/* onclick will trigger open upload file*/}
                             <Dialog>
-                                <DialogTrigger className="flex items-center w-[116px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl px-[15px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
+                                <DialogTrigger className="flex items-center w-[140px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl md:px-[15px] px-[10px] md:py-[10px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
                                     Upload your face
                                     <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </DialogTrigger>
-                                <DialogContent className="max-w-[818px]">
+                                <DialogContent className="md:w-[818px] w-[360px]">
                                 <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload your face</h3>
                                 <div className="flex items-center mt-8">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="6" cy="6" r="6" fill="#D9D9D9"/>
                                     </svg>
-                                <span className="font-[600] text-[20px] leading-[20px] ml-2">
+                                <span className="font-[600] md:text-[20px] text-[14px] leading-[20px] ml-2">
                                     Your image need to move closer or away from the camera to complete
                                 </span>
                                 </div>
@@ -316,20 +316,20 @@ const NewUpload = () => {
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="6" cy="6" r="6" fill="#D9D9D9"/>
                                     </svg>
-                                <span className="font-[600] text-[20px] leading-[20px] ml-2">
+                                <span className="font-[600] md:text-[20px] text-[14px] leading-[20px] ml-2">
                                     Make sure you are in the bright environment.
                                 </span>
                                 </div>
-                                <DialogClose  onClick={()=>{openUploader2( );setCheckChosen2(false)}}><Button variant="cus1" className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
+                                <DialogClose onClick={()=>{openUploader2();setCheckChosen2(false)}}><Button variant="cus1"  className="flex items-center mt-4 mx-auto md:w-[736px] w-[320px]">
                                             Upload photo
                                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
-                                </Button></DialogClose>
+                                </Button></DialogClose> 
                                 <h3 className="font-[600] text-[24px] leading-[20px] mt-8">Uploaded</h3>
                                     {
-                                        <ScrollArea className="w-[729px] whitespace-nowrap rounded-md border">
+                                        <ScrollArea className="md:w-[729px] whitespace-nowrap rounded-md border">
                                         <div className="flex w-max space-x-4 p-4">
                                           {uploadedImage.map((img,index) => (
                                             <div key={index} className="shrink-0">
@@ -346,10 +346,10 @@ const NewUpload = () => {
                                     <div className="">
 
                                     </div>
-                                <p className="font-[400] text-[20px] leading-[20px] mt-8 ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
+                                <p className="font-[400] md:text-[20px] text-[14px] leading-[20px] md:mt-8 ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
 
                                 <DialogClose asChild>
-                                <Button variant="cus1" className="flex items-center mx-auto mt-6" style={{width:"736px"}}>Save changes</Button>
+                                <Button variant="cus1" className="flex items-center mx-auto mt-6 md:w-[736px] w-[320px]">Save changes</Button>
                                 </DialogClose>                            
                             </DialogContent>
 
@@ -357,7 +357,7 @@ const NewUpload = () => {
                         </div>
 
                     </div>
-                    <Button variant="cus1" className="flex items-center mt-8 mx-auto md:w-[725px] w-[290px]" onClick={handleGenerate}>
+                    <Button variant="cus1" className="flex items-center mt-8 mx-auto md:w-[725px] w-[330px]" onClick={handleGenerate}>
                         GENERATE
                         <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
