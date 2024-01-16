@@ -36,7 +36,13 @@ const Header = () => {
                         ?
                         <li><Link to={`/profile/edit/${user?.id_user}`}>
                           <div className="w-[40px] h-[40px] rounded-[60px] overflow-hidden">
-                             <img className="h-full w-full" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                            {
+                              user.link_avatar.includes("https://futurelove.online")
+                              ?
+                              <img className="h-full w-full" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              :
+                              <img className="h-full w-full" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                            }
                           </div>
                         </Link>                        
                         </li>

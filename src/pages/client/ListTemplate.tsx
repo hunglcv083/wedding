@@ -73,7 +73,7 @@ const ListTemplate = () =>{
                         listTemp.slice(1,5).map((image, index) => {
                             const src_img = image.image
                             return (
-                                <div className="group relative overflow-hidden flex items-center justify-center">
+                                <div className="group relative overflow-hidden flex items-center justify-center" key={index}>
                                 <div className="w-[225px] h-[300px] ">
                                 <div className="">
                                         <img src={src_img} className=" absolute group-hover:opacity-50 h-full w-full object-cover" alt={`Image ${index}`} key={index} />
@@ -107,7 +107,7 @@ const ListTemplate = () =>{
                         listTemp.slice(5, 29).map((image, index) => {
                             const src_img = image.image
                             return (
-                                <div className="group relative overflow-hidden flex items-center justify-center">
+                                <div className="group relative overflow-hidden flex items-center justify-center" key={index}>
                                 <div className="w-[225px] h-[300px] ">
                                 <div className="">
                                         <img src={src_img} className=" absolute group-hover:opacity-50 h-full w-full object-cover" alt={`Image ${index}`} key={index} />

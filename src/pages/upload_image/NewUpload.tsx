@@ -4,13 +4,13 @@ import { Button } from "../../components/ui/button"
 import { useState, useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../../components/ui/dialog";
+import { ScrollArea, ScrollBar } from "../../components/ui/scroll-area";
 
 const NewUpload = () => {
 
     const [original_Image_1, setOriginalImage1] = useState<File | null>(null);
     const [original_Image_2, setOriginalImage2] = useState<File | null>(null);
     const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
-    const [seeMore, setSeeMore] = useState<boolean>(false)
     const user = JSON.parse(localStorage.getItem("user")||"{}")
     useEffect(() => {
         axios.get(`https://metatechvn.store/images/${user.id_user}?type=video`, {
@@ -175,15 +175,12 @@ const NewUpload = () => {
                             </div>
                             {/* onclick will trigger open upload file*/}
                             <Dialog>
-                                <DialogTrigger>
-                                <Button variant="cus1" className="flex items-center w-[116px] md:w-[256px] mt-6">
+                                <DialogTrigger className="flex items-center w-[116px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl px-[15px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
                                     Upload your face
                                     <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round" />
-                                        <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
+                                        <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
-
-                                </Button>
                                 </DialogTrigger>
                                 <DialogContent className="max-w-[818px]">
                                 <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload your face</h3>
@@ -206,30 +203,28 @@ const NewUpload = () => {
                                 <Button variant="cus1" onClick={openUploader1} className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
                                             Upload photo
                                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
+                                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
-
                                 </Button>
                                 <h3 className="font-[600] text-[24px] leading-[20px] mt-8">Uploaded</h3>
-                                    <div className="grid grid-cols-4 w-[736px] gap-[35px] rounded-[20px] overflow-hidden mt-8 ml-3">
-                                     {seeMore ?
-                                        uploadedImage.map((image, index) => {
-                                            return (<img src={image} className="object-cover w-[160px] h-[160px]" alt={`Image ${index}`} key={index} />)
-                                        })
-                                        : uploadedImage.slice(0, 4).map((image, index) => {
-                                            return (<img src={image} className="object-cover w-[160px] h-[160px]" alt={`Image ${index}`}  key={index} />)
-                            })}
-                                    </div>       
-                                <Button onClick={() => { setSeeMore(prev => { return !prev }) }} variant="cus1" className="flex items-center mx-auto mt-6" style={{width:"736px"}}>
-                                    <span className="mx-auto">See {seeMore ? 'less' : 'more'}</span>
+                                    {
+                                        <ScrollArea className="w-[729px] whitespace-nowrap rounded-md border">
+                                        <div className="flex w-max space-x-4 p-4">
+                                          {uploadedImage.map((img,index) => (
+                                            <div key={index} className="shrink-0">
+                                              <div className="overflow-hidden rounded-md" onClick={()=>console.log(img)}>
+                                                    <img src={`${img}`} className="object-cover w-[160px] h-[160px]" alt={`Image ${index}`} />
+                                              </div>
+                                            </div>
+                                          ))}
+                                        </div>
+                                        <ScrollBar orientation="horizontal" />
+                                      </ScrollArea>
+                                    }
+                                    <div className="">
 
-                                            <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round"/>
-                                            </svg>
-
-                                </Button>
+                                    </div>
                                 <p className="font-[400] text-[20px] leading-[20px] mt-8 ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
 
                                 <DialogClose asChild>
@@ -276,8 +271,8 @@ const NewUpload = () => {
                             <Button variant="cus1" className="flex items-center w-[116px] md:w-[256px] mt-6" onClick={openUploader2}>
                                 Upload your face
                                 <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round" />
-                                    <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
+                                    <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                 </svg>
 
                             </Button>
@@ -287,8 +282,8 @@ const NewUpload = () => {
                     <Button variant="cus1" className="flex items-center mt-8 mx-auto md:w-[725px] w-[290px]" onClick={handleGenerate}>
                         GENERATE
                         <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" stroke-width="3.08394" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
+                            <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
 
                     </Button>

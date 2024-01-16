@@ -16,7 +16,8 @@ const Editor = () => {
     const [avatarUploadFile, setAvatarUploadFile] = useState<File | null>(null);
     const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
     const [seeMore, setSeeMore] = useState<boolean>(false);
-
+    const [chooseUploaded, setChooseUploaded] = useState(false)
+    const [chosenImg, setChosenImg] = useState("")
     const [avatarLink, setAvatarLink] = useState<string>("")
     
     useEffect(() => {
@@ -35,8 +36,6 @@ const Editor = () => {
             setAvatarLink(user.link_avatar)
         })
     }, [user])
-
-    
 
     useEffect(() => {
         axios.get(`https://metatechvn.store/images/${id}?type=video`, {
@@ -76,7 +75,11 @@ const Editor = () => {
         maxFiles: 1,
         multiple: false,
     });
-
+    const handleChooseUploaded = (src:string) =>{
+        setChooseUploaded(true);
+        setAvatarUploadFile(null);
+        setChosenImg(src)
+    }
     const handleSaveForm = () => {
         if (avatarUploadFile) {
             const formData = new FormData();
@@ -103,6 +106,7 @@ const Editor = () => {
                         })
                     })
                 }
+
             }).catch((err: AxiosError) => {
                 console.log(err)
                 setAvatarUploadFile(null);
@@ -112,6 +116,30 @@ const Editor = () => {
                     description: "Avatar upload failed, please try again!"
                 })
             })
+        }
+        else if(chooseUploaded&&chosenImg){
+            axios.post(`https://metatechvn.store/changeavatar/${user.id_user}`, {
+                        link_img: chosenImg,
+                        check_img: "upload"
+                    }, {
+                        headers: {
+                            'Content-Type': 'multipart/form-data',
+                            Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                        }
+                    }).then(() => {
+                        toast({
+                            variant:"default",
+                            description: "Update avatar successfully!"
+                        })
+                    }).catch((err: AxiosError) => {
+                        console.log(err)
+                        setAvatarUploadFile(null);
+                        toast({
+                            variant:'destructive',
+                            title: "Upload failed",
+                            description: "Avatar upload failed, please try again!"
+                        })
+                    })       
         }
     }
 
@@ -126,38 +154,38 @@ const Editor = () => {
                             className="w-full h-full"
                         />
                         <div className="w-[96px] h-[96px] rounded-[48px] overflow-hidden" {...getUploaderRootProps()}>
-                            {avatarUploadFile ? (
-                                <img className="aspect-square w-full" src={URL.createObjectURL(avatarUploadFile)} />
-                            ) : (
-                                <img src={`${avatarLink}`} className="object-cover h-full w-full" alt="" />
-                                )
+                            {
+                                !chooseUploaded?
+                                (avatarUploadFile? (
+                                    <img className="aspect-square w-full" src={URL.createObjectURL(avatarUploadFile)} />
+                                    ) : (
+                                    <img src={`${avatarLink}`} className="object-cover h-full w-full" alt="" />
+                                ))
+                                :
+                                <img className="aspect-square w-full" src={chosenImg}/>
+    
                             }                            
                         </div>
-                        <button type='button' onClick={openUploader} className="text-[#fff] w-[253px] bg-[#16B6D4] h-[54px] my-auto md:ml-8 ml-2 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[24px] flex mx-auto items-center">
+                        <button type='button' onClick={()=>{openUploader;setChooseUploaded(false)}} className="text-[#fff] w-[253px] bg-[#16B6D4] h-[54px] my-auto md:ml-8 ml-2 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[24px] flex mx-auto items-center">
                             <div className="mx-auto flex items-center ">
                                 <span className="mr-2">Upload new picture</span>
                                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M7.13465 1.5026C7.13465 0.995362 6.70196 0.610107 6.20122 0.610107C5.70047 0.610107 5.26778 0.995361 5.26778 1.5026V5.10752H1.41717C0.916423 5.10752 0.483734 5.49278 0.483734 6.00001C0.483734 6.50724 0.916423 6.8925 1.41717 6.8925H5.26778V10.4974C5.26778 11.0047 5.70047 11.3899 6.20121 11.3899C6.70196 11.3899 7.13465 11.0047 7.13465 10.4974V6.8925H10.9853C11.486 6.8925 11.9187 6.50724 11.9187 6.00001C11.9187 5.49278 11.486 5.10752 10.9853 5.10752H7.13465V1.5026Z" fill="white" stroke="white" strokeWidth="0.5" strokeLinecap="round" />
                                 </svg>
                             </div>
-                        </button>
-                        <button className="text-[#16B6D4] hidden md:block border-4 border-[#16B6D4] w-[142px] h-[54px] my-auto ml-2 bg-[#fff] rounded-[27px] px-[18px] py-[8px] font-[700] text-[16px] leading-[24px] mx-auto items-center">
-                            <div className="mx-auto items-center">
-                                <span className="mr-2">Remove</span>
-                            </div>
-                        </button>
+                        </button>   
                     </div>
                     <h3 className="font-[600] text-[16px] leading-[20px] mt-10 hidden md:block">Uploaded</h3>
                     <div className="md:grid grid-cols-4 gap-8 w-[638px] rounded-[20px] hidden mt-6">
                         {seeMore ?
                             uploadedImage.map((image, index) => {
-                                return (<img src={image} className="object-cover w-[136px] h-[136px]" alt={`Image ${index}`} key={index} />)
+                                return (<img onClick={()=>handleChooseUploaded(image)} src={image} className="object-cover w-[136px] h-[136px]" alt={`Image ${index}`} key={index} />)
                             })
                             : uploadedImage.slice(0, 4).map((image, index) => {
-                                return (<img src={image} className="object-cover w-[136px] h-[136px]" alt={`Image ${index}`}  key={index} />)
+                                return (<img onClick={()=>handleChooseUploaded(image)} src={image} className="object-cover w-[136px] h-[136px]" alt={`Image ${index}`}  key={index} />)
                             })}
                     </div>
-                    <button onClick={() => { setSeeMore(prev => { return !prev }) }} className="text-[#fff] hidden md:block w-[638px] bg-[#16B6D4] h-[54px] my-auto mt-4 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] mx-auto items-center">
+                    <button type="button" onClick={() => { setSeeMore(prev => { return !prev }) }} className="text-[#fff] hidden md:block w-[638px] bg-[#16B6D4] h-[54px] my-auto mt-4 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] mx-auto items-center">
                         <span className="mx-auto">See {seeMore ? 'less' : 'more'}</span>
                     </button>
 
