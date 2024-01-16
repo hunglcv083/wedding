@@ -220,7 +220,7 @@ const NewUpload = () => {
                                     Make sure you are in the bright environment.
                                 </span>
                                 </div>
-                                <DialogClose><Button variant="cus1" onClick={()=>{openUploader1( );setCheckChosen1(false)}} className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
+                                <DialogClose onClick={()=>{openUploader1( );setCheckChosen1(false)}}><Button variant="cus1"  className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
                                             Upload photo
                                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
@@ -320,7 +320,7 @@ const NewUpload = () => {
                                     Make sure you are in the bright environment.
                                 </span>
                                 </div>
-                                <DialogClose><Button variant="cus1" onClick={()=>{openUploader2( );setCheckChosen2(false)}} className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
+                                <DialogClose  onClick={()=>{openUploader2( );setCheckChosen2(false)}}><Button variant="cus1" className="flex items-center mt-4 mx-auto" style={{width:"736px"}}>
                                             Upload photo
                                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
