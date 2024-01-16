@@ -157,16 +157,16 @@ const Editor = () => {
                             {
                                 !chooseUploaded?
                                 (avatarUploadFile? (
-                                    <img className="aspect-square w-full" src={URL.createObjectURL(avatarUploadFile)} />
+                                    <img className="aspect-square w-full object-cover" src={URL.createObjectURL(avatarUploadFile)} />
                                     ) : (
                                     <img src={`${avatarLink}`} className="object-cover h-full w-full" alt="" />
                                 ))
                                 :
-                                <img className="aspect-square w-full" src={chosenImg}/>
+                                <img className="aspect-square w-full object-cover" src={chosenImg}/>
     
                             }                            
                         </div>
-                        <button type='button' onClick={()=>{openUploader;setChooseUploaded(false)}} className="text-[#fff] w-[253px] bg-[#16B6D4] h-[54px] my-auto md:ml-8 ml-2 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[24px] flex mx-auto items-center">
+                        <button type='button' onClick={()=>{openUploader();setChooseUploaded(false)}} className="text-[#fff] w-[253px] bg-[#16B6D4] h-[54px] my-auto md:ml-8 ml-2 rounded-[27px] px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[24px] flex mx-auto items-center">
                             <div className="mx-auto flex items-center ">
                                 <span className="mr-2">Upload new picture</span>
                                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
