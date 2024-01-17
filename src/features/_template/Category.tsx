@@ -57,7 +57,7 @@ const Category = ({templates}:any) =>{
                             <img
                                 alt="Art"
                                 src={temp.image_sample}
-                                className="h-64 w-full object-contain sm:h-80 lg:h-96 hover:scale-105"
+                                className="h-64 w-full sm:h-80 lg:h-96 hover:scale-105 object-cover"
                             />
 
                             <h3 className="mt-4 text-lg font-bold text-gray-900 text-[24px] md:ml-4">{temp.name_cate}</h3>
