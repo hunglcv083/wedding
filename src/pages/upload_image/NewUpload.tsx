@@ -4,7 +4,7 @@ import { useState, useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../../components/ui/dialog";
 import { ScrollArea, ScrollBar } from "../../components/ui/scroll-area";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NewUpload = () => {
 
@@ -16,6 +16,11 @@ const NewUpload = () => {
     const [checkChosen2, setCheckChosen2] = useState(false)
     const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
     const user = JSON.parse(localStorage.getItem("user")||"{}")
+    const navi = useNavigate()
+    const logOut = () =>{
+        localStorage.clear();
+        navi('/')
+    }
     useEffect(() => {
         axios.get(`https://metatechvn.store/images/${user.id_user}?type=video`, {
             headers: {
@@ -214,9 +219,17 @@ const NewUpload = () => {
                           <DialogContent className="mt-10 items-start justify-start">
                           <ul className="h-[90vh] pt-5">
                             <li className="">
-                              <Link to={`/profile/edit/${user?.id_user}`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                              {
+                                checkUser? 
+                                <Link to={`/profile/edit/${user?.id_user}`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 Profile
+                              </Link> 
+                              : 
+                                <Link to={`/signin`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Sign In
                               </Link>
+                              }
+                              
                             </li>
                             <li className="mt-3">
                               <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
@@ -227,7 +240,17 @@ const NewUpload = () => {
                               <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 About Us
                               </Link>
-                            </li>                          
+                            </li>
+                            {
+                                checkUser? <li>
+                                <span onClick={()=>{confirm('Are you fucking sure?')&&logOut()}} className="flex cursor-pointer items-center p-2 mt-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
+                                <span className="ms-2 flex">Logout <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
+                                </svg>
+                                </span>
+                                </span>
+                            </li> :  <></> 
+                            }                   
                           </ul>
                           </DialogContent>
                         </Dialog>
