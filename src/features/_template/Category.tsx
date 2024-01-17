@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import { Button } from "../../components/ui/button"
 type listItemType = {
     id_cate: number,
     name_cate: string,
@@ -8,9 +7,10 @@ type listItemType = {
 const Category = ({templates}:any) =>{    
     return(
         <>
+            <div className="md:grid grid-cols-3 gap-8">
             {templates.slice(0,25).map((temp:listItemType,index:number)=>(
                 <div className="" key={index}>
-                                <div className="relative h-[429px] bg-[#4DC8DF] w-[950px] mt-11 md:block hidden" key={temp.id_cate}>
+                                {/* <div className="relative h-[429px] bg-[#4DC8DF] w-[950px] mt-11 md:block hidden" key={temp.id_cate}>
                                     <div className=""><div className="absolute left-[40px] top-[40px]">
                                     <h1 className="font-[700] text-[40px]">{temp.name_cate}</h1>
                                     <ul className="list-disc w-[450px] text-white text-[16px] font-[400]">
@@ -51,26 +51,27 @@ const Category = ({templates}:any) =>{
                                         </div>
                                        
                                 </div>
-                        </div>
-                        <div className="border-[2px] border-[#fab0b0] rounded-3xl p-[24px] mt-11 md:hidden">
+                        </div> */}
+                        <div className="border-[2px] border-[#f3e5e5] shadow-lg shadow-[#fdd3d3] rounded-3xl p-[24px] md:p-[14px] mt-11">
                         <div className="block ">
                             <img
                                 alt="Art"
                                 src={temp.image_sample}
-                                className="h-64 w-full object-contain sm:h-80 lg:h-96"
+                                className="h-64 w-full object-contain sm:h-80 lg:h-96 hover:scale-105"
                             />
 
-                            <h3 className="mt-4 text-lg font-bold text-gray-900 text-[24px]">{temp.name_cate}</h3>
+                            <h3 className="mt-4 text-lg font-bold text-gray-900 text-[24px] md:ml-4">{temp.name_cate}</h3>
 
-                            <p className="mt-2 max-w-sm text-gray-700">
+                            {/* <p className="mt-2 max-w-sm text-gray-700 md:ml-4">
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni reiciendis sequi ipsam incidunt.
-                            </p>
-                            <Link to={`/listtemplate/${temp.id_cate}`}><button className="mt-3 w-[100px] h-[30px] rounded-3xl bg-[#fab0b0] text-white">Start</button></Link>
+                            </p> */}
+                            <Link to={`/listtemplate/${temp.id_cate}`}><button className="mt-3 w-[100px] h-[30px] rounded-3xl bg-[#fab0b0] text-white md:ml-[80px] hover:bg-white hover:text-[#ff8989] hover:border-[#ff8989] hover:border-2">Start</button></Link>
                             </div>
                         </div>
                         </div>
                             ))
                             }
+                            </div>
         </>
     )
 }
