@@ -66,7 +66,7 @@ const Account = () => {
     }
     }
     return (
-        <div className="w-full">
+        <div className="w-full p-[30px] md:p-0">
                         <h3 className="font-[600] text-[24px] leading-[20px] mt-3">Account</h3>                    
                         <Form {...form}>
                             <form onSubmit={handleSubmit}>
@@ -88,7 +88,7 @@ const Account = () => {
                                     </FormItem>
                                     )}
                                 />
-                                <div className="grid grid-cols-2 gap-6">
+                                <div className="md:grid grid-cols-2 gap-6">
                                 <FormField
                                     control={form.control}
                                     name="new_password"

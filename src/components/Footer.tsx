@@ -26,9 +26,9 @@ const Footer = () => {
                 </div>
             </div>
             <span className="flex items-center">
-                <span className=" h-px flex-1 bg-[#EFEFEF] my-[15px]"></span>
+                <span className=" flex-1 bg-[#EFEFEF] md:my-[15px]"></span>
             </span>
-            <div className="text-center font-[400] text-[12px] leading-[20px] mt-[20px]">
+            <div className="text-center font-[400] text-[12px] leading-[20px] md:mt-[20px]">
             Copyright © 2023
             </div>
         </div>

@@ -7,9 +7,9 @@ type listItemType = {
 const Category = ({templates}:any) =>{    
     return(
         <>
-            <div className="md:grid grid-cols-3 gap-8">
+            <div className="md:grid grid-cols-3 gap-8 mt-8">
             {templates.slice(0,25).map((temp:listItemType,index:number)=>(
-                <div className="" key={index}>
+                <div className="mt-8 md:mt-0" key={index}>
                                 {/* <div className="relative h-[429px] bg-[#4DC8DF] w-[950px] mt-11 md:block hidden" key={temp.id_cate}>
                                     <div className=""><div className="absolute left-[40px] top-[40px]">
                                     <h1 className="font-[700] text-[40px]">{temp.name_cate}</h1>
@@ -52,7 +52,7 @@ const Category = ({templates}:any) =>{
                                        
                                 </div>
                         </div> */}
-                        <div className="border-[2px] border-[#f3e5e5] shadow-lg shadow-[#fdd3d3] rounded-3xl p-[24px] md:p-[14px] mt-11">
+                        <div className="border-[2px] border-[#f3e5e5] shadow-lg shadow-[#fdd3d3] rounded-3xl p-[24px] md:p-[24px] mt-2">
                         <div className="block ">
                             <img
                                 alt="Art"
