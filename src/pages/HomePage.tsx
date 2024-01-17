@@ -11,7 +11,7 @@ const HomePage = () => {
     <div className="text-center">
           <Header/>
           <div className="bg-[#F2FDFF] md:w-[1440px] md:h-[790px] h-[620px] relative md:mx-auto">  
-              <div className="absolute md:right-2 md:mt-[154px] w-[320px] md:w-fit ml-[40px] mt-[30px]">
+              <div className=" md:right-2 md:pt-[154px] md:ml-[700px] w-[320px] md:w-fit">
                 <img src="img\ba-bpn.png " className="" alt="" />
               </div>
               <div className="absolute md:w-[623px] text-left md:top-[240px] md:left-[200px] md:ml-0 ml-[40px] md:mt-0 mt-[360px]">

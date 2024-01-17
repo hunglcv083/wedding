@@ -39,8 +39,7 @@ const ListCategory = () =>{
                     <h1 className="font-[600] text-[40px] leading-[48px] text-center mb-[10px] mt-[10px]">The Category</h1>
                     <h5 className="font-[400] italic md:text-[20px] text-[16px] leading-[20px] text-center mt-[10px]">Choose a Category that's right for you to start creating these once-in-a-lifetime images</h5>
                     <div className="overflow-hidden">
-                        <Category templates={currentItems}/>
-                        <Pagination itemPerPage={itemPerPage} totalItem={listTemp.length} paginate={paginate}/>
+                        <Category templates={listTemp}/>
                     </div>
                 </div>
                 </div>

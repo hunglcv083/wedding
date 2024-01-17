@@ -1,6 +1,8 @@
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
+
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { DialogTrigger, Dialog } from "./ui/dialog"
+import { DialogContent } from "@radix-ui/react-dialog"
 
 
 
@@ -60,37 +62,21 @@ const Header = () => {
                       </ul>
                     </nav>
                     <div className="block mr-4">
-                      
-                    <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                        <button>
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>
-                        </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent className="bg-white">
-                      <DropdownMenuItem className="">Services</DropdownMenuItem>
-                      <DropdownMenuItem>Careers</DropdownMenuItem>
-                      <DropdownMenuItem>
-                      {
-                        checkUser 
-                        ?
-                        <Link to={`/profile/edit/${user?.id_user}`}>
-                          Profile
-                        </Link>                        
-                        
-                         :
-                         <Link to={`/signin`}>
-                          Sign In
-                        </Link>                        
-                        
-                        }
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>                  
-                    </DropdownMenu>
+                        <Dialog>
+                          <DialogTrigger>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                          </svg>
+                          </DialogTrigger>
+                          <DialogContent>
+                            <ul className="absolute"><li>a</li>
+                            <li>v</li>
+                            <li>c</li>
+                            <li>x</li>
+                            <li>e</li></ul>
+                          </DialogContent>
+                        </Dialog>
                     </div>
-                    
                   </div>
                 </div>
               </div>
