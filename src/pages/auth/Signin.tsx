@@ -68,7 +68,7 @@ const Signin = () => {
         }       
       };
   return (
-    <div className="md:w-[1440px] w-[390px]">
+    <div className="md:w-[1440px] w-[390px] mx-auto">
         
         <div className="md:grid grid-cols-2">
             <div className="bg-[#F2FDFF] items-center md:w-[750px] w-[390px]">
@@ -82,17 +82,7 @@ const Signin = () => {
                             <form onSubmit={handleSubmit} className="mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
                                 
                             <h1 className="text-2xl font-bold text-[#2A85FF]-600 sm:text-3xl">Sign In</h1>
-                            <h4 className="text-sm text-black font-[600] mb-[15px]">Sign in with Open accounts</h4>
-                            <div className="flex items-center justify-center dark:bg-gray-700 mx-auto">
-                                <button className="w-full px-4 py-2 border flex justify-center gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-600 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 ">
-                                    <img className="w-6 h-6" src="https://www.svgrepo.com/show/475656/google-color.svg" loading="lazy" alt="google logo"/>
-                                    <span>Google</span>
-                                </button>
-                            </div>
-                            <span className="flex items-center ">
-                                <span className="h-px flex-1 bg-[#EFEFEF] my-[15px]"></span>
-                            </span>
-                            <h4 className="text-sm text-black font-[600]">Or continue with email address</h4>
+                            
                             <div>
                                 <label htmlFor="email" className="sr-only">Email</label>
 

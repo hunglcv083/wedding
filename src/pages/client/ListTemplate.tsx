@@ -140,7 +140,7 @@ const ListTemplate = () =>{
                 <h1 className="font-[600] text-[40px] leading-[48px] ml-[210px] mb-[30px] mt-[10px]"></h1>
                 <div className="mx-auto p-[24px] md:w-[1020px] rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring gap-8 items-center justify-center mt-4">
                 <div className="">
-                    <h1 className="font-[600] text-[40px] leading-[48px] text-center mb-[10px] mt-[10px]">The Template</h1>
+                    <h1 className="font-[600] text-[40px] leading-[48px] text-center mb-[10px] mt-[10px]">Wedding Template {id}</h1>
                     <h5 className="font-[400] italic md:text-[20px] text-[16px] leading-[20px] text-center mb-[30px] mt-[10px]">Choose a template that's right for you to start creating these once-in-a-lifetime images</h5>
                     <div className="hidden md:block">
                     <div className="grid grid-cols-2 gap-2">

@@ -52,9 +52,9 @@ const ForgotPassword = () => {
         }
       };
     return (
-      <div className="md:w-[1440px] w-[390px]">
+      <div className="md:w-[1440px] w-[390px] mx-auto">
           <div className="md:grid grid-cols-2">
-              <div className="bg-[#F2FDFF] items-center w-[750px]">
+              <div className="bg-[#F2FDFF] items-center md:w-[750px] w-[390px]">
                   <header className="pt-[20px] md:pl-[28px] pl-[150px] pb-[20px]">
                     <img src="img\logo.png" alt="" />
                 </header>
@@ -93,7 +93,7 @@ const ForgotPassword = () => {
                               >
                                   Send
                               </button>
-                                <Link className="flex ml-[150px]" to={`/signin`}>
+                                <Link className="flex md:ml-[150px] ml-[80px]" to={`/signin`}>
                                   <svg className="mr-2" width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M8.70708 13.7929C9.0976 14.1834 9.0976 14.8166 8.70708 15.2071C8.31655 15.5976 7.68339 15.5976 7.29286 15.2071L1.49997 9.41421C0.718923 8.63317 0.718921 7.36684 1.49997 6.58579L7.29286 0.792894C7.68339 0.402369 8.31655 0.402369 8.70708 0.792894C9.0976 1.18342 9.0976 1.81658 8.70708 2.20711L3.91419 7H18C18.5523 7 19 7.44772 19 8C19 8.55229 18.5523 9 18 9H3.91418L8.70708 13.7929Z" fill="#1A1D1F"/>
                                   </svg>
