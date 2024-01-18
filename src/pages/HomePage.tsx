@@ -132,17 +132,17 @@ const HomePage = () => {
               </div>
               
           </div>
-          <div className="bg-[#FFF] md:w-[1440px] md:mx-auto md:mb-[100px] mt-5 md:mt-0">
+          <div className="bg-[#FFF] md:w-[1440px] md:mx-auto md:mb-[100px] mt-5 md:mt-0 mx-auto justify-center">
               <h1 className="md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center md:mt-[100px] md:mb-[50px] text-[24px] font-extrabold">How to Swap a Face Online</h1>
               <div className="md:grid md:grid-cols-2 md:px-[100px] md:gap-8 mt-10">
               <div className="">
-              <ul className="mt-4 space-y-2 ulhome md:block hidden">
-                <li>
+              <ul className=" space-y-2 ulhome md:block hidden">
+                <li className="">
                   <div className="rounded-xl my-auto hover:shadow-xl  w-[550px] h-[170px] cards">
-                    <div className="flex gap-[16px]">
-                    <strong className="font-black text-black text-[60px]">1</strong>
+                    <div className="flex gap-[16px] pt-6 pl-6 group">
+                    <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">1</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
-                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left">Upload an Image</h5>
+                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left group-hover:text-[#33C5E9]">Upload an Image</h5>
                       <p className="mt-3 font-[500] text-black text-[16px] leading-[20px] text-left">Simply click 'Upload an Image' and select 2 photos you want to use as the source image. Ensure only one face in the photo is of good quality.</p>
                     </div>
                     </div>
@@ -150,10 +150,10 @@ const HomePage = () => {
                 </li>
                 <li className="">
                   <div className="rounded-xl hover:shadow-xl w-[550px] h-[170px] cards card1">
-                    <div className="flex gap-[16px]">
-                    <strong className="font-black text-black text-[60px] ml-[]">2</strong>
+                    <div className="flex gap-[16px] pt-6 pl-6 group">
+                    <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">2</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
-                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left">Swap Face with AI</h5>
+                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left group-hover:text-[#33C5E9]">Swap Face with AI</h5>
                       <p className="mt-3 font-[500] text-black text-[16px] leading-[20px] text-left">Click the 'Swap Face Now' button to show AI its magic. Faceswapper will finish face swapping in a few seconds. Our AI does the job automatically while guaranteeing the best output.</p>
                     </div>
                     </div>
@@ -161,10 +161,10 @@ const HomePage = () => {
                 </li>
                 <li className=" ">
                   <div className="rounded-xl my-auto hover:shadow-xl w-[550px] h-[170px] cards card1">
-                    <div className="flex gap-[16px]">
-                    <strong className="font-black text-black text-[60px] ml-[]">3</strong>
+                    <div className="flex gap-[16px] pt-6 pl-6 group">
+                    <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">3</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
-                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left">Preview and Download</h5>
+                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left group-hover:text-[#33C5E9]">Preview and Download</h5>
                       <p className="mt-3 font-[500] text-black text-[16px] leading-[20px] text-left">Bingo! Your face is swapped to who you like! Preview the final result on the same page. Click 'Download' to save the watermark-free picture to your device. Share it for fun!</p>
                     </div>
                     </div>
@@ -176,15 +176,15 @@ const HomePage = () => {
                   <img src="img\swap-online.png" alt="" />
                 </div>
               </div>
-              <Carousel className="block md:hidden ml-5">
+              <Carousel className="block md:hidden ml-5 pb-3">
               <CarouselContent>
                   <CarouselItem >
                     <li>
-                    <div className="rounded-xl my-auto hover:shadow-xl  md:w-[550px] h-[170px] w-[328px] cards">
-                      <div className="flex gap-[16px]">
-                      <strong className="font-black text-black text-[60px]">1</strong>
+                    <div className="rounded-xl my-auto hover:shadow-xl  md:w-[550px] h-[170px] w-[390px] cards">
+                      <div className="flex gap-[16px] pt-3 pl-6 group">
+                      <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">1</strong>
                       <div className="mt-[10px] text-xs font-medium text-gray-300">
-                        <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left">Upload an Image</h5>
+                        <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left group-hover:text-[#33C5E9]">Upload an Image</h5>
                         <p className="mt-3 font-[500] text-black text-[16px] leading-[20px] text-left">Simply click 'Upload an Image' and select 2 photos you want to use as the source image. Ensure only one face in the photo is of good quality.</p>
                       </div>
                       </div>
@@ -193,11 +193,11 @@ const HomePage = () => {
                   </CarouselItem>
                   <CarouselItem >
                   <li className="">
-                  <div className="rounded-xl hover:shadow-xl md:w-[550px] h-[170px] w-[328px] cards card1">
-                    <div className="flex gap-[16px]">
-                    <strong className="font-black text-black text-[60px] ml-[]">2</strong>
+                  <div className="rounded-xl hover:shadow-xl md:w-[550px] h-[170px] w-[390px] cards card1">
+                    <div className="flex gap-[16px] pt-3 pl-6 group">
+                    <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">2</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
-                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left">Swap Face with AI</h5>
+                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left group-hover:text-[#33C5E9]">Swap Face with AI</h5>
                       <p className="mt-3 font-[500] text-black text-[16px] leading-[20px] text-left">Click the 'Swap Face Now' button to show AI its magic. Faceswapper will finish face swapping in a few seconds. Our AI does the job automatically while guaranteeing the best output.</p>
                     </div>
                     </div>
@@ -206,11 +206,11 @@ const HomePage = () => {
                   </CarouselItem>
                   <CarouselItem >
                   <li className=" ">
-                  <div className="rounded-xl my-auto hover:shadow-xl md:w-[550px] w-[328px] h-[170px] cards card1">
-                    <div className="flex gap-[16px]">
-                    <strong className="font-black text-black text-[60px] ml-[]">3</strong>
+                  <div className="rounded-xl my-auto hover:shadow-xl md:w-[550px] w-[390px] h-[170px] cards card1">
+                    <div className="flex gap-[16px] pt-3 pl-6 group">
+                    <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">3</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
-                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left">Preview and Download</h5>
+                      <h5 className="font-[600] text-black text-[24px] leading-[30px] text-left group-hover:text-[#33C5E9]">Preview and Download</h5>
                       <p className="mt-3 font-[500] text-black text-[16px] leading-[20px] text-left">Bingo! Your face is swapped to who you like! Preview the final result on the same page. Click 'Download' to save the watermark-free picture to your device. Share it for fun!</p>
                     </div>
                     </div>
@@ -427,7 +427,7 @@ const HomePage = () => {
             </div>
             
           </div>
-          <div className="bg-white md:h-[400px]">
+          <div className="bg-white md:h-[400px] pb-3">
             <h2 className="md:w-[1064px] w-[300px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Make Wedding Photo Easy for All!</h2>
             <h5 className="font-[500] text-[24px] md:leading-[30px] mt-10 md:w-[1120px] w-[300px] px-[5px] mx-auto">Use the power of AI to create professional wedding photos faster, with less effort and cost. Create your dream wedding . Get started with Wedding AI!</h5> 
             <button className="text-[#fff] w-[340px] bg-[#009DC4] mt-11 rounded-3xl px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] flex mx-auto items-center">
