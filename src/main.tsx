@@ -4,7 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { Toaster } from './components/ui/toaster.tsx'
-
+import "nprogress/nprogress.css";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>

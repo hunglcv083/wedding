@@ -30,7 +30,7 @@ const Routers = () => {
                     <Route path='edit/:id' element={<PrivateRoute ><Editor/></PrivateRoute>}/>
                     <Route path='account/:id' element={<PrivateRoute ><Account/></PrivateRoute>}/>
                 </Route>
-                <Route path="upload" element={<PrivateRoute ><NewUpload/></PrivateRoute>} />
+                <Route path="upload/:id" element={<PrivateRoute ><NewUpload/></PrivateRoute>} />
                 <Route path="faceupload" element={<PrivateRoute ><FaceUpload/></PrivateRoute>} />
                 <Route path="generate" element={<PrivateRoute ><Generate/></PrivateRoute>} />
                 <Route path="preview" element={<PrivateRoute ><Preview/></PrivateRoute>} />

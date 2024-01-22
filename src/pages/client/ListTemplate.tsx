@@ -157,7 +157,7 @@ const ListTemplate = () =>{
                                 </div>
                                 <div className="absolute">
                                     <Dialog>
-                                        <Link to={'/upload'}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
+                                        <Link to={`/upload/${id}`}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
                                         group-hover:translate-y-0 w-[160px] rounded-3xl">Create Now!</Button></Link> <br />                                       
                                         <DialogTrigger asChild className="">
                                             <Button variant={"outline"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
@@ -186,7 +186,7 @@ const ListTemplate = () =>{
                                         
                                         </div>
                                         <div className="absolute">
-                                        <Link to={'/upload'}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
+                                        <Link to={`/upload/${id}`}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
                                                 group-hover:translate-y-0 w-[160px] rounded-3xl">Create Now!</Button></Link> <br />
                                                 <Dialog>
                                                 <DialogTrigger asChild className="">
@@ -214,14 +214,13 @@ const ListTemplate = () =>{
                                         <div className="group relative overflow-hidden flex items-center justify-center" key={index}>
                                         <div className="w-[225px] h-[300px] ">
                                         <div className="">
-                                                <img src={src_img} className=" absolute group-hover:opacity-50 h-full w-full object-cover" alt={`Image ${index}`} key={index} />
-                                                
+                                                <img src={src_img} className=" absolute group-hover:opacity-50 h-full w-full object-cover" alt={`Image ${index}`} key={index} />                                               
                                             </div>                                    
                                     
                                         
                                         </div>
                                         <div className="absolute">
-                                        <Link to={'/upload'}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
+                                        <Link to={`/upload/${id}`}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
                                                 group-hover:translate-y-0 w-[160px] rounded-3xl">Create Now!</Button></Link> <br />
                                                 <Dialog>
                                                 <DialogTrigger asChild className="">

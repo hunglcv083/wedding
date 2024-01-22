@@ -4,10 +4,10 @@ import { useState, useCallback, useEffect } from "react";
 import { useDropzone } from "react-dropzone";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../../components/ui/dialog";
 import { ScrollArea, ScrollBar } from "../../components/ui/scroll-area";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link, useNavigate, useParams } from "react-router-dom";
+import nProgress from "nprogress";
 const NewUpload = () => {
-
+    const {id} = useParams()
     const [original_Image_1, setOriginalImage1] = useState<File | null>(null);
     const [original_Image_2, setOriginalImage2] = useState<File | null>(null);
     const [chosenImage1, setChosenImage1] = useState('')
@@ -17,7 +17,7 @@ const NewUpload = () => {
     const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
     const user = JSON.parse(localStorage.getItem("user")||"{}")
     const navi = useNavigate()
-    const logOut = () =>{
+    const logOut = () =>{   
         localStorage.clear();
         navi('/')
     }
@@ -98,7 +98,6 @@ const NewUpload = () => {
         maxFiles: 1,
         multiple: false,
     });
-
     /**
      * when click button "Generate" if 2 image are uploaded will send to server
      */
@@ -114,37 +113,47 @@ const NewUpload = () => {
             image_2_formData.append('src_img', original_Image_2)
 
             const userData = JSON.parse(localStorage.getItem("user")||"{}");
-            console.log(userData)
             const req_post_img_1 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
                 }
-            }).then(res => { return res })
+            }).then(res => { return res.data })
             const req_post_img_2 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nu`, image_2_formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
                 }
-            }).then(res => { return res })
-
+            }).then(res => { return res.data })
+            
             const [src_res_1, src_res_2] = await Promise.all([req_post_img_1, req_post_img_2])
-
             if (src_res_1 != null && src_res_2 != null) {
-                console.log(src_res_1, src_res_2)
-                axios.get(`https://thinkdiff.us/getdata/swap/2/image?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}`, {
-                    headers: {
-                        'link1': src_res_1.data,
-                        'link2': src_res_2.data,
-                        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-                    }
-                }).then(res => {
-                    console.log(res)
-                })
+                try{
+                   nProgress.start()
+                   const response = await axios.get(`http://14.231.223.63:6000/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
+                        headers: {
+                            'link1': src_res_1,
+                            'link2': src_res_2,
+                            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+                        }
+                    })
+                    nProgress.done()
+                    const data = response.data
+                    navi("/generate",{state:{data,src_res_1,src_res_2}})
+                }
+                catch (error) {
+                    console.log(error)
+                }
             }
 
         }
     }
+    // useEffect(()=>{
+    //     setImageList(dataImg.link_anh_swap)
+    //     setSwappedImage(dataImg.sukien_2_image.link_da_swap)
+    //     console.log(swappedImage, imageList)
+        
+    // },[dataImg])
     const handleChoose1 = (src:string) =>{
         console.log(src)
         setOriginalImage1(null)
