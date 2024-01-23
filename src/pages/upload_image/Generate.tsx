@@ -27,7 +27,6 @@ const Generate = () => {
   };
    const locate = useLocation()
    const { data,src_res_1,src_res_2 } = locate.state || {}
-   console.log(data,src_res_1,src_res_2)
     return(
         <>
             <div className="bg-[#F2FDFF]">

@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom"
 import { useToast } from "../../components/ui/use-toast";
 import { useState } from "react";
-import { ToastAction } from "@radix-ui/react-toast";
+import { ToastAction } from "../../components/ui/toast";
 import { signin } from "../../services/auth";
 
 const Signin = () => {

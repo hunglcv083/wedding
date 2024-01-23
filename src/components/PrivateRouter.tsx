@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom'
 import { useToast } from './ui/use-toast'
-import { ToastAction } from '@radix-ui/react-toast'
+import { ToastAction } from './ui/toast'
 
 type PrivateRouteProps = {
     children?: React.ReactNode
