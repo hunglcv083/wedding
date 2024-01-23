@@ -247,7 +247,7 @@ const ListTemplate = () =>{
                             return (
                                 <div className="group relative overflow-hidden flex items-center justify-center" key={index}>
                                 <div className="w-[170px] h-[220px] ">
-                                <Link to={'/upload'}><div className="">
+                                <Link to={`/upload/${id}`}><div className="">
                                         <img src={src_img} className=" absolute group-hover:opacity-50 h-full object-cover w-full" alt={`Image ${index}`} key={index} />
                                         
                                 </div> </Link>
