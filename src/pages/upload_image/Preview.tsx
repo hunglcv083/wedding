@@ -5,6 +5,7 @@ import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import nProgress from "nprogress";
 import JSZipUtils from "jszip-utils";
+import axios from "axios";
 const zip = new JSZip
 const Preview = () => {
     const locate = useLocation()
@@ -28,9 +29,8 @@ const Preview = () => {
           let zipFileName = "images.zip";
           for (const img of data.link_anh_swap) {
             const fileName = img.split("/").pop();
-            const file = await JSZipUtils.getBinaryContent(img);
-            console.log(1);
-            zip.file(fileName, file, { binary: true });
+            const fileBuffer = axios.get(img,{ responseType: 'arraybuffer' }).then((res)=>{return res.data})
+            zip.file(fileName, fileBuffer, { binary: true });
             count++;
             if (count === data.link_anh_swap.length) {
               zip.generateAsync({ type: "blob" }).then((content) => {
