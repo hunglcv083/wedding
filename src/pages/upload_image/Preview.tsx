@@ -4,7 +4,6 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import JSZip from "jszip";
 import { saveAs } from "file-saver";
 import nProgress from "nprogress";
-import JSZipUtils from "jszip-utils";
 import axios from "axios";
 const zip = new JSZip
 const Preview = () => {
