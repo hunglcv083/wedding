@@ -430,14 +430,14 @@ const HomePage = () => {
           <div className="bg-white md:h-[400px] pb-3">
             <h2 className="md:w-[1064px] w-[300px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Make Wedding Photo Easy for All!</h2>
             <h5 className="font-[500] text-[24px] md:leading-[30px] mt-10 md:w-[1120px] w-[300px] px-[5px] mx-auto">Use the power of AI to create professional wedding photos faster, with less effort and cost. Create your dream wedding . Get started with Wedding AI!</h5> 
-            <button className="text-[#fff] w-[340px] bg-[#009DC4] mt-11 rounded-3xl px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] flex mx-auto items-center">
+            <Link to={`/listcategories`}><button className="text-[#fff] w-[340px] bg-[#009DC4] mt-11 rounded-3xl px-[20px] py-[10px] text-center font-[700] text-[16px] leading-[20px] flex mx-auto items-center">
               <div className="mx-auto flex">
                   <span className="">Create Free Wedding Photo</span>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
                     <path fillRule="evenodd" d="M12.97 3.97a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.19l-6.22-6.22a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
                   </svg>
               </div>                 
-            </button>           
+            </button></Link>           
           </div>
           <Footer/>
     </div>

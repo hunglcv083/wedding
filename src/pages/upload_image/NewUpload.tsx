@@ -102,30 +102,36 @@ const NewUpload = () => {
      * when click button "Generate" if 2 image are uploaded will send to server
      */
     const handleGenerate = async () => {
-        if (original_Image_1 && original_Image_2) {
             const postFormData = new FormData();
-            postFormData.append("image_1", original_Image_1);
-            postFormData.append("image_2", original_Image_2);
-
-            const image_1_formData = new FormData();
-            image_1_formData.append('src_img', original_Image_1)
+            const userData = JSON.parse(localStorage.getItem("user")||"{}");
+            let req_post_img_1, req_post_img_2
+            if (original_Image_1) {
+                postFormData.append("image_1", original_Image_1);
+                const image_1_formData = new FormData();
+                image_1_formData.append('src_img', original_Image_1)
+                req_post_img_1 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                        'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+                    }
+                }).then(res => { return res.data })
+            }
+            else if(chosenImage1){
+               req_post_img_1 = `/var/www/build_futurelove/${chosenImage1.replace("https://futurelove.online/","")}`
+            }
+            if(original_Image_2){
+            postFormData.append("image_2", original_Image_2);            
             const image_2_formData = new FormData();
             image_2_formData.append('src_img', original_Image_2)
-
-            const userData = JSON.parse(localStorage.getItem("user")||"{}");
-            const req_post_img_1 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
+            req_post_img_2 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nu`, image_2_formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
                 }
             }).then(res => { return res.data })
-            const req_post_img_2 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nu`, image_2_formData, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                    'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
-                }
-            }).then(res => { return res.data })
-            
+            }else if(chosenImage2) {
+                req_post_img_2 = `/var/www/build_futurelove/${chosenImage2.replace("https://futurelove.online/","")}`
+            }
             const [src_res_1, src_res_2] = await Promise.all([req_post_img_1, req_post_img_2])
             if (src_res_1 != null && src_res_2 != null) {
                 try{
@@ -145,15 +151,8 @@ const NewUpload = () => {
                     console.log(error)
                 }
             }
-
-        }
-    }
-    // useEffect(()=>{
-    //     setImageList(dataImg.link_anh_swap)
-    //     setSwappedImage(dataImg.sukien_2_image.link_da_swap)
-    //     console.log(swappedImage, imageList)
         
-    // },[dataImg])
+    }
     const handleChoose1 = (src:string) =>{
         console.log(src)
         setOriginalImage1(null)

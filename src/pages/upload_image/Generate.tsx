@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import { Button } from "../../components/ui/button"
 import { Dialog, DialogContent, DialogTrigger } from "../../components/ui/dialog"
 import { useEffect, useState } from "react"
+import { saveAs } from "file-saver"
 const Generate = () => {
     const [seeMore, setSeeMore] = useState<boolean>(false);
    const [checkUser, setCheckUser] = useState(false)
@@ -15,6 +16,15 @@ const Generate = () => {
        localStorage.clear();
        navi('/')
    }
+   const handleDownloadImage = async (img:string) => {
+    try {
+      const fileName = img.split("/").pop()
+      await saveAs(img, fileName);
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
    const locate = useLocation()
    const { data,src_res_1,src_res_2 } = locate.state || {}
    console.log(data,src_res_1,src_res_2)
@@ -163,37 +173,37 @@ const Generate = () => {
                 <div className="md:ml-[160px] md:w-[1120px] w-[370px] md:mt-11 ml-[10px] md:block hidden">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="">
-                            <img className="w-full h-full object-cover" src={data.sukien_2_image.link_da_swap} alt="aaa" />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.sukien_2_image.link_da_swap)} src={data.sukien_2_image.link_da_swap} alt="aaa" />
                         </div>
                         <div className=" grid grid-cols-2 gap-6">
                             <div className="">
-                                <img className="w-full h-full object-cover" src={data.link_anh_swap[0]} alt="aaa" />
+                                <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.link_anh_swap[0])} src={data.link_anh_swap[0]} alt="aaa" />
                             </div>
                             <div className="">
-                            <img className="w-full h-full object-cover" src={data.link_anh_swap[1]} alt="" />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.link_anh_swap[1])} src={data.link_anh_swap[1]} alt="" />
                             </div>
                             <div className="">
-                            <img className="w-full h-full object-cover" src={data.link_anh_swap[2]} alt="" />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.link_anh_swap[2])} src={data.link_anh_swap[2]} alt="" />
                             </div>
                             <div className="">
-                            <img className="w-full h-full object-cover" src={data.link_anh_swap[3]} alt="" />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.link_anh_swap[3])} src={data.link_anh_swap[3]} alt="" />
                             </div>
                         </div>
                     </div>
                     <div className="grid grid-cols-3 md:w-[1120px] w-[370px] mt-6 gap-6">
                             <div className="">
-                            <img className="w-full h-full object-cover" src={data.link_anh_swap[4]} />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.link_anh_swap[4])} src={data.link_anh_swap[4]} />
                             </div>
                             <div className="">
-                            <img className="w-full h-full object-cover" src={data.link_anh_swap[5]} alt="" />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.link_anh_swap[5])} src={data.link_anh_swap[5]} alt="" />
                             </div>
                             <div className="">
-                            <img className="w-full h-full object-cover" src={data.link_anh_swap[6]} alt="" />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.link_anh_swap[6])} src={data.link_anh_swap[6]} alt="" />
                             </div>
                             {
                               seeMore &&
                               data.link_anh_swap.slice(7,25).map((img:string,index:number)=>{
-                                return(<img key={index} className="w-full h-full object-cover" src={img} alt="" />)
+                                return(<img key={index} onClick={()=>handleDownloadImage(img)} className="w-full h-full object-cover" src={img} alt="" />)
                               })                           
                             }
                     </div>
@@ -204,7 +214,7 @@ const Generate = () => {
                     data.link_anh_swap.slice(1,45).map((img:string,index:number)=>{
                         return(
                             <div className="w-[175px] h-[205px] rounded-3xl overflow-hidden" key={index}>
-                            <img className="w-full object-cover h-full" src={img} alt="" />
+                            <img className="w-full object-cover h-full" onClick={()=>handleDownloadImage(img)} src={img} alt="" />
                             </div>
                         )
                     })
