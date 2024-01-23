@@ -6,6 +6,9 @@ import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../../compone
 import { ScrollArea, ScrollBar } from "../../components/ui/scroll-area";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import nProgress from "nprogress";
+import HashLoader from "react-spinners/HashLoader"
+import { useToast } from "../../components/ui/use-toast";
+import { ToastAction } from "../../components/ui/toast";
 const NewUpload = () => {
     const {id} = useParams()
     const [original_Image_1, setOriginalImage1] = useState<File | null>(null);
@@ -15,6 +18,7 @@ const NewUpload = () => {
     const [chosenImage2, setChosenImage2] = useState('')
     const [checkChosen2, setCheckChosen2] = useState(false)
     const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
+    const [isLoading, setIsLoading] = useState(false)
     const user = JSON.parse(localStorage.getItem("user")||"{}")
     const navi = useNavigate()
     const logOut = () =>{   
@@ -101,7 +105,24 @@ const NewUpload = () => {
     /**
      * when click button "Generate" if 2 image are uploaded will send to server
      */
+    const {toast} = useToast()
     const handleGenerate = async () => {
+            if(!original_Image_1&&!chosenImage1){
+                toast({
+                variant: "destructive",
+                description: `Image 1 must not be empty!`,
+                action: <ToastAction altText="Try again">Try again</ToastAction>
+              })
+              return
+            }
+            if(!original_Image_2&&!chosenImage2){
+                toast({
+                variant: "destructive",
+                description: `Image 2 must not be empty!`,
+                action: <ToastAction altText="Try again">Try again</ToastAction>
+              })
+              return
+            }
             const postFormData = new FormData();
             const userData = JSON.parse(localStorage.getItem("user")||"{}");
             let req_post_img_1, req_post_img_2
@@ -135,7 +156,11 @@ const NewUpload = () => {
             const [src_res_1, src_res_2] = await Promise.all([req_post_img_1, req_post_img_2])
             if (src_res_1 != null && src_res_2 != null) {
                 try{
+                   setIsLoading(true)
                    nProgress.start()
+                   nProgress.set(0)
+                   nProgress.inc()
+                   nProgress.configure({ showSpinner: false })
                    const response = await axios.get(`http://14.231.223.63:6000/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
                         headers: {
                             'link1': src_res_1,
@@ -143,6 +168,8 @@ const NewUpload = () => {
                             'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
                         }
                     })
+                    setIsLoading(false)
+                    nProgress.set(1)
                     nProgress.done()
                     const data = response.data
                     navi("/generate",{state:{data,src_res_1,src_res_2}})
@@ -154,13 +181,11 @@ const NewUpload = () => {
         
     }
     const handleChoose1 = (src:string) =>{
-        console.log(src)
         setOriginalImage1(null)
         setCheckChosen1(true)
         setChosenImage1(src)
     }
     const handleChoose2 = (src:string) =>{
-        console.log(src)
         setOriginalImage2(null)
         setCheckChosen2(true)
         setChosenImage2(src)
@@ -170,7 +195,17 @@ const NewUpload = () => {
         if(localStorage.getItem('user')) setCheckUser(true)
        },[])
     return (
-        <>
+        <div className="">
+            {isLoading&&
+                (<div className="fixed inset-0 z-50 bg-black/50">
+                <div className="absolute top-[50%] left-[50%] z-50 w-[30%] md:w-[20%] translate-x-[-50%] translate-y-[-50%] gap-4 border md:p-6 p-2 shadow-lg rounded-2xl items-center justify-center text-center bg-white opacity-100">
+                     <div className="md:py-[30px]">
+                     <HashLoader color="#16b6d4" className="mx-auto md:mb-11 mb-2"/>
+                     <span className="md:text-xl text-[10px] font-bold text-[#409afa]">Please wait some minutes...</span>
+                     </div>
+                 </div>
+                  </div>) 
+            }           
             <div className="bg-[#F2FDFF]">
             <header className="bg-white md:w-[1440px]">
               <div className="mx-auto">
@@ -185,7 +220,6 @@ const NewUpload = () => {
                         <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
                         </li>
-  
                         <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Careers </a>
                         </li>
@@ -313,7 +347,7 @@ const NewUpload = () => {
                                         <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </DialogTrigger>
-                                <DialogContent className="md:w-[818px] w-[360px]">
+                                <DialogContent className="md:w-[818px] w-[360px] h-[70%] md:h-[100%] overflow-scroll md:overflow-auto">
                                 <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload your face</h3>
                                 <div className="flex items-center mt-8">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -331,36 +365,33 @@ const NewUpload = () => {
                                     Make sure you are in the bright environment.
                                 </span>
                                 </div>
-                                <DialogClose onClick={()=>{openUploader1();setCheckChosen1(false)}}><Button variant="cus1"  className="flex items-center mt-4 mx-auto md:w-[736px] w-[320px]">
+                                <DialogClose onClick={()=>{openUploader1();setCheckChosen1(false)}} className="text-[#fff]  bg-[#16B6D4] h-[60px] my-auto rounded-3xl px-[20px] py-[15px] text-center font-[700] md:text-[14px] text-[10px] flex items-center mt-4 mx-auto md:w-[736px] w-[320px]">
                                             Upload photo
                                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
-                                </Button></DialogClose> 
-                                <h3 className="font-[600] text-[24px] leading-[20px] mt-8">Uploaded</h3>
-                                    {
-                                        <ScrollArea className="md:w-[729px] whitespace-nowrap rounded-md border">
+                                </DialogClose> 
+                                
+                                <h3 className="font-[600] text-[24px] leading-[20px] mt-8">Uploaded</h3>  
+                                        
+                                        <ScrollArea className="md:w-[729px] whitespace-nowrap rounded-md border mt-[100px] md:mt-0">
                                         <div className="flex w-max space-x-4 p-4">
                                           {uploadedImage.map((img,index) => (
                                             <div key={index} className="shrink-0">
-                                              <DialogClose><button className="overflow-hidden rounded-md" onClick={()=>handleChoose1(img)}>
+                                              <DialogClose className="overflow-hidden rounded-md" onClick={()=>handleChoose1(img)}>
                                                     <img src={`${img}`} className="object-cover w-[160px] h-[160px]" alt={`Image ${index}`} />
-                                              </button>
+                                            
                                               </DialogClose>
                                             </div>
                                           ))}
                                         </div>
                                         <ScrollBar orientation="horizontal" />
                                       </ScrollArea>
-                                    }
-                                    <div className="">
+                                <p className="font-[400] md:text-[20px] text-[14px] leading-[20px] md:mt-8 mt-[100px] ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
 
-                                    </div>
-                                <p className="font-[400] md:text-[20px] text-[14px] leading-[20px] md:mt-8 ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
-
-                                <DialogClose asChild>
-                                <Button variant="cus1" className="flex items-center mx-auto mt-6 md:w-[736px] w-[320px]">Save changes</Button>
+                                <DialogClose asChild className="text-[#fff] bg-[#16B6D4] h-[60px] my-auto rounded-3xl px-[20px] py-[15px] text-center font-[700] md:text-[14px] text-[10px] flex items-center mx-auto mt-6 md:w-[736px] w-[320px]">
+                                Save changes
                                 </DialogClose>                            
                             </DialogContent>
 
@@ -413,7 +444,7 @@ const NewUpload = () => {
                                         <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </DialogTrigger>
-                                <DialogContent className="md:w-[818px] w-[360px]">
+                                <DialogContent className="md:w-[818px] w-[360px] overflow-scroll h-[70%] md:h-[100%] md:overflow-auto">
                                 <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload your face</h3>
                                 <div className="flex items-center mt-8">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -431,22 +462,22 @@ const NewUpload = () => {
                                     Make sure you are in the bright environment.
                                 </span>
                                 </div>
-                                <DialogClose onClick={()=>{openUploader2();setCheckChosen2(false)}}><Button variant="cus1"  className="flex items-center mt-4 mx-auto md:w-[736px] w-[320px]">
+                                <DialogClose onClick={()=>{openUploader2();setCheckChosen2(false)}} className="text-[#fff]  bg-[#16B6D4] h-[60px] my-auto rounded-3xl px-[20px] py-[15px] text-center font-[700] md:text-[14px] text-[10px] flex items-center mt-4 mx-auto md:w-[736px] w-[320px]">
                                             Upload photo
                                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                                             </svg>
-                                </Button></DialogClose> 
+                                </DialogClose> 
                                 <h3 className="font-[600] text-[24px] leading-[20px] mt-8">Uploaded</h3>
                                     {
-                                        <ScrollArea className="md:w-[729px] whitespace-nowrap rounded-md border">
+                                        <ScrollArea className="md:w-[729px] whitespace-nowrap rounded-md border mt-[100px] md:mt-0">
                                         <div className="flex w-max space-x-4 p-4">
                                           {uploadedImage.map((img,index) => (
                                             <div key={index} className="shrink-0">
-                                              <DialogClose><button className="overflow-hidden rounded-md" onClick={()=>handleChoose2(img)}>
+                                              <DialogClose className="overflow-hidden rounded-md" onClick={()=>handleChoose2(img)}>
                                                     <img src={`${img}`} className="object-cover w-[160px] h-[160px]" alt={`Image ${index}`} />
-                                              </button>
+                                              
                                               </DialogClose>
                                             </div>
                                           ))}
@@ -457,10 +488,10 @@ const NewUpload = () => {
                                     <div className="">
 
                                     </div>
-                                <p className="font-[400] md:text-[20px] text-[14px] leading-[20px] md:mt-8 ml-2">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
+                                <p className="font-[400] md:text-[20px] text-[14px] leading-[20px] md:mt-8 ml-2 mt-[100px]">We value your privacy. Rest assured, we handle  your data with utmost care.</p>
 
-                                <DialogClose asChild>
-                                <Button variant="cus1" className="flex items-center mx-auto mt-6 md:w-[736px] w-[320px]">Save changes</Button>
+                                <DialogClose asChild className="text-[#fff] bg-[#16B6D4] h-[60px] my-auto rounded-3xl px-[20px] py-[15px] text-center font-[700] md:text-[14px] text-[10px] flex items-center mx-auto mt-6 md:w-[736px] w-[320px]">
+                                Save changes
                                 </DialogClose>                            
                             </DialogContent>
 
@@ -478,7 +509,7 @@ const NewUpload = () => {
                     </Button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 export default NewUpload
