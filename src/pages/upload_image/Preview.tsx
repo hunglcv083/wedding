@@ -42,7 +42,6 @@ const Preview = () => {
         }
         nProgress.done();
       };
-    
     return (
         <div className="md:w-[1440px] md:h-[1788px] w-[390px] bg-[#C2E9F0] md:py-[70px] py-4 mx-auto">
             <div className="md:w-[1120px] md:h-[1644px] w-[390px] bg-white rounded-3xl shadow-sm mx-auto">

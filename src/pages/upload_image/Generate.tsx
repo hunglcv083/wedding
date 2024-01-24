@@ -172,7 +172,7 @@ const Generate = () => {
                 <div className="md:ml-[160px] md:w-[1120px] w-[370px] md:mt-11 ml-[10px] md:block hidden">
                     <div className="grid grid-cols-2 gap-6">
                         <div className="">
-                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.sukien_2_image.link_da_swap)} src={data.sukien_2_image.link_da_swap} alt="aaa" />
+                            <img className="w-full h-full object-cover" onClick={()=>handleDownloadImage(data.sukien_2_image.link_da_swap)} src={data.link_anh_swap[0]} alt="aaa" />
                         </div>
                         <div className=" grid grid-cols-2 gap-6">
                             <div className="">

@@ -9,6 +9,7 @@ import nProgress from "nprogress";
 import HashLoader from "react-spinners/HashLoader"
 import { useToast } from "../../components/ui/use-toast";
 import { ToastAction } from "../../components/ui/toast";
+import ProgressPercentage from "../../components/ProgressPercentage";
 const NewUpload = () => {
     const {id} = useParams()
     const [original_Image_1, setOriginalImage1] = useState<File | null>(null);
@@ -161,11 +162,11 @@ const NewUpload = () => {
                    nProgress.set(0)
                    nProgress.inc()
                    nProgress.configure({ showSpinner: false })
-                   const response = await axios.get(`https://api.santacall.online/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
+                   const response = await axios.get(`http://14.231.223.63:6000/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
                         headers: {
                             'link1': src_res_1,
                             'link2': src_res_2,
-                            'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
+                            'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                         }
                     })
                     setIsLoading(false)
@@ -201,6 +202,7 @@ const NewUpload = () => {
                 <div className="absolute top-[50%] left-[50%] z-50 w-[30%] md:w-[20%] translate-x-[-50%] translate-y-[-50%] gap-4 border md:p-6 p-2 shadow-lg rounded-2xl items-center justify-center text-center bg-white opacity-100">
                      <div className="md:py-[30px]">
                      <HashLoader color="#16b6d4" className="mx-auto md:mb-11 mb-2"/>
+                     <ProgressPercentage/> <br />
                      <span className="md:text-xl text-[10px] font-bold text-[#409afa]">Please wait some minutes...</span>
                      </div>
                  </div>

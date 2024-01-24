@@ -22,7 +22,7 @@ const ListTemplate = () =>{
     }
     const [listTemp, setListTemp] = useState<listItemType[]|[]>([]);
     useEffect(()=>{
-        axios.get(`https://api.santacall.online/get/list_image_wedding/1?album=${id}`).then(res => {
+        axios.get(`https://metatechvn.store/get/list_image_wedding/1?album=${id}`).then(res => {
                 setListTemp(res.data.list_sukien_video);                
         })
 
