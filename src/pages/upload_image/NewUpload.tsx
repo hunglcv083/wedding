@@ -162,7 +162,7 @@ const NewUpload = () => {
                    nProgress.set(0)
                    nProgress.inc()
                    nProgress.configure({ showSpinner: false })
-                   const response = await axios.get(`http://14.231.223.63:6000/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
+                   const response = await axios.get(`https://api.santacall.online/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
                         headers: {
                             'link1': src_res_1,
                             'link2': src_res_2,
