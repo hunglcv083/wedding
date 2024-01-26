@@ -4,24 +4,12 @@ import { Link, useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 import { Dialog, DialogContent, DialogTrigger } from "../../components/ui/dialog"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel"
-import { Button } from "../../components/ui/button"
-type albumType = {
-  album: number;
-  list_sukien_video: itemAlbum[];
-}
-type itemAlbum = {
-  loai_sukien: string,
-  album: string,
-  link_src_goc: string,
-  link_tar_goc: string,
-  link_da_swap: string,
-  id_user:number
-}
+import { albumType } from "../../common/types/Album"
 const Profile = () =>{
     const {id} = useParams()
     const [user, setUser] = useState<any>({user_name:'',email:'',link_avatar:''})
     const [album, setAlbum] = useState<albumType[]>([])
-    const [isOpen, setIsOpen] = useState(true)
+    const [isOpen, setIsOpen] = useState(false)
     const [currentAlbum, setCurrentAlbum] = useState(1)
     useEffect(()=>{
     axios.get(`https://metatechvn.store/profile/${id}`)
