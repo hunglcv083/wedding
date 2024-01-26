@@ -115,7 +115,7 @@ const Preview = () => {
               </ScrollArea>
               
               </div>
-              <div className=" px-[40px]">
+              <div className=" px-[40px] md:hidden">
               <div className="grid grid-cols-2 mx-auto pb-11">
                       {albumData.map((img,index) => (
                           <div key={index} className="shrink-0 mt-4">
