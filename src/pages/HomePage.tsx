@@ -249,66 +249,66 @@ const HomePage = () => {
           <div className="bg-[#FFF] md:py-[95px] py-11">
           <h1 className="md:w-[1064px] w-[300px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Jump Start Your Creation with 50+ Wedding Photos Template</h1>
           <div className="md:grid grid-cols-3 gap-6 mx-[125px] mt-[50px] hidden">
-            <div className="">
-              <img src="img\gal1.png" alt="" />
+            <div className=" w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal1.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal2.png" alt="" />
+            <div className="w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal2.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal3.png" alt="" />
+            <div className="w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal3.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal4.png" alt="" />
+            <div className="w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal4.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal5.png" alt="" />
+            <div className="w-[355px]  h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal5.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal6.png" alt="" />
+            <div className="w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal6.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal7.png" alt="" />
+            <div className="w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal7.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal8.png" alt="" />
+            <div className="w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal8.png" className="w-full h-full object-cover" alt="" />
             </div>
-            <div className="">
-              <img src="img\gal9.png" alt="" />
+            <div className="w-[355px] h-[254px] rounded-xl overflow-hidden">
+              <img src="img\gal9.png" className="w-full h-full object-cover" alt="" />
             </div>
           </div>
           <div className="mx-[60px] mt-5 md:hidden block">
           <Carousel>
             <CarouselContent>
               <CarouselItem>
-                <div className="grid grid-cols-2 gap-8">
-                    <div className="">
-                    <img src="img\gal1.png" alt="" />
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal1.png" className="w-full h-full object-cover" alt="" />
                   </div>
-                  <div className="">
-                    <img src="img\gal2.png" alt="" />
+                  <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal2.png" className="w-full h-full object-cover" alt="" />
                   </div>
-                  <div className="">
-                    <img src="img\gal3.png" alt="" />
+                  <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal3.png" className="w-full h-full object-cover"  alt="" />
                   </div>
-                  <div className="">
-                    <img src="img\gal4.png" alt="" />
+                  <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal4.png" className="w-full h-full object-cover" alt="" />
                   </div>
                 </div>
               </CarouselItem>
               <CarouselItem>
-                <div className="grid grid-cols-2 gap-8">
-                    <div className="">
-                    <img src="img\gal5.png" alt="" />
+                <div className="grid grid-cols-2 gap-4  ">
+                    <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal5.png" className="w-full h-full object-cover" alt="" />
                   </div>
-                  <div className="">
-                    <img src="img\gal6.png" alt="" />
+                  <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal6.png" className="w-full h-full object-cover" alt="" />
                   </div>
-                  <div className="">
-                    <img src="img\gal7.png" alt="" />
+                  <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal7.png" className="w-full h-full object-cover" alt="" />
                   </div>
-                  <div className="">
-                    <img src="img\gal8.png" alt="" />
+                  <div className="w-[150px] h-[110px] rounded-lg overflow-hidden">
+                    <img src="img\gal8.png" className="w-full h-full object-cover" alt="" />
                   </div>
                 </div>
               </CarouselItem>
@@ -323,7 +323,9 @@ const HomePage = () => {
             <div className="md:grid grid-cols-2 md:px-[120px] mt-10 w-[352px] md:w-auto mx-auto">
               <div className="md:w-[544px] w-[352px] md:p-[32px] p-8 block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                 <h5 className="font-[700] text-[24px] leading-[30px] text-black text-center mx-auto">Traditional Wedding Photo</h5>
-                <img className="mt-[30px]" src="img\cd1.png" alt="" />
+                <div className="h-[354px]">
+                <img className="mt-[30px] h-full w-full object-contain" src="img\cd1.png" alt="" />
+                </div>
                 <div className="mt-[30px] text-left">
                   <li className="flex font-[500] text-[16px] leading-[19px] mt-2">
                     <svg className="mr-[15px]" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -352,8 +354,10 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="md:w-[544px] w-[352px] md:p-[32px] p-8 block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring mt-9 md:mt-0">
-                <h5 className="font-[700] text-[24px] leading-[30px] text-black text-center mx-auto">Traditional Wedding Photo</h5>
-                <img className="mt-[30px]" src="img\cd2.png" alt="" />
+                <h5 className="font-[700] text-[24px] leading-[30px] text-black text-center mx-auto">AI Wedding Photo</h5>
+                <div className="h-[354px]">
+                <img className="mt-[30px] h-full w-full object-contain" src="img\cd2.png" alt="" />
+                </div>
                 <div className="mt-[30px] text-left">
                   <li className="flex font-[500] text-[16px] leading-[19px] mt-1">
                   <svg width="28" className="mr-[15px]" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">

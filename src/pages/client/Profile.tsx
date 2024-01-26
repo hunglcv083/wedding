@@ -3,31 +3,84 @@ import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import axios from "axios"
 import { Dialog, DialogContent, DialogTrigger } from "../../components/ui/dialog"
-
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel"
+import { Button } from "../../components/ui/button"
+type albumType = {
+  album: number;
+  list_sukien_video: itemAlbum[];
+}
+type itemAlbum = {
+  loai_sukien: string,
+  album: string,
+  link_src_goc: string,
+  link_tar_goc: string,
+  link_da_swap: string,
+  id_user:number
+}
 const Profile = () =>{
-
     const {id} = useParams()
     const [user, setUser] = useState<any>({user_name:'',email:'',link_avatar:''})
-    const [uploadedImage, setUploadedImage] = useState<string[] | []>([]);
+    const [album, setAlbum] = useState<albumType[]>([])
+    const [isOpen, setIsOpen] = useState(true)
+    const [currentAlbum, setCurrentAlbum] = useState(1)
     useEffect(()=>{
     axios.get(`https://metatechvn.store/profile/${id}`)
         .then((res) => setUser(res.data))
-    axios.get(`https://metatechvn.store/images/${id}?type=video`).then(res => {
-                setUploadedImage(res.data.image_links_video);
-        })  
+    axios.get(`https://metatechvn.store/get/list_2_image/id_image_swap?id_user=${id}`)
+        .then(res=>setAlbum(res.data))  
       },[]) 
     const [checkUser, setCheckUser] = useState(false)
     useEffect(()=>{
       if(localStorage.getItem('user')) setCheckUser(true)
     },[])
-    
+    let albumData = []
+    for(let item of album){
+    albumData.push(item.list_sukien_video)
+    }
     const navi = useNavigate()
     const logOut = () =>{
        localStorage.clear();
        navi('/')
    }
+    const handleOpenAlbum = (albumIndex:number) => {
+      setCurrentAlbum(albumIndex)
+      setIsOpen(true)
+    }
     return(
         <>
+            {isOpen&&
+                (<div className="fixed inset-0 z-50 bg-black/50">
+                  <div className="cursor-pointer" onClick={()=>setIsOpen(false)}>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="white" className="w-10 h-10 float-right mr-[30px] mt-[30px]">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                  </div>
+                <div className="absolute top-[50%] left-[50%] z-50 w-[30%] md:w-[50%] translate-x-[-50%] translate-y-[-50%] gap-4 border md:p-6 p-2 shadow-lg rounded-2xl items-center justify-center text-center bg-white opacity-100">
+                    <Carousel>
+                     <div className="md:py-[30px]">
+                     
+                          <CarouselContent>
+                            {
+                              albumData&&albumData[currentAlbum]?.map((item:{link_da_swap:string},index:number)=>{
+                                return <>     
+                                  <CarouselItem key={index}>
+                                    <div className="group relative overflow-hidden flex items-center justify-center">
+                                  <div className="md:w-[1000px] md:h-[100vh] w-[150px] h-[225px]rounded-2xl overflow-hidden mx-auto my-auto">
+                                          <img src={item.link_da_swap} className="h-full w-full object-contain" alt="empty image"/>
+                                  </div>
+                                  </div>
+                                  </CarouselItem>
+                                </>
+                              })
+                            }
+                          </CarouselContent>                 
+                     </div>
+                     <CarouselPrevious/>
+                    <CarouselNext/>
+                     </Carousel>
+                 </div>
+                  </div>) 
+            }  
             <div className="bg-[#F2FDFF]">
             <header className="bg-white md:w-[1440px]">
               <div className="mx-auto">
@@ -158,12 +211,11 @@ const Profile = () =>{
                     <h1 className="font-[600] text-[40px] leading-[48px] ml-[10px] mb-[30px] mt-[10px]">Library</h1>
                         <div className="grid grid-cols-2 gap-4">
                         {
-                        uploadedImage.slice(0,20).map((image, index) => {
+                        albumData.map((image, index) => {
                             return (
-                                <div key={index} className="group relative overflow-hidden flex items-center justify-center">
-                                <div className="md:w-[300px] md:h-[300px] w-[150px] h-[150px] hover:opacity-70 rounded-2xl overflow-hidden">
-                                        <img src={image} className="h-full w-full object-cover" alt={`Image ${index}`} />
-                                           
+                                <div key={index} className="group relative overflow-hidden flex items-center justify-center " onClick={()=>handleOpenAlbum(index)}>
+                                <div className="md:w-[300px] md:h-[450px] w-[150px] h-[225px] hover:opacity-70 rounded-2xl overflow-hidden">
+                                        <img src={image[0].link_da_swap} className="h-full w-full object-cover" alt={`Image ${index}`}/>
                                 </div>
                                 </div>                            
                             )
