@@ -45,12 +45,7 @@ const NewUpload = () => {
 
             image.onload = () => {
                 setOriginalImage1(acceptedFiles[0]);
-                // if (image.width / image.height !== 1) {
-                //     //reject image file if not suit
-
-                // } else {
-                //     setOriginalImage1(acceptedFiles[0]);
-                // }
+                
             };
         };
         reader.readAsDataURL(acceptedFiles[0]);
@@ -65,12 +60,7 @@ const NewUpload = () => {
 
             image.onload = () => {
                 setOriginalImage2(acceptedFiles[0]);
-                // if (image.width / image.height !== 1) {
-                //     //reject image file if not suit
-
-                // } else {
-                //     setOriginalImage2(acceptedFiles[0]);
-                // }
+                
             };
         };
         reader.readAsDataURL(acceptedFiles[0]);
@@ -162,17 +152,18 @@ const NewUpload = () => {
                    nProgress.set(0)
                    nProgress.inc()
                    nProgress.configure({ showSpinner: false })
-                   const response = await axios.get(`https://api.santacall.online/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
+                   const response = await axios.get(`https://thinkdiff.us/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
                         headers: {
                             'link1': src_res_1,
                             'link2': src_res_2,
                             'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                         }
+                        
                     })
                     setIsLoading(false)
                     nProgress.set(1)
                     nProgress.done()
-                    const data = response.data
+                    const data = response.data                                                         
                     navi("/generate",{state:{data,src_res_1,src_res_2}})
                 }
                 catch (error) {
@@ -202,7 +193,7 @@ const NewUpload = () => {
                 <div className="absolute top-[50%] left-[50%] z-50 w-[30%] md:w-[20%] translate-x-[-50%] translate-y-[-50%] gap-4 border md:p-6 p-2 shadow-lg rounded-2xl items-center justify-center text-center bg-white opacity-100">
                      <div className="md:py-[30px]">
                      <HashLoader color="#16b6d4" className="mx-auto md:mb-11 mb-2"/>
-                     <ProgressPercentage/> <br />
+                     <ProgressPercentage/> <br/>
                      <span className="md:text-xl text-[10px] font-bold text-[#409afa]">Please wait some minutes...</span>
                      </div>
                  </div>
@@ -343,14 +334,14 @@ const NewUpload = () => {
                             {/* onclick will trigger open upload file*/}
                             <Dialog>
                                 <DialogTrigger className="flex items-center w-[140px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl md:px-[15px] px-[10px] md:py-[10px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
-                                    Upload your face
+                                    Upload man's face
                                     <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </DialogTrigger>
                                 <DialogContent className="md:w-[818px] w-[360px] h-[70%] md:h-[100%] overflow-scroll md:overflow-auto">
-                                <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload your face</h3>
+                                <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload man's face</h3>
                                 <div className="flex items-center mt-8">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="6" cy="6" r="6" fill="#D9D9D9"/>
@@ -440,14 +431,14 @@ const NewUpload = () => {
                             {/* onclick will trigger open upload file*/}
                             <Dialog>
                                 <DialogTrigger className="flex items-center w-[140px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl md:px-[15px] px-[10px] md:py-[10px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
-                                    Upload your face
+                                    Upload woman's face
                                     <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </DialogTrigger>
                                 <DialogContent className="md:w-[818px] w-[360px] overflow-scroll h-[70%] md:h-[100%] md:overflow-auto">
-                                <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload your face</h3>
+                                <h3 className="font-[700] text-[24px] leading-[20px] mt-[20px] text-center">Upload woman's face</h3>
                                 <div className="flex items-center mt-8">
                                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="6" cy="6" r="6" fill="#D9D9D9"/>

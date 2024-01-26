@@ -133,12 +133,12 @@ const HomePage = () => {
               
           </div>
           <div className="bg-[#FFF] md:w-[1440px] md:mx-auto md:mb-[100px] mt-5 md:mt-0 mx-auto justify-center">
-              <h1 className="md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center md:mt-[100px] md:mb-[50px] text-[24px] font-extrabold">How to Swap a Face Online</h1>
-              <div className="md:grid md:grid-cols-2 md:px-[100px] md:gap-8 mt-10">
+              <h1 className="md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center md:mt-[100px] md:mb-[50px] text-[24px] font-extrabold mx-auto justify-center">How to Swap a Face Online</h1>
+              <div className="md:grid md:grid-cols-2 md:px-[100px] md:gap-8 mt-10 mx-auto">
               <div className="">
-              <ul className=" space-y-2 ulhome md:block hidden">
+              <ul className=" space-y-2 ulhome md:block hidden mx-auto">
                 <li className="">
-                  <div className="rounded-xl my-auto hover:shadow-xl  w-[550px] h-[170px] cards">
+                  <div className="rounded-xl my-auto hover:shadow-xl  w-[550px] h-[170px] cards mx-auto">
                     <div className="flex gap-[16px] pt-6 pl-6 group">
                     <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">1</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
@@ -149,7 +149,7 @@ const HomePage = () => {
                   </div>
                 </li>
                 <li className="">
-                  <div className="rounded-xl hover:shadow-xl w-[550px] h-[170px] cards card1">
+                  <div className="rounded-xl hover:shadow-xl w-[550px] h-[170px] cards card1 mx-auto">
                     <div className="flex gap-[16px] pt-6 pl-6 group">
                     <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">2</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
@@ -160,7 +160,7 @@ const HomePage = () => {
                   </div>
                 </li>
                 <li className=" ">
-                  <div className="rounded-xl my-auto hover:shadow-xl w-[550px] h-[170px] cards card1">
+                  <div className="rounded-xl my-auto hover:shadow-xl w-[550px] h-[170px] cards card1 mx-auto">
                     <div className="flex gap-[16px] pt-6 pl-6 group">
                     <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">3</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
@@ -172,15 +172,15 @@ const HomePage = () => {
                 </li>
               </ul>
               </div>
-                <div className="px-5 md:px-0">
-                  <img src="img\swap-online.png" alt="" />
+                <div className="px-5 md:px-0 md:w-[448px] md:h-[528px] w-[300px] h-[300px]  rounded-3xl overflow-hidden mx-auto">
+                  <img src="img\cd9.jpg" className="w-full h-full object-cover" alt="" />
                 </div>
               </div>
-              <Carousel className="block md:hidden ml-5 pb-3">
+              <Carousel className="block md:hidden ml-5 pb-3 mx-auto">
               <CarouselContent>
-                  <CarouselItem >
-                    <li>
-                    <div className="rounded-xl my-auto hover:shadow-xl  md:w-[550px] h-[170px] w-[390px] cards">
+                  <CarouselItem className="">
+                    <li className="">
+                    <div className="rounded-xl my-auto hover:shadow-xl  md:w-[550px] h-[170px] w-[390px] cards mx-auto">
                       <div className="flex gap-[16px] pt-3 pl-6 group">
                       <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">1</strong>
                       <div className="mt-[10px] text-xs font-medium text-gray-300">
@@ -193,7 +193,7 @@ const HomePage = () => {
                   </CarouselItem>
                   <CarouselItem >
                   <li className="">
-                  <div className="rounded-xl hover:shadow-xl md:w-[550px] h-[170px] w-[390px] cards card1">
+                  <div className="rounded-xl hover:shadow-xl md:w-[550px] h-[170px] w-[390px] cards card1 mx-auto">
                     <div className="flex gap-[16px] pt-3 pl-6 group">
                     <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">2</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
@@ -206,7 +206,7 @@ const HomePage = () => {
                   </CarouselItem>
                   <CarouselItem >
                   <li className=" ">
-                  <div className="rounded-xl my-auto hover:shadow-xl md:w-[550px] w-[390px] h-[170px] cards card1">
+                  <div className="rounded-xl my-auto hover:shadow-xl md:w-[550px] w-[390px] h-[170px] cards card1 mx-auto">
                     <div className="flex gap-[16px] pt-3 pl-6 group">
                     <strong className="font-black text-black text-[60px] group-hover:text-[#33C5E9]">3</strong>
                     <div className="mt-[10px] text-xs font-medium text-gray-300">
@@ -231,14 +231,14 @@ const HomePage = () => {
                 </div>
               </div>
               <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring mt-7 md:mt-0">
-                <img src="img\easy-to-use 2.png" alt="" />
+                <img src="img\light.png" alt="" />
                 <div className="mt-[10px] text-left">
                   <h5 className="font-[700] text-[24px]">Privacy Protection</h5>
                   <p className="mt-[10px] font-[500] text-[16px] leading-[19px]">We promise that all your uploaded images and other data will be protected well. No one will see these things except yourself. We make sure the face swapping procedure is highly private.</p>
                 </div>
               </div>
               <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring mt-7 md:mt-0">
-                <img src="img\easy-to-use 2.png" alt="" />
+                <img src="img\lights.png" alt="" />
                 <div className="mt-[10px] text-left">
                   <h5 className="font-[700] text-[24px]">One-sec Face Swap</h5>
                   <p className="mt-[10px] font-[500] text-[16px] leading-[19px]">This online AI face swap app can switch to the faces of anyone online. No installation, no ads, and no watermarks! Create your face magic in fantastic style and without too much effort!</p>
