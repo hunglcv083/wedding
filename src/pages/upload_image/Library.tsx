@@ -1,22 +1,22 @@
-import { Link, useLocation } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { Button } from "../../components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel"
-import JSZip from "jszip";
-import { saveAs } from "file-saver";
-import nProgress from "nprogress";
+// import JSZip from "jszip";
+// import { saveAs } from "file-saver";
+// import nProgress from "nprogress";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { albumType } from "../../common/types/Album";
 import { ScrollBar, ScrollArea } from "../../components/ui/scroll-area";
-const zip = new JSZip
+// const zip = new JSZip
 const Preview = () => {
-    const locate = useLocation()
-    const { data } = locate.state || {}
+    // const locate = useLocation()
+    // const { data } = locate.state || {}
     const [album, setAlbum] = useState<albumType[]>([])
     const [currentAlbum, setCurrentAlbum] = useState(0)
-    const {id_user} = JSON.parse(localStorage.getItem("user")||"")
+    const {id} = useParams()
     useEffect(()=>{
-      axios.get(`https://metatechvn.store/get/list_2_image/id_image_swap?id_user=${id_user}`)
+      axios.get(`https://metatechvn.store/get/list_2_image/id_image_swap?id_user=${id}`)
           .then(res=>setAlbum(res.data))
           .then(()=>setCurrentAlbum(album.length))
         },[]) 
@@ -24,44 +24,44 @@ const Preview = () => {
     for(let item of album){
     albumData.push(item.list_sukien_video)
     }
-    const handleDownloadImage = async (img:string) => {
-        try {
-          const fileName = img.split("/").pop()
-          await saveAs(img, fileName);
-        } catch (error) {
-          console.log(error);
-        }
-      };
-      const handleDownloadAllImages = async () => {
-        nProgress.start();
-        try {
-          if (data.link_anh_swap.length < 1)
-            throw new Error("No swapped image found");
+    // const handleDownloadImage = async (img:string) => {
+    //     try {
+    //       const fileName = img.split("/").pop()
+    //       await saveAs(img, fileName);
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //   };
+    //   const handleDownloadAllImages = async () => {
+    //     nProgress.start();
+    //     try {
+    //       if (data.link_anh_swap.length < 1)
+    //         throw new Error("No swapped image found");
     
-          let count = 0;
-          let zipFileName = "images.zip";
-          for (const img of data.link_anh_swap) {
-            const fileName = img.split("/").pop();
-            const fileBuffer = axios.get(img,{ responseType: 'arraybuffer' }).then((res)=>{return res.data})
-            zip.file(fileName, fileBuffer, { binary: true });
-            count++;
-            if (count === data.link_anh_swap.length) {
-              zip.generateAsync({ type: "blob" }).then((content) => {
-                saveAs(content, zipFileName);
-              });
-            }
-          }
-        } catch (error) {
-          console.log(error);
-        }
-        nProgress.done();
-      };
+    //       let count = 0;
+    //       let zipFileName = "images.zip";
+    //       for (const img of data.link_anh_swap) {
+    //         const fileName = img.split("/").pop();
+    //         const fileBuffer = axios.get(img,{ responseType: 'arraybuffer' }).then((res)=>{return res.data})
+    //         zip.file(fileName, fileBuffer, { binary: true });
+    //         count++;
+    //         if (count === data.link_anh_swap.length) {
+    //           zip.generateAsync({ type: "blob" }).then((content) => {
+    //             saveAs(content, zipFileName);
+    //           });
+    //         }
+    //       }
+    //     } catch (error) {
+    //       console.log(error);
+    //     }
+    //     nProgress.done();
+    //   };
     return (
         <div className="md:w-[1440px] md:h-[1800px] w-[390px] bg-[#C2E9F0] md:py-[70px] py-4 mx-auto">
             <div className="md:w-[1120px] md:h-[1700px] w-[390px] bg-white rounded-3xl shadow-sm mx-auto">
               <Carousel className="w-full py-11">
                             <div className="flex md:ml-14 mb-8">
-                            <Button onClick={()=>handleDownloadAllImages()} variant={"cus3"} className="w-[150px] h-[50px] ml-5 md:ml-0">
+                            <Button variant={"cus3"} className="w-[150px] h-[50px] ml-5 md:ml-0">
                                 Download
                                 <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
@@ -78,14 +78,7 @@ const Preview = () => {
                             </div>
                             
                 <CarouselContent className="md:ml-11 mx-auto items-center md:mt-[50px]">
-                    {(currentAlbum==(album.length))?Array.from({ length: 50 }).map((_, index) => (
-                    <CarouselItem key={index} className="mx-auto">
-                        <div className="md:w-[692px] md:h-[1000px] w-[320px] h-[400px] rounded-xl overflow-hidden ml-4 md:ml-[150px]">
-                        <img className="w-full h-full object-cover " onClick={()=>handleDownloadImage(data.link_anh_swap[index])} src={data.link_anh_swap[index]} alt="a" />
-                        </div>
-                    </CarouselItem>
-                    ))
-                    :
+                    {
                     albumData&&albumData[currentAlbum]?.map((item:{link_da_swap:string},index:number)=>{
                       return <>     
                         <CarouselItem key={index} className="mx-auto">

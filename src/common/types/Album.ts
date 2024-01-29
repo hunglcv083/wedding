@@ -10,3 +10,15 @@ export interface itemAlbum {
     link_da_swap: string,
     id_user:number
   }
+export interface listItemType {
+    album: number;
+    list_sukien_video: itemType[];
+  }
+export interface itemType {
+    loai_sukien: string,
+    id_saved?: string,
+    link_da_swap: string,
+    id_user: number,
+    album: string,
+    thoigian_sukien: string
+  }

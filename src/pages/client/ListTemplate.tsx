@@ -46,6 +46,14 @@ const ListTemplate = () =>{
                   <div className="md:flex md:items-center md:gap-12">
                     <nav aria-label="Global" className="hidden md:block">
                       <ul className="flex items-center gap-6 text-sm">
+                        {
+                          (checkUser)&&<li>
+                                        <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to={`/profile/${user.id_user}`}> My Profile </Link>
+                                      </li>
+                        }
+                        <li>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
+                        </li>
                         <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
                         </li>
@@ -61,9 +69,14 @@ const ListTemplate = () =>{
                             {
                               user.link_avatar.includes("https://futurelove.online")
                               ?
-                              <img className="h-full w-full" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                               :
-                              <img className="h-full w-full" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              (
+                                user.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
+                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              :
+                              <img className="h-full w-full object-cover" src={`${user.link_avatar}`} alt="" />
+                              )
                             }
                           </div>
                         </Link>                        
@@ -107,12 +120,26 @@ const ListTemplate = () =>{
                               <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 Service
                               </Link>
+
                             </li> 
                             <li className="mt-3">
                               <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 About Us
                               </Link>
                             </li>
+                            <li className="mt-3">
+                              <Link to={`/timeline`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Timeline
+                              </Link>
+                            </li>
+                            {
+                              checkUser&&
+                              <li className="mt-3">
+                              <Link to={`/profile/${user.id_user}`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                My profile
+                              </Link>
+                              </li>
+                            }
                             {
                                 checkUser? <li>
                                 <span onClick={()=>{confirm('Are you fucking sure?')&&logOut()}} className="flex cursor-pointer items-center p-2 mt-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
@@ -130,7 +157,7 @@ const ListTemplate = () =>{
                   </div>
                 </div>
               </div>
-            </header>
+          </header>
             <div className="pb-[70px] pt-[40px]">
                 <Link to={'/'} className="">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#808080" className="w-10 h-10 float-right mr-[40px] mt-[-10px]">

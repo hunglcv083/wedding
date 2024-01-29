@@ -11,4 +11,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <App />
       <Toaster/>
     </BrowserRouter>
+    
 )

@@ -30,15 +30,24 @@ const Generate = () => {
     return(
         <>
             <div className="bg-[#F2FDFF]">
-            <header className="bg-white md:w-[1440px] mx-auto w-[390px]">
+            <header className="bg-white md:w-[1440px]">
               <div className="mx-auto">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex-1 md:flex md:items-center md:gap-12">
                     <img src="img\logo.png" alt="" />
                   </div>
+  
                   <div className="md:flex md:items-center md:gap-12">
                     <nav aria-label="Global" className="hidden md:block">
                       <ul className="flex items-center gap-6 text-sm">
+                        {
+                          (checkUser)&&<li>
+                                        <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to={`/profile/${user.id_user}`}> My Profile </Link>
+                                      </li>
+                        }
+                        <li>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
+                        </li>
                         <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
                         </li>
@@ -54,9 +63,14 @@ const Generate = () => {
                             {
                               user.link_avatar.includes("https://futurelove.online")
                               ?
-                              <img className="h-full w-full" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                               :
-                              <img className="h-full w-full" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              (
+                                user.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
+                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              :
+                              <img className="h-full w-full object-cover" src={`${user.link_avatar}`} alt="" />
+                              )
                             }
                           </div>
                         </Link>                        
@@ -100,12 +114,26 @@ const Generate = () => {
                               <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 Service
                               </Link>
+
                             </li> 
                             <li className="mt-3">
                               <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 About Us
                               </Link>
                             </li>
+                            <li className="mt-3">
+                              <Link to={`/timeline`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Timeline
+                              </Link>
+                            </li>
+                            {
+                              checkUser&&
+                              <li className="mt-3">
+                              <Link to={`/profile/${user.id_user}`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                My profile
+                              </Link>
+                              </li>
+                            }
                             {
                                 checkUser? <li>
                                 <span onClick={()=>{confirm('Are you fucking sure?')&&logOut()}} className="flex cursor-pointer items-center p-2 mt-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
@@ -123,7 +151,7 @@ const Generate = () => {
                   </div>
                 </div>
               </div>
-            </header>
+          </header>
             <div className="md:pb-[70px] md:pt-[60px] pt-[30px] pb-[30px] md:w-[1440px] w-[390px]">
                 <div className="flex md:h-[256px] md:ml-[160px] gap-6 ml-[33px] ">
                     <div className="rounded-[20px] overflow-hidden md:w-[256px] w-[150px] md:mr-[50px]">
@@ -145,7 +173,7 @@ const Generate = () => {
                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                         </Button> <br />
-                        <Button onClick={()=>navi(`/preview`, {state:{data}})} variant={"cus3"} className="w-[240px] h-[50px] mt-6">
+                        <Button onClick={()=>navi(`/library/${user.id_user}`)} variant={"cus3"} className="w-[240px] h-[50px] mt-6">
                             <span className="text-left">Go to your collection</span>
                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
@@ -162,7 +190,7 @@ const Generate = () => {
                             <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
                             </svg>
                   </Button>
-                  <Button onClick={()=>navi(`/preview`, {state:{data}})} variant={"cus3"} className="w-[330px] h-[50px] md:hidden my-4 ml-[30px]">
+                  <Button onClick={()=>navi(`/library/${user.id_user}`, {state:{data}})} variant={"cus3"} className="w-[330px] h-[50px] md:hidden my-4 ml-[30px]">
                             Go to your collection
                             <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>

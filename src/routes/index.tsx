@@ -6,15 +6,17 @@ import EditProfile from "../pages/auth/EditProfile"
 import Editor from "../features/_profiles/Editor"
 import Account from "../features/_profiles/Account"
 import NewUpload from "../pages/upload_image/NewUpload"
-import FaceUpload from "../pages/upload_image/FaceUpload"
 import Generate from "../pages/upload_image/Generate"
-import Preview from "../pages/upload_image/Preview"
+import Preview from "../pages/upload_image/Library"
 import ForgotPassword from "../pages/auth/ForgotPassword"
 import PrivateRoute from "../components/PrivateRouter"
 import Profile from "../pages/client/Profile"
 import ListTemplate from "../pages/client/ListTemplate"
 import PrivateUser from "../components/PrivateUser"
 import ListCategory from "../pages/client/ListCategories"
+import Timeline from "../pages/client/Timeline"
+import Event from "../features/_timeline/Event"
+import LineCard from "../features/_timeline/LineCard"
 
 const Routers = () => {
     // const [, setPrivateId] = useState('')
@@ -31,13 +33,16 @@ const Routers = () => {
                     <Route path='account/:id' element={<PrivateRoute ><Account/></PrivateRoute>}/>
                 </Route>
                 <Route path="upload/:id" element={<PrivateRoute ><NewUpload/></PrivateRoute>} />
-                <Route path="faceupload" element={<PrivateRoute ><FaceUpload/></PrivateRoute>} />
                 <Route path="generate" element={<PrivateRoute ><Generate/></PrivateRoute>} />
-                <Route path="preview" element={<PrivateRoute ><Preview/></PrivateRoute>} />
+                <Route path="library/:id" element={<Preview/>} />
                 <Route path="forgotpassword" element={<ForgotPassword/>}/>
                 <Route path="profile/:id" element={<Profile/>}/>
                 <Route path="listtemplate/:id" element={<ListTemplate/>}/>
                 <Route path="listcategories" element={<ListCategory/>}/>
+                <Route path="timeline" element={<Timeline/>}>
+                    <Route path='' element={<LineCard/>}/>
+                    <Route path='event/:id' element={<Event/>}/>
+                </Route>
             </Routes>
         </>
     )
