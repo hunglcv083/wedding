@@ -8,6 +8,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { albumType } from "../../common/types/Album";
 import { ScrollBar, ScrollArea } from "../../components/ui/scroll-area";
+import clipboardCopy from 'clipboard-copy'
+import { useToast } from "../../components/ui/use-toast";
 // const zip = new JSZip
 const Preview = () => {
     // const locate = useLocation()
@@ -23,6 +25,14 @@ const Preview = () => {
     let albumData = []
     for(let item of album){
     albumData.push(item.list_sukien_video)
+    }
+    const {toast} = useToast()
+    const handleSaveLink = () => {
+        clipboardCopy(window.location.href)
+        toast({
+          variant: "default",
+          description: `Library's link has been saved to clipboard!`
+        })
     }
     // const handleDownloadImage = async (img:string) => {
     //     try {
@@ -63,10 +73,10 @@ const Preview = () => {
                             <div className="flex md:ml-14 mb-8">
                             <Button variant={"cus3"} className="w-[150px] h-[50px] ml-5 md:ml-0">
                                 Download
-                                <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
-                                <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
+                                
+                            </Button>
+                            <Button variant={"cus1"} onClick={()=>handleSaveLink()} className="w-[150px] h-[50px] ml-5 md:ml-5">
+                                Share Library
                             </Button>
                             <Link to={`/listcategories`}><Button variant={"cus3"} className="md:w-[295px] h-[50px] ml-4 md:flex">
                                 Create New Album

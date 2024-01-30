@@ -19,7 +19,7 @@ const Profile = () =>{
         .then(res=>setAlbum(res.data))  
       },[]) 
     const [checkUser, setCheckUser] = useState(false)
-    const [currentUser, setCurrentUser] = useState({id_user:''})
+    const [currentUser, setCurrentUser] = useState({id_user:'',link_avatar:''})
     useEffect(()=>{
       if(localStorage.getItem('user')) {
         setCheckUser(true)
@@ -102,18 +102,18 @@ const Profile = () =>{
                         {
                         checkUser 
                         ?
-                        <li><Link to={`/profile/edit/${user?.id_user}`}>
+                        <li><Link to={`/profile/edit/${currentUser?.id_user}`}>
                           <div className="w-[40px] h-[40px] rounded-[60px] overflow-hidden">
                             {
-                              user.link_avatar.includes("https://futurelove.online")
+                              currentUser.link_avatar.includes("https://futurelove.online")
                               ?
-                              <img className="h-full w-full object-cover" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`${currentUser.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                               :
                               (
-                                user.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
-                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                                currentUser.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
+                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${currentUser.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                               :
-                              <img className="h-full w-full object-cover" src={`${user.link_avatar}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`${currentUser.link_avatar}`} alt="" />
                               )
                             }
                           </div>
