@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { Button } from "../../components/ui/button"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel"
 // import JSZip from "jszip";
@@ -33,6 +33,11 @@ const Preview = () => {
           variant: "default",
           description: `Library's link has been saved to clipboard!`
         })
+    }
+    const navi = useNavigate()
+    const handleNavi = () => {
+      navi('/timeline')
+      window.location.reload()
     }
     // const handleDownloadImage = async (img:string) => {
     //     try {
@@ -71,8 +76,8 @@ const Preview = () => {
             <div className="md:w-[1120px] md:h-[1700px] w-[390px] bg-white rounded-3xl shadow-sm mx-auto">
               <Carousel className="w-full py-11">
                             <div className="flex md:ml-14 mb-8">
-                            <Button variant={"cus3"} className="w-[150px] h-[50px] ml-5 md:ml-0">
-                                Download
+                            <Button onClick={()=>handleNavi()} variant={"cus3"}  className="w-[150px] h-[50px] ml-5 md:ml-0">
+                                Check Timeline
                                 
                             </Button>
                             <Button variant={"cus1"} onClick={()=>handleSaveLink()} className="w-[150px] h-[50px] ml-5 md:ml-5">

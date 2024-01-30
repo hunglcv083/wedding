@@ -11,7 +11,6 @@ function App() {
     axios.get(`https://metatechvn.store/get/list_image/all_wedding_time`)
     .then(res=>setData(res.data))
   },[])
-
   return (
     <>
             <MyContext.Provider value={data}>

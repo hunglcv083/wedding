@@ -14,11 +14,15 @@ const Event = () =>{
     let id_user = 0
     let id_album = ''
     let time = ''
-    const album = data.find(item=>String(item.album)==id)
+    let img_nam = ''
+    let img_nu = ''
+    const album = data.find(item=>String(item.list_sukien_image[0].id_sk_swap_album)==id)
     if(album){
-    listTemp = album.list_sukien_video
+    listTemp = album.list_sukien_image
     id_user = listTemp[0].id_user
     time = listTemp[0].thoigian_sukien
+    img_nam = listTemp[0].link_src_goc.replace('/var/www/build_futurelove','https://futurelove.online/')
+    img_nu = listTemp[0].link_tar_goc.replace('/var/www/build_futurelove','https://futurelove.online/')
     id_album = listTemp[0].album.replace('weddingface','')
     }
     const fetchUser = () =>{
@@ -30,7 +34,7 @@ const Event = () =>{
     },[id_user])
     return(
         <>
-                <div className="">
+                <div className="mx-auto">       
                     <h2 className="font-bold text-xl mb-3">Author</h2>
                     <div className="flex mb-7">
                     <div className="w-[80px] h-[80px]">
@@ -52,6 +56,18 @@ const Event = () =>{
                      <span className="italic text-[10px]">{time}</span>
                     </div>
                     </div>
+                    <div className="h-[350px] flex justify-between items-center px-[100px]">
+ 
+                    <div className="h-[250px] w-[250px] overflow-hidden ">
+                        <img src={img_nam} className="h-[250px] w-[250px] border-8 border-[#33C5E9] object-cover rounded-full" alt="111" />
+                    </div>
+                    <div className="w-[100px] h-[100px]">
+                        <img src="../../../heart.png" className="object-cover" alt="" />
+                    </div>
+                    <div className="h-[250px] w-[250px] overflow-hidden ">
+                        <img src={img_nu} className="h-[250px] w-[250px] border-8 border-[#ed839e] object-cover rounded-full" alt="111" />
+                    </div>
+                     </div>              
                     <div className="hidden md:block">
                     <div className="grid grid-cols-2 gap-2">
                         {
@@ -62,7 +78,7 @@ const Event = () =>{
                                 <div className="w-[450px] h-[630px] ">
                                 <div className="">
                                         <img src={src_img} className=" absolute group-hover:opacity-50 h-full object-cover w-full" alt={`Image ${index}`} key={index} />
-                                        
+             
                                 </div> 
                                 </div>
                                 <div className="absolute">

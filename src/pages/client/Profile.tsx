@@ -240,10 +240,17 @@ const Profile = () =>{
                         {
                         albumData.map((image, index) => {
                             return (
-                                <div key={index} className="group relative overflow-hidden flex items-center justify-center " onClick={()=>handleOpenAlbum(index)}>
+                                <div key={index} className="group relative overflow-hidden flex items-center justify-center " >
                                 <div className="md:w-[300px] md:h-[450px] w-[150px] h-[225px] hover:opacity-70 rounded-2xl overflow-hidden">
                                         <img src={image[0].link_da_swap} className="h-full w-full object-cover" alt={`Image ${index}`}/>
                                 </div>
+                                <div className="absolute">
+                                        <Link to={`/timeline/event/${image[0].id_sk_album}`}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
+                                                group-hover:translate-y-0 w-[160px] rounded-3xl">View Event's Detail</Button></Link> <br />
+                                          <Button variant={"outline"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 w-[160px] mt-3 rounded-3xl" onClick={()=>handleOpenAlbum(index)}>View Album</Button>
+                                        
+                                                
+                                        </div>
                                 </div>                            
                             )
                         })
