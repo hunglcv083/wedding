@@ -45,6 +45,9 @@ const EditProfile = () =>{
                           <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
                         </li>
                         <li>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/funnyvideo"> Funny Video </Link>
+                        </li>
+                        <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
                         </li>
   
@@ -120,6 +123,11 @@ const EditProfile = () =>{
                             <li className="mt-3">
                               <Link to={`/timeline`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 Timeline
+                              </Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link to={`/funnyvideo`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Funny Video
                               </Link>
                             </li>
                             {

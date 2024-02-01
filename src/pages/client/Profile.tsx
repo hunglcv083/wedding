@@ -110,6 +110,9 @@ const Profile = () =>{
                           <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
                         </li>
                         <li>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/funnyvideo"> Funny Video </Link>
+                        </li>
+                        <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
                         </li>
   
@@ -119,18 +122,18 @@ const Profile = () =>{
                         {
                         checkUser 
                         ?
-                        <li><Link to={`/profile/edit/${currentUser?.id_user}`}>
+                        <li><Link to={`/profile/edit/${user?.id_user}`}>
                           <div className="w-[40px] h-[40px] rounded-[60px] overflow-hidden">
                             {
-                              currentUser.link_avatar.includes("https://futurelove.online")
+                              user.link_avatar.includes("https://futurelove.online")
                               ?
-                              <img className="h-full w-full object-cover" src={`${currentUser.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                               :
                               (
-                                currentUser.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
-                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${currentUser.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                                user.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
+                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                               :
-                              <img className="h-full w-full object-cover" src={`${currentUser.link_avatar}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`${user.link_avatar}`} alt="" />
                               )
                             }
                           </div>
@@ -185,6 +188,11 @@ const Profile = () =>{
                             <li className="mt-3">
                               <Link to={`/timeline`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 Timeline
+                              </Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link to={`/funnyvideo`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Funny Video
                               </Link>
                             </li>
                             {

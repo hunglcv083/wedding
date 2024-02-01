@@ -50,6 +50,9 @@ const ListCategory = () =>{
                           <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
                         </li>
                         <li>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/funnyvideo"> Funny Video </Link>
+                        </li>
+                        <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
                         </li>
   
@@ -127,6 +130,11 @@ const ListCategory = () =>{
                                 Timeline
                               </Link>
                             </li>
+                            <li className="mt-3">
+                              <Link to={`/funnyvideo`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Funny Video
+                              </Link>
+                            </li>
                             {
                               checkUser&&
                               <li className="mt-3">
@@ -152,7 +160,7 @@ const ListCategory = () =>{
                   </div>
                 </div>
               </div>
-            </header>
+          </header>
             <div className="pb-[70px] pt-[40px]">
                 <Link to={'/'} className="">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="#808080" className="w-10 h-10 float-right mr-[40px]">

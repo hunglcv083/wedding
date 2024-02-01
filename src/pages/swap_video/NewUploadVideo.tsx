@@ -161,6 +161,9 @@ const NewUploadVideo = () => {
                           <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
                         </li>
                         <li>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/funnyvideo"> Funny Video </Link>
+                        </li>
+                        <li>
                           <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
                         </li>
   
@@ -238,6 +241,11 @@ const NewUploadVideo = () => {
                                 Timeline
                               </Link>
                             </li>
+                            <li className="mt-3">
+                              <Link to={`/funnyvideo`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Funny Video
+                              </Link>
+                            </li>
                             {
                               checkUser&&
                               <li className="mt-3">
@@ -272,7 +280,7 @@ const NewUploadVideo = () => {
                             <div className="flex gap-3 ml-2 md:ml-0">
                                 <div
                                     {...get_Uploader_1_RootProps()}
-                                    className="md:w-[256px] md:h-[256px] w-[116px] h-[116px] flex text-center items-center justify-center rounded-xl border md:bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
+                                    className="md:w-[256px] md:h-[256px] w-[116px] h-[116px] flex ml-[220px] text-center items-center justify-center rounded-xl border md:bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring"
                                 >
                                     <input
                                         {...get_Uploader_1_InputProps()}
@@ -303,8 +311,8 @@ const NewUploadVideo = () => {
                             </div>
                             {/* onclick will trigger open upload file*/}
                             <Dialog>
-                                <DialogTrigger className="flex items-center w-[140px] md:w-[256px] mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl md:px-[15px] px-[10px] md:py-[10px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center">
-                                    Upload man's face
+                                <DialogTrigger className="flex items-center mt-6 text-[#fff] bg-[#16B6D4] my-auto rounded-3xl md:px-[15px] px-[10px] md:py-[10px] py-[10px] text-center font-[700] md:text-[14px] text-[10px] justify-center md:w-[725px] w-[330px]">
+                                    Upload your face
                                     <svg width="21" className="ml-2" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M10.8118 2.29015L18.5216 10L10.8118 17.7099" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />
                                         <path d="M18.5213 10.0001L2.11914 10.0001" stroke="white" strokeWidth="3.08394" strokeLinecap="round" strokeLinejoin="round" />

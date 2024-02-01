@@ -118,6 +118,11 @@ const HomePage = () => {
                                 Timeline
                               </Link>
                             </li>
+                            <li className="mt-3">
+                              <Link to={`/funnyvideo`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Funny Video
+                              </Link>
+                            </li>
                             {
                               checkUser&&
                               <li className="mt-3">

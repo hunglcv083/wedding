@@ -47,7 +47,7 @@ const Routers = () => {
                     <Route path='event/:id' element={<Event/>}/>
                 </Route>
                 <Route path="funnyvideo" element={<FunnyVideo/>}></Route>
-                <Route path="uploadvideo/:id" element={<NewUploadVideo/>}/>
+                <Route path="uploadvideo/:id" element={<PrivateRoute ><NewUploadVideo/></PrivateRoute>}/>
                 <Route path="listvideotemplate" element={<ListVideoTemplate/>} />
                 <Route path="funnyvideo/detail/:id_user/:id_sukien" element={<EventVideo/>} />
             </Routes>
