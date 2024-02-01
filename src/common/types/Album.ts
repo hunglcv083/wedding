@@ -1,6 +1,6 @@
 export interface albumType {
     album: number;
-    list_sukien_video: itemAlbum[];
+    list_sukien_image: itemAlbum[];
   }
 export interface itemAlbum {
     loai_sukien: string,

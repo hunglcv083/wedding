@@ -24,7 +24,7 @@ const Preview = () => {
         },[]) 
     let albumData = []
     for(let item of album){
-    albumData.push(item.list_sukien_video)
+    albumData.push(item.list_sukien_image)
     }
     const {toast} = useToast()
     const handleSaveLink = () => {

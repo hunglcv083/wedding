@@ -5,9 +5,9 @@ import Signup from "../pages/auth/Signup"
 import EditProfile from "../pages/auth/EditProfile"
 import Editor from "../features/_profiles/Editor"
 import Account from "../features/_profiles/Account"
-import NewUpload from "../pages/upload_image/NewUpload"
-import Generate from "../pages/upload_image/Generate"
-import Preview from "../pages/upload_image/Library"
+import NewUpload from "../pages/swap_image/NewUpload"
+import Generate from "../pages/swap_image/Generate"
+import Preview from "../pages/swap_image/Library"
 import ForgotPassword from "../pages/auth/ForgotPassword"
 import PrivateRoute from "../components/PrivateRouter"
 import Profile from "../pages/client/Profile"
@@ -17,7 +17,10 @@ import ListCategory from "../pages/client/ListCategories"
 import Timeline from "../pages/client/Timeline"
 import Event from "../features/_timeline/Event"
 import LineCard from "../features/_timeline/LineCard"
-
+import FunnyVideo from "../pages/client/FunnyVideo"
+import NewUploadVideo from "../pages/swap_video/NewUploadVideo"
+import ListVideoTemplate from "../pages/client/ListVideoTemplate" 
+import EventVideo from "../features/_funnyvideo/Event"
 const Routers = () => {
     // const [, setPrivateId] = useState('')
     // const handleSetId = (id:string) => setPrivateId(id)
@@ -43,6 +46,10 @@ const Routers = () => {
                     <Route path='' element={<LineCard/>}/>
                     <Route path='event/:id' element={<Event/>}/>
                 </Route>
+                <Route path="funnyvideo" element={<FunnyVideo/>}></Route>
+                <Route path="uploadvideo/:id" element={<NewUploadVideo/>}/>
+                <Route path="listvideotemplate" element={<ListVideoTemplate/>} />
+                <Route path="funnyvideo/detail/:id_user/:id_sukien" element={<EventVideo/>} />
             </Routes>
         </>
     )

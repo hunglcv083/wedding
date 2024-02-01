@@ -6,10 +6,20 @@ import { Dialog, DialogContent, DialogTrigger } from "../../components/ui/dialog
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../../components/ui/carousel"
 import { albumType } from "../../common/types/Album"
 import { Button } from "../../components/ui/button"
+type listItemType = {
+  id?:number,
+  id_saved:string,
+  link_video_goc?:string,
+  link_image?:string,
+  link_video_da_swap:string,
+  thoi_gian_su_kien?:string,
+  id_user?:string
+}
 const Profile = () =>{
     const {id} = useParams()
     const [user, setUser] = useState<any>({user_name:'',email:'',link_avatar:'',id_user:''})
     const [album, setAlbum] = useState<albumType[]>([])
+    
     const [isOpen, setIsOpen] = useState(false)
     const [currentAlbum, setCurrentAlbum] = useState(1)
     useEffect(()=>{
@@ -18,6 +28,13 @@ const Profile = () =>{
     axios.get(`https://metatechvn.store/get/list_2_image/id_image_swap?id_user=${id}`)
         .then(res=>setAlbum(res.data))  
       },[]) 
+    const [listTemp, setListTemp] = useState<listItemType[]|[]>([{id_saved:'', link_video_da_swap:''}]);
+    useEffect(()=>{
+        axios.get(`https://metatechvn.store/get/list_video_wedding/id_video_swap?id_user=${id}`).then(res => {
+                setListTemp(res.data.list_sukien_video);                
+        })
+    },[id])
+    console.log(listTemp)
     const [checkUser, setCheckUser] = useState(false)
     const [currentUser, setCurrentUser] = useState({id_user:'',link_avatar:''})
     useEffect(()=>{
@@ -28,7 +45,7 @@ const Profile = () =>{
     },[])
     let albumData = []
     for(let item of album){
-    albumData.push(item.list_sukien_video)
+    albumData.push(item.list_sukien_image)
     }
     const navi = useNavigate()
     const logOut = () =>{
@@ -214,9 +231,9 @@ const Profile = () =>{
                               :
                               (
                                 user.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
-                              <img className="h-full w-full" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
                               :
-                              <img className="h-full w-full" src={`${user.link_avatar}`} alt="" />
+                              <img className="h-full w-full object-cover" src={`${user.link_avatar}`} alt="" />
                               )
                         }
                         </div>
@@ -235,7 +252,7 @@ const Profile = () =>{
                     }
                 </div>
                 <div className="md:w-full">
-                    <h1 className="font-[600] text-[40px] leading-[48px] ml-[10px] mb-[30px] mt-[10px]">Library</h1>
+                    <h3 className="font-[600] text-[24px] leading-[48px] ml-[10px] mb-[30px] mt-[10px] italic">Wedding Album</h3>
                         <div className="grid grid-cols-2 gap-4">
                         {
                         albumData.map((image, index) => {
@@ -250,6 +267,24 @@ const Profile = () =>{
                                           <Button variant={"outline"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 w-[160px] mt-3 rounded-3xl" onClick={()=>handleOpenAlbum(index)}>View Album</Button>
                                         
                                                 
+                                        </div>
+                                </div>                            
+                            )
+                        })
+                        }
+                        </div>
+                        <h3 className="font-[600] text-[24px] leading-[48px] ml-[10px] mb-[30px] mt-[10px] italic">Funny Video</h3>
+                        <div className="grid grid-cols-2 gap-4">
+                        {
+                        listTemp.map((video, index) => {
+                            return (
+                                <div key={index} className="group relative overflow-hidden flex items-center justify-center " >
+                                <div className="md:w-[300px] md:h-[450px] w-[150px] h-[225px] hover:opacity-90 rounded-2xl overflow-hidden">
+                                        <video src={video.link_video_da_swap} className="h-full w-full object-cover" controls/>
+                                </div>
+                                <div className="absolute">
+                                        <Link to={`/funnyvideo/detail/${id}/${video.id_saved}`}><Button variant={"default"} className="transition-all transform translate-y-8 opacity-0 group-hover:opacity-100 
+                                                group-hover:translate-y-0 w-[160px] rounded-3xl">View Event's Detail</Button></Link> <br />
                                         </div>
                                 </div>                            
                             )
