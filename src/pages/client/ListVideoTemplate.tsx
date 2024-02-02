@@ -25,7 +25,6 @@ const ListVideoTemplate = () =>{
         axios.get(`https://metatechvn.store/get/list_video/all_video_wedding_template`).then(res => {
                 setListTemp(res.data.list_sukien_video_wedding);                
         })
-
     },[])
     const [checkUser, setCheckUser] = useState(false)
    const [user, setUser] = useState({id_user:'', link_avatar:''})

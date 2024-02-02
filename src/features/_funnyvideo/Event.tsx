@@ -12,6 +12,15 @@ type listItemType = {
     id_user?:string,
     thoigian_sukien:string
 }
+type listItemType2 = {
+  id: number,
+  link_video: string,
+  noidung: string,
+  mau_da: string,
+  gioitinh: string,
+  age_video: number,
+  chung_toc:string
+}
 const EventVideo = () =>{
     const [user, setUser] = useState<any>({user_name:'',email:'',link_avatar:'',id_user:''})
     const [listTemp, setListTemp] = useState<listItemType[]>([{link_video_da_swap:'', link_image:'', thoigian_sukien:''}]);
@@ -36,6 +45,18 @@ const EventVideo = () =>{
         axios.get(`https://metatechvn.store/get/list_video/id_video_swap_all_id_sk?id_user=${id_user}&id_sk=${id_sukien}`)
         .then((res) => setListTemp(res.data.id_su_kien_swap_image))
     }
+    const [listTemp2, setListTemp2] = useState<listItemType2[]|[]>([]);
+    let videoName:string | undefined
+    videoName = (listTemp[0].link_video_goc?.split('/').pop())?.split('.').shift()
+    const [vidGoc, setVidGoc] = useState('')
+    
+    useEffect(()=>{
+        axios.get(`https://metatechvn.store/get/list_video/all_video_wedding_template`).then(res => {
+                setListTemp2(res.data.list_sukien_video_wedding);                
+        })
+          let vid = listTemp2.find((item)=>item.link_video.toUpperCase().includes(videoName!))
+          if (vid) setVidGoc(vid.link_video) 
+    },[])
     useEffect(()=>{
         fetchUser()
         fetchEvent()
@@ -205,10 +226,12 @@ const EventVideo = () =>{
                      <span className="italic text-[10px]">{listTemp[0]?.thoigian_sukien}</span>
                     </div>
                     </div>
-                    <div className=" flex justify-between items-center px-[50px] gap-[84px]">
- 
-                    <div className="h-[300px] w-[300px]">
+                    <div className="h-[300px] w-[300px] mx-auto">
                         <img src={listTemp[0]?.link_image} className="h-[300px] w-[300px] border-4 border-[#d2f6ff] object-cover" alt="111" />
+                    </div>
+                    <div className=" flex justify-between items-center px-[50px] gap-[84px] mt-[30px]">
+                    <div className="w-[300px] h-[400px]">
+                        <video src={vidGoc} className="w-full h-full object-contain border-4 border-[#dff9ff]" controls/>
                     </div>
                     <div className="w-[100px] h-[100px]">
                         <img src="../../../heart.png" className="object-cover" alt="" />
