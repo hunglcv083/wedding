@@ -107,6 +107,9 @@ const Profile = () =>{
                                       </li>
                         }
                         <li>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/listvideotemplate"> Swap Video </Link>
+                        </li>
+                        <li>
                           <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
                         </li>
                         <li>
@@ -193,6 +196,11 @@ const Profile = () =>{
                             <li className="mt-3">
                               <Link to={`/funnyvideo`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
                                 Funny Video
+                              </Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link to={`/listvideotemplate`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
+                                Swap Video
                               </Link>
                             </li>
                             {
