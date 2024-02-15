@@ -48,14 +48,21 @@ const EventVideo = () =>{
     const [listTemp2, setListTemp2] = useState<listItemType2[]|[]>([]);
     let videoName:string | undefined
     videoName = (listTemp[0].link_video_goc?.split('/').pop())?.split('.').shift()
-    const [vidGoc, setVidGoc] = useState('')
-    
-    useEffect(()=>{
-        axios.get(`https://metatechvn.store/get/list_video/all_video_wedding_template`).then(res => {
-                setListTemp2(res.data.list_sukien_video_wedding);                
-        })
+    const [,setVidGoc] = useState('')
+    const fetchImg = async () => {
+        try {
+          const res = await axios.get(`https://metatechvn.store/get/list_video/all_video_wedding_template`)
+          setListTemp2(res.data.list_sukien_video_wedding)
           let vid = listTemp2.find((item)=>item.link_video.toUpperCase().includes(videoName!))
-          if (vid) setVidGoc(vid.link_video) 
+          console.log(videoName)
+          if (vid) setVidGoc(vid.link_video)
+        } catch (error) {
+          console.log(error)
+        }
+    }
+    useEffect(()=>{
+        fetchImg()
+         
     },[])
     useEffect(()=>{
         fetchUser()
@@ -239,7 +246,7 @@ const EventVideo = () =>{
                     </div>
                     <div className=" flex justify-between items-center px-[50px] gap-[84px] mt-[30px]">
                     <div className="w-[300px] h-[400px]">
-                        <video src={vidGoc} className="w-full h-full object-contain border-4 border-[#dff9ff]" controls/>
+                        <video src={listTemp[0]?.link_video_goc} className="w-full h-full object-contain border-4 border-[#dff9ff]" controls/>
                     </div>
                     <div className="w-[100px] h-[100px]">
                         <img src="../../../heart.png" className="object-cover" alt="" />

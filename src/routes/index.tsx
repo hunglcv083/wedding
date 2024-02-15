@@ -21,6 +21,8 @@ import FunnyVideo from "../pages/client/FunnyVideo"
 import NewUploadVideo from "../pages/swap_video/NewUploadVideo"
 import ListVideoTemplate from "../pages/client/ListVideoTemplate" 
 import EventVideo from "../features/_funnyvideo/Event"
+import Policy from "../pages/Policy"
+import AboutUs from "../pages/AboutUs"
 const Routers = () => {
     // const [, setPrivateId] = useState('')
     // const handleSetId = (id:string) => setPrivateId(id)
@@ -29,6 +31,8 @@ const Routers = () => {
             
             <Routes>
                 <Route path='/' element={<HomePage/>}/>
+                <Route path='/policy' element={<Policy/>}/>
+                <Route path='/aboutus' element={<AboutUs/>}/>
                 <Route path='signin' element={<Signin />}/>
                 <Route path='signup' element={<Signup/>}/>
                 <Route path='profile' element={<PrivateUser><PrivateRoute><EditProfile/></PrivateRoute></PrivateUser>}>

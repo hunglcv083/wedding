@@ -23,7 +23,7 @@ const HomePage = () => {
               <div className="mx-auto">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex-1 md:flex md:items-center md:gap-12">
-                    <img src="img\logo.png" alt="" />
+                    <Link to={'/'}><img src="img\logo.png" alt="" /></Link>
                   </div>
   
                   <div className="md:flex md:items-center md:gap-12">
@@ -44,11 +44,11 @@ const HomePage = () => {
                           <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/funnyvideo"> Funny Video </Link>
                         </li>
                         <li>
-                          <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/aboutus"> About Us </Link>
                         </li>
   
                         <li>
-                          <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Careers </a>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/policy"> Policy</Link>
                         </li>
                         {
                         checkUser 
@@ -444,25 +444,25 @@ const HomePage = () => {
                   <CarouselItem className="md:basis-1/3">
                     <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                     <img src="img\cdl1.png" alt="" />
-                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Due to post-covid 19, we have a very difficult economy, we used this software to create wedding photos to keep as memories, it's amazing, this is a great artificial intelligence product, it helps us. I got a souvenir photo</p>
                   </div>
                   </CarouselItem >
                   <CarouselItem className="md:basis-1/3">
                     <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                     <img src="img\cdl2.png" alt="" />
-                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">We use artificial intelligence to create great wedding photos, you don't need to spend money on wedding photography, use our products</p>
                   </div>
                   </CarouselItem>
                   <CarouselItem className="md:basis-1/3">
                     <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                     <img src="img\cdl3.png" alt="" />
-                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">I was introduced to the fake wedding product by my lover. It gave me many ideas for wedding photography. We created an AI event to take wedding photos, then asked the wedding photographer to take photos that look like wedding products. It's amazing. , it suits our faces very well, it helps me easily imagine how to take suitable photos.</p>
                   </div>
                   </CarouselItem>
                   <CarouselItem className="md:basis-1/3">
                     <div className="w-[352px] p-[32px] block rounded-xl border bg-white border-gray-100 shadow-xl hover:border-gray-200 hover:ring-1 hover:ring-gray-200 focus:outline-none focus:ring">
                     <img src="img\cdl2.png" alt="" />
-                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Lorem ipsum dolor sit amet consectetur. Porttitor rhoncus arcu nec erat felis scelerisque turpis maecenas imperdiet. Quam ut ultrices erat massa blandit malesuada purus. Integer pulvinar congue facilisi leo nec ut tellus at. Feugiat condimentum magna tellus feugiat cras quis pulvinar congue.</p>
+                    <p className="text-left mt-4 font-[500] text-[16px] leading-[20px]">Due to post-covid 19, we have a very difficult economy, we used this software to create wedding photos to keep as memories, it's amazing, this is a great artificial intelligence product, it helps us. I got a souvenir photo</p>
                   </div>
                   </CarouselItem>
                   

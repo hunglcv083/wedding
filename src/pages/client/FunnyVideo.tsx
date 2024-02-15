@@ -39,7 +39,7 @@ const FunnyVideo = () => {
               <div className="mx-auto">
                 <div className="flex h-16 items-center justify-between">
                   <div className="flex-1 md:flex md:items-center md:gap-12">
-                    <img src="img\logo.png" alt="" />
+                    <Link to={'/'}><img src="img\logo.png" alt="" /></Link>
                   </div>
   
                   <div className="md:flex md:items-center md:gap-12">
@@ -60,11 +60,11 @@ const FunnyVideo = () => {
                           <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/funnyvideo"> Funny Video </Link>
                         </li>
                         <li>
-                          <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Services </a>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/aboutus"> About Us </Link>
                         </li>
   
                         <li>
-                          <a className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" href="/"> Careers </a>
+                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/policy"> Policy</Link>
                         </li>
                         {
                         checkUser 
