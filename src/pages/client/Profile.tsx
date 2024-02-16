@@ -23,14 +23,14 @@ const Profile = () =>{
     const [isOpen, setIsOpen] = useState(false)
     const [currentAlbum, setCurrentAlbum] = useState(1)
     useEffect(()=>{
-    axios.get(`https://metatechvn.store/profile/${id}`)
+    axios.get(`https://databaseswap.mangasocial.online/profile/${id}`)
         .then((res) => setUser(res.data))
-    axios.get(`https://metatechvn.store/get/list_2_image/id_image_swap?id_user=${id}`)
+    axios.get(`https://databaseswap.mangasocial.online/get/list_2_image/id_image_swap?id_user=${id}`)
         .then(res=>setAlbum(res.data))  
       },[]) 
     const [listTemp, setListTemp] = useState<listItemType[]|[]>([{id_saved:'', link_video_da_swap:''}]);
     useEffect(()=>{
-        axios.get(`https://metatechvn.store/get/list_video_wedding/id_video_swap?id_user=${id}`).then(res => {
+        axios.get(`https://databaseswap.mangasocial.online/get/list_video_wedding/id_video_swap?id_user=${id}`).then(res => {
                 setListTemp(res.data.list_sukien_video);                
         })
     },[id])

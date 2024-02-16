@@ -1,6 +1,6 @@
 import axios from 'axios'
 const apiAuth = axios.create({
-    baseURL: 'https://metatechvn.store'
+    baseURL: 'https://databaseswap.mangasocial.online'
 })
 
 apiAuth.interceptors.response.use(

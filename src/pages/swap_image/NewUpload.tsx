@@ -27,7 +27,7 @@ const NewUpload = () => {
         navi('/')
     }
     useEffect(() => {
-        axios.get(`https://metatechvn.store/images/${user.id_user}?type=video`, {
+        axios.get(`https://databaseswap.mangasocial.online/images/${user.id_user}?type=video`, {
             headers: {
                 ContentType: 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -121,7 +121,7 @@ const NewUpload = () => {
                 postFormData.append("image_1", original_Image_1);
                 const image_1_formData = new FormData();
                 image_1_formData.append('src_img', original_Image_1)
-                req_post_img_1 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
+                req_post_img_1 = axios.post(`https://databaseswap.mangasocial.online/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
@@ -135,7 +135,7 @@ const NewUpload = () => {
             postFormData.append("image_2", original_Image_2);            
             const image_2_formData = new FormData();
             image_2_formData.append('src_img', original_Image_2)
-            req_post_img_2 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nu`, image_2_formData, {
+            req_post_img_2 = axios.post(`https://databaseswap.mangasocial.online/upload-gensk/${userData.id_user}?type=src_nu`, image_2_formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': 'Bearer ' + localStorage.getItem('accessToken')

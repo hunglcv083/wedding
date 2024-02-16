@@ -24,7 +24,7 @@ const NewUploadVideo = () => {
         navi('/')
     }
     useEffect(() => {
-        axios.get(`https://metatechvn.store/images/${user.id_user}?type=video`, {
+        axios.get(`https://databaseswap.mangasocial.online/${user.id_user}?type=video`, {
             headers: {
                 ContentType: 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`

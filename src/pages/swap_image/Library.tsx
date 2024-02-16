@@ -18,7 +18,7 @@ const Preview = () => {
     const [currentAlbum, setCurrentAlbum] = useState(0)
     const {id} = useParams()
     useEffect(()=>{
-      axios.get(`https://metatechvn.store/get/list_2_image/id_image_swap?id_user=${id}`)
+      axios.get(`https://databaseswap.mangasocial.online/get/list_2_image/id_image_swap?id_user=${id}`)
           .then(res=>setAlbum(res.data))
           .then(()=>setCurrentAlbum(album.length))
         },[]) 

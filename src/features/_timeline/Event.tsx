@@ -26,7 +26,7 @@ const Event = () =>{
     id_album = listTemp[0].album.replace('weddingface','')
     }
     const fetchUser = () =>{
-        axios.get(`https://metatechvn.store/profile/${id_user}`)
+        axios.get(`https://databaseswap.mangasocial.online/profile/${id_user}`)
         .then((res) => setUser(res.data))
     }
     useEffect(()=>{

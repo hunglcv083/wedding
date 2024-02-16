@@ -13,7 +13,7 @@ const ListCategory = () =>{
 
     const [listTemp, setListTemp] = useState<listItemType[]|[]>([{id_cate:0, name_cate:'',image_sample:''}]);
     useEffect(()=>{
-        axios.get(`https://metatechvn.store/get/categories_wedding`).then(res => {
+        axios.get(`https://databaseswap.mangasocial.online/categories_wedding`).then(res => {
                 setListTemp(res.data.categories_all);                
         })
     },[])

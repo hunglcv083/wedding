@@ -38,11 +38,11 @@ const EventVideo = () =>{
       }
     },[])
     const fetchUser = () =>{
-        axios.get(`https://metatechvn.store/profile/${id_user}`)
+        axios.get(`https://databaseswap.mangasocial.online/profile/${id_user}`)
         .then((res) => setUser(res.data))
     }
     const fetchEvent = () =>{
-        axios.get(`https://metatechvn.store/get/list_video/id_video_swap_all_id_sk?id_user=${id_user}&id_sk=${id_sukien}`)
+        axios.get(`https://databaseswap.mangasocial.online/get/list_video/id_video_swap_all_id_sk?id_user=${id_user}&id_sk=${id_sukien}`)
         .then((res) => setListTemp(res.data.id_su_kien_swap_image))
     }
     const [listTemp2, setListTemp2] = useState<listItemType2[]|[]>([]);
@@ -51,7 +51,7 @@ const EventVideo = () =>{
     const [,setVidGoc] = useState('')
     const fetchImg = async () => {
         try {
-          const res = await axios.get(`https://metatechvn.store/get/list_video/all_video_wedding_template`)
+          const res = await axios.get(`https://databaseswap.mangasocial.online/get/list_video/all_video_wedding_template`)
           setListTemp2(res.data.list_sukien_video_wedding)
           let vid = listTemp2.find((item)=>item.link_video.toUpperCase().includes(videoName!))
           console.log(videoName)

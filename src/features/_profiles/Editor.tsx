@@ -22,7 +22,7 @@ const Editor = () => {
     
     useEffect(() => {
         //@ts-ignore
-        axios.get(`https://metatechvn.store/profile/${id}`, {
+        axios.get(`https://databaseswap.mangasocial.online/profile/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -38,7 +38,7 @@ const Editor = () => {
     }, [user])
 
     useEffect(() => {
-        axios.get(`https://metatechvn.store/images/${id}?type=video`, {
+        axios.get(`https://databaseswap.mangasocial.online/images/${id}?type=video`, {
             headers: {
                 ContentType: 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -84,14 +84,14 @@ const Editor = () => {
         if (avatarUploadFile) {
             const formData = new FormData();
             formData.append("src_img", avatarUploadFile);
-            axios.post(`https://metatechvn.store/upload-gensk/${user.id_user}?type=src_vid`, formData, {
+            axios.post(`https://databaseswap.mangasocial.online/upload-gensk/${user.id_user}?type=src_vid`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             }).then(res => {
                 if (res.status.toString().startsWith('2')) {
-                    axios.post(`https://metatechvn.store/changeavatar/${user.id_user}`, {
+                    axios.post(`https://databaseswap.mangasocial.online/changeavatar/${user.id_user}`, {
                         link_img: res.data,
                         check_img: "upload"
                     }, {
@@ -118,7 +118,7 @@ const Editor = () => {
             })
         }
         else if(chooseUploaded&&chosenImg){
-            axios.post(`https://metatechvn.store/changeavatar/${user.id_user}`, {
+            axios.post(`https://databaseswap.mangasocial.online/changeavatar/${user.id_user}`, {
                         link_img: chosenImg,
                         check_img: "upload"
                     }, {

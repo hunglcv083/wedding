@@ -22,7 +22,7 @@ const ListVideoTemplate = () =>{
     }
     const [listTemp, setListTemp] = useState<listItemType[]|[]>([]);
     useEffect(()=>{
-        axios.get(`https://metatechvn.store/get/list_video/all_video_wedding_template`).then(res => {
+        axios.get(`https://databaseswap.mangasocial.online/get/list_video/all_video_wedding_template`).then(res => {
                 setListTemp(res.data.list_sukien_video_wedding);                
         })
     },[])
