@@ -24,7 +24,7 @@ const NewUploadVideo = () => {
         navi('/')
     }
     useEffect(() => {
-        axios.get(`https://databaseswap.mangasocial.online/${user.id_user}?type=video`, {
+        axios.get(`https://databaseswap.mangasocial.online/images/${user.id_user}?type=video`, {
             headers: {
                 ContentType: 'application/json',
                 Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -83,7 +83,7 @@ const NewUploadVideo = () => {
                 postFormData.append("image_1", original_Image_1);
                 const image_1_formData = new FormData();
                 image_1_formData.append('src_img', original_Image_1)
-                req_post_img_1 = axios.post(`https://metatechvn.store/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
+                req_post_img_1 = axios.post(`https://databaseswap.mangasocial.online/upload-gensk/${userData.id_user}?type=src_nam`, image_1_formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data',
                         'Authorization': 'Bearer ' + localStorage.getItem('accessToken')
@@ -101,7 +101,7 @@ const NewUploadVideo = () => {
                    nProgress.set(0)
                    nProgress.inc()
                    nProgress.configure({ showSpinner: false })
-                   const response = await axios.get(`https://lhvn.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&src_img=/var/www/build_futurelove/image/image_user/215/video/215_vid_87986.jpg&src_vid_path=${id}`, {
+                   const response = await axios.get(`https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&src_img=/var/www/build_futurelove/image/image_user/215/video/215_vid_87986.jpg&src_vid_path=${id}`, {
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                         }
@@ -110,8 +110,7 @@ const NewUploadVideo = () => {
                     nProgress.set(1)
                     nProgress.done()
                     const data = response.data                                                         
-                    navi("/",{state:{data,src_res_1,id}})
-                    console.log(data, src_res_1, id)
+                    navi(`/funnyvideo/detail/${data.sukien_video.id_user}/${data.sukien_video.id_saved}`)
                 }
                 catch (error) {
                     console.log(error)

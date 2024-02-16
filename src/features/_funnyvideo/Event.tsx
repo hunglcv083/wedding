@@ -242,7 +242,7 @@ const EventVideo = () =>{
                     </div>
                     </div>
                     <div className="h-[300px] w-[300px] mx-auto">
-                        <img src={listTemp[0]?.link_image} className="h-[300px] w-[300px] border-4 border-[#d2f6ff] object-cover" alt="111" />
+                        <img src={listTemp[0]?.link_image.includes('/var/www/build_futurelove/')?`https://futurelove.online/${listTemp[0]?.link_image.replace("/var/www/build_futurelove/","")}`:listTemp[0]?.link_image} className="h-[300px] w-[300px] border-4 border-[#d2f6ff] object-cover" alt="111" />
                     </div>
                     <div className=" flex justify-between items-center px-[50px] gap-[84px] mt-[30px]">
                     <div className="w-[300px] h-[400px]">
