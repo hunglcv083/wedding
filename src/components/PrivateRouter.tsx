@@ -19,15 +19,6 @@ const PrivateRoute = ({children, redirectPath = '/signin'}: PrivateRouteProps) =
           });
         return <Navigate to={redirectPath} replace />
     }
-    // if (user.id_user != privateId) {
-    //     toast({
-    //         variant: "destructive",
-    //         description: `Session ended!You have to re login`,
-    //         action: <ToastAction altText="Try again">Try again</ToastAction>
-    //       });
-    //     localStorage.clear()
-    //     return <Navigate to={redirectPath} replace />
-    // }
     return children ? children : <Outlet />
 }
 

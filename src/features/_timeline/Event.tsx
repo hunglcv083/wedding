@@ -56,16 +56,16 @@ const Event = () =>{
                      <span className="italic text-[10px]">{time}</span>
                     </div>
                     </div>
-                    <div className="h-[350px] flex justify-between items-center px-[100px]">
+                    <div className="md:h-[350px] h-[250px] flex justify-between items-center md:px-[100px]">
  
-                    <div className="h-[250px] w-[250px] overflow-hidden ">
-                        <img src={img_nam} className="h-[250px] w-[250px] border-8 border-[#33C5E9] object-cover rounded-full" alt="111" />
+                    <div className="md:h-[250px] md:w-[250px] overflow-hidden ">
+                        <img src={img_nam} className="md:h-[250px] md:w-[250px] w-[150px] h-[150px] border-8 border-[#33C5E9] object-cover rounded-full" alt="111" />
                     </div>
-                    <div className="w-[100px] h-[100px]">
+                    <div className="w-[100px] h-[100px] hidden md:block">
                         <img src="../../../heart.png" className="object-cover" alt="" />
                     </div>
-                    <div className="h-[250px] w-[250px] overflow-hidden ">
-                        <img src={img_nu} className="h-[250px] w-[250px] border-8 border-[#ed839e] object-cover rounded-full" alt="111" />
+                    <div className="md:h-[250px] md:w-[250px] overflow-hidden ">
+                        <img src={img_nu} className="md:h-[250px] md:w-[250px] w-[150px] h-[150px] border-8 border-[#ed839e] object-cover rounded-full" alt="111" />
                     </div>
                      </div>              
                     <div className="hidden md:block">

@@ -1,184 +1,35 @@
-import { Link } from "react-router-dom"
 import Footer from "../components/Footer"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel"
-import { useEffect, useState } from "react"
-import { Dialog, DialogContent, DialogTrigger } from "../components/ui/dialog"
 import { DividerHorizontalIcon } from "@radix-ui/react-icons"
+import Header from "../components/Header"
 
 const AboutUs = () => {
-  const [checkUser, setCheckUser] = useState(false)
-   const [user, setUser] = useState({id_user:'', link_avatar:''})
-   useEffect(()=>{
-    setUser(JSON.parse(String(localStorage.getItem('user'))))
-    if(localStorage.getItem('user')) setCheckUser(true)
-   },[])
-    const logOut = () =>{
-        localStorage.clear();
-        window.location.reload()
-    }
   return (
     <div className="text-center ">
-          <header className="bg-white md:w-[1440px]">
-              <div className="mx-auto">
-                <div className="flex h-16 items-center justify-between">
-                  <div className="flex-1 md:flex md:items-center md:gap-12">
-                    <Link to={'/'}><img src="img\logo.png" alt="" /></Link>
-                  </div>
-  
-                  <div className="md:flex md:items-center md:gap-12">
-                    <nav aria-label="Global" className="hidden md:block">
-                      <ul className="flex items-center gap-6 text-sm">
-                        {
-                          (checkUser)&&<li>
-                                        <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to={`/profile/${user.id_user}`}> My Profile </Link>
-                                      </li>
-                        }
-                        <li>
-                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/listvideotemplate"> Swap Video </Link>
-                        </li>
-                        <li>
-                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/timeline"> Timeline </Link>
-                        </li>
-                        <li>
-                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/funnyvideo"> Funny Video </Link>
-                        </li>
-                        <li>
-                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/aboutus"> About Us </Link>
-                        </li>
-  
-                        <li>
-                          <Link className="text-gray-500 transition hover:text-gray-500/75 font-['Montserrat']" to="/policy"> Policy</Link>
-                        </li>
-                        {
-                        checkUser 
-                        ?
-                        <li><Link to={`/profile/edit/${user?.id_user}`}>
-                          <div className="w-[40px] h-[40px] rounded-[60px] overflow-hidden">
-                            {
-                              user.link_avatar.includes("https://futurelove.online")
-                              ?
-                              <img className="h-full w-full object-cover" src={`${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
-                              :
-                              (
-                                user.link_avatar!="https://a0.anyrgb.com/pngimg/1236/14/no-facial-features-no-avatar-no-eyes-expressionless-avatar-icon-delayering-avatar-user-avatar-men-head-portrait-thumbnail.png?fbclid=IwAR3IUCAOlBSThvKijmWXmNuZk-6oEe1q6k-oGQXGr_zd1zWixMIUfAaAyfw"?
-                              <img className="h-full w-full object-cover" src={`https://futurelove.online/${user.link_avatar.replace("/var/www/build_futurelove/","")}`} alt="" />
-                              :
-                              <img className="h-full w-full object-cover" src={`${user.link_avatar}`} alt="" />
-                              )
-                            }
-                          </div>
-                        </Link>                        
-                        </li>
-                         :
-                         <li><Link to={`/signin`}>
-                          
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" className="w-[40px] h-[40px]">
-                              <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0 0 21.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 0 0 3.065 7.097A9.716 9.716 0 0 0 12 21.75a9.716 9.716 0 0 0 6.685-2.653Zm-12.54-1.285A7.486 7.486 0 0 1 12 15a7.486 7.486 0 0 1 5.855 2.812A8.224 8.224 0 0 1 12 20.25a8.224 8.224 0 0 1-5.855-2.438ZM15.75 9a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" clipRule="evenodd" />
-                          </svg>
-                          
-                        </Link>                        
-                        </li>
-                        }
-                        
-                      </ul>
-                    </nav>
-                    <div className="md:hidden mr-4">
-                        <Dialog>
-                          <DialogTrigger>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                          </svg>
-                          </DialogTrigger>
-                          <DialogContent className="mt-10 items-start justify-start">
-                          <ul className="h-[90vh] pt-5">
-                            <li className="">
-                              {
-                                checkUser? 
-                                <Link to={`/profile/edit/${user?.id_user}`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                Profile
-                              </Link> 
-                              : 
-                                <Link to={`/signin`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                Sign In
-                              </Link>
-                              }
-                              
-                            </li>
-                            <li className="mt-3">
-                              <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                Service
-                              </Link>
-
-                            </li> 
-                            <li className="mt-3">
-                              <Link to={``} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                About Us
-                              </Link>
-                            </li>
-                            <li className="mt-3">
-                              <Link to={`/timeline`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                Timeline
-                              </Link>
-                            </li>
-                            <li className="mt-3">
-                              <Link to={`/funnyvideo`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                Funny Video
-                              </Link>
-                            </li>
-                            <li className="mt-3">
-                              <Link to={`/listvideotemplate`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                Swap Video
-                              </Link>
-                            </li>
-                            {
-                              checkUser&&
-                              <li className="mt-3">
-                              <Link to={`/profile/${user.id_user}`} className="block rounded-lg w-[300px] hover:bg-[#d6f1f6] px-4 py-2 text-sm font-medium text-gray-700 ">
-                                My profile
-                              </Link>
-                              </li>
-                            }
-                            {
-                                checkUser? <li>
-                                <span onClick={()=>{confirm('Are you fucking sure?')&&logOut()}} className="flex cursor-pointer items-center p-2 mt-2 text-slate-500 hover:text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">               
-                                <span className="ms-2 flex">Logout <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6 ml-2">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
-                                </svg>
-                                </span>
-                                </span>
-                            </li> :  <></> 
-                            }                   
-                          </ul>
-                          </DialogContent>
-                        </Dialog>
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </header>
+          <Header/>
           <div className="md:w-[1440px] md:h-[790px] h-[620px] w-[360px] relative mx-auto z-0 mt-[100px]">  
-              <div className="absolute md:right-2 md:ml-[800px]  w-[320px] md:w-fit mx-auto items-center justify-center text-center z-0 ">
-                <img src="img\ab2.jpg" className="w-[800px] object-cover rounded-3xl" alt="" />
+              <div className="absolute md:right-2 md:ml-[800px]  w-[300px] ml-11 md:w-fit mx-auto items-center justify-center text-center z-0 ">
+                <img src="img\ab2.jpg" className="md:w-[800px] object-cover rounded-3xl" alt="" />
               </div>
-              <div className="absolute text-left md:top-[200px] md:left-[60px] md:ml-0 ml-[40px] md:mt-0 mx-auto items-center justify-center">
+              <div className="top-[400px] absolute text-left md:top-[200px] md:left-[60px] md:ml-0 ml-[40px] md:mt-0 mx-auto items-center justify-center">
                 <h1 className="text-[#009DC4] md:font-[900] md:text-[30px] md:leading-[68px] font-black text-[28px]">THINKDIFF AI - A SOFTWARE PRODUCTS COMPANY</h1>
                 <DividerHorizontalIcon/>
-                <h2 className=" w-[800px] text-black md:font-[700] md:text-[50px] md:leading-[40px] md:my-3 font-extrabold text-[20px]">Specializing in <span className='text-[#009DC4]'>artificial intelligence</span> applications</h2>
+                <h2 className="md:w-[800px] text-black md:font-[700] md:text-[50px] md:leading-[40px] md:my-3 font-extrabold text-[20px]">Specializing in <span className='text-[#009DC4]'>artificial intelligence</span> applications</h2>
                 <h1 className="text-[#009DC4] md:font-[500] md:text-[24px] md:leading-[68px] font-black text-[28px]">THE POWER OF CREATIVITY</h1>
                 <p className="text-slate-500 md:font-[500] md:text-[16px] md:leading-[24px] md:w-[700px] font-semibold text-[16px]">We develop a large number of small, fast products for short jobs, such as automatic facial makeup without wasting time, automatically compose interviews, automatically find cheap airline tickets, automatically find sale off orders, automatically find customers who need to rent a house, automatically find customers to sell houses, automatically look up, automatically find and sell houses. customer inquiries. Our company has 200 employees in 3 different locations, the headquarters in Louis city is the place where training and human resource development is combined, the sales department is located at 69 Vạn Phúc. Congratulations for your interest in our company and for taking the time to read this article. Thank you.</p>
 
               </div>
               
           </div>                                
-          <div className="bg-[#FFF] md:w-[1440px] md:mx-auto md:mb-[100px] mt-5 md:mt-0 mx-auto justify-center">
-          <h1 className="mt-[100px] md:w-[1064px] w-[310px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">We Provide <span className='text-[#009DC4]'>Different Services</span> & <span className='text-[#009DC4]'>Features</span> For Your Agency <span className='text-[#009DC4]'>The Power Of Creativity</span></h1>  
-              <div className="flex md:px-[100px] md:gap-8 mt-10 mx-auto">
+          <div className="bg-[#FFF] md:w-[1440px] md:mx-auto md:mb-[100px] mt-[550px] md:mt-0 mx-auto justify-center">
+          <h1 className="md:mt-[100px] md:w-[1064px] w-[310px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">We Provide <span className='text-[#009DC4]'>Different Services</span> & <span className='text-[#009DC4]'>Features</span> For Your Agency <span className='text-[#009DC4]'>The Power Of Creativity</span></h1>  
+              <div className="md:flex md:px-[100px] md:gap-8 mt-10 mx-auto">
               <div className="">
-              <div className=" md:px-0 mx-auto mt-[80px]">
+              <div className=" md:px-0 mx-auto md:mt-[80px]">
                   <img src="img\ab11.jpg" className="w-[600px] object-cover" alt="" />
                 </div>
               </div>
-              <ul className=" space-y-2 ulhome md:grid md:grid-cols-2 md:gap-11 hidden mx-auto">
+              <ul className=" space-y-2 ulhome md:grid md:grid-cols-2 md:gap-11 mx-auto md:mt-0 mt-4">
                 <li className="">
                   <div className="rounded-xl my-auto shadow-xl  w-[300px] cards mx-auto p-[30px]">
                     <div className="group">
@@ -237,11 +88,11 @@ const AboutUs = () => {
               </div>
                 
           </div>
-          <div className="bg-[#f2fdff] md:h-[800px] md:py-[95px] py-11">
+          <div className="bg-[#f2fdff] md:h-[800px] md:py-[95px] py-11 md:mt-0 mt-11">
           <h1 className="md:w-[1064px] w-[310px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Discover Our <span className='text-[#009DC4]'>Projects</span> & <span className='text-[#009DC4]'>Products</span></h1>
-            <Carousel className="w-[1000px] mx-auto mt-11">
+            <Carousel className="md:w-[1000px] w-[280px] mx-auto mt-11">
               <CarouselContent>
-                <CarouselItem className="basis-1/3 bg-[#fff]">
+                <CarouselItem className="md:basis-1/3 bg-[#fff]">
                 <a href="https://apps.apple.com/us/app/dawn-ai-avatar-generator/id1643890882" className="block">
                     <img
                       alt=""
@@ -256,7 +107,7 @@ const AboutUs = () => {
                     </p>
                   </a>
                 </CarouselItem>
-                <CarouselItem className="basis-1/3 bg-[#fff]">
+                <CarouselItem className="md:basis-1/3 bg-[#fff]">
                 <a href="https://apps.apple.com/us/app/prank-air-horn-fart-clipper/id1623746709" className="block">
                     <img
                       alt=""
@@ -271,7 +122,7 @@ const AboutUs = () => {
                     </p>
                   </a>
                 </CarouselItem>
-                <CarouselItem className="basis-1/3 bg-[#fff]">
+                <CarouselItem className="md:basis-1/3 bg-[#fff]">
                 <a href="https://apps.apple.com/us/app/manga-reader-top-manga-here/id1635298030" className="block">
                     <img
                       alt=""
@@ -286,7 +137,7 @@ const AboutUs = () => {
                     </p>
                   </a>
                 </CarouselItem>
-                <CarouselItem className="basis-1/3 bg-[#fff]">
+                <CarouselItem className="md:basis-1/3 bg-[#fff]">
                 <a href="https://apps.apple.com/us/app/mimic-ai-photo-face-animator/id1590841930" className="block">
                     <img
                       alt=""
@@ -301,7 +152,7 @@ const AboutUs = () => {
                     </p>
                   </a>
                 </CarouselItem>
-                <CarouselItem className="basis-1/3 bg-[#fff]">
+                <CarouselItem className="md:basis-1/3 bg-[#fff]">
                 <a href="https://apps.apple.com/us/app/celebrity-voice-changer-parody/id1111710488" className="block">
                     <img
                       alt=""
@@ -323,9 +174,9 @@ const AboutUs = () => {
           </div>
           <div className="bg-[#FFF] md:py-[95px] py-11">
           <h1 className="md:w-[1064px] w-[310px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Discover Our <span className='text-[#009DC4]'>Workplace</span> & <span className='text-[#009DC4]'>Members</span></h1>
-            <Carousel className="w-[1000px] mx-auto mt-11">
+            <Carousel className="md:w-[1000px] w-[280px] mx-auto mt-11">
                 <CarouselContent>
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -335,7 +186,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">Workplace</h3>
                     </div>
                   </CarouselItem>
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -345,7 +196,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">Workplace</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -355,7 +206,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">Friendly Membership</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -365,7 +216,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">Workplace</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -375,7 +226,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">Workplace</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -386,7 +237,7 @@ const AboutUs = () => {
                     </div>
                   
                   </CarouselItem>  
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -396,7 +247,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">Workplace</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4 bg-[#fff] ">
+                  <CarouselItem className="md:basis-1/4 bg-[#fff] ">
                   <div className="block rounded-xl overflow-hidden">
                       <img
                         alt=""
@@ -413,9 +264,9 @@ const AboutUs = () => {
           </div>
           <div className="bg-[#F2FDFF] md:h-[670px] md:py-[110px] py-11 ">
           <h1 className="md:w-[1064px] w-[310px] md:font-[800] md:text-[48px] md:leading-[58px] text-black text-center mx-auto text-[24px] font-extrabold">Discover Our <span className='text-[#009DC4]'>Extracurricular Activities</span> & <span className='text-[#009DC4]'>Development Process</span></h1>
-          <Carousel className="px-5 mx-auto mt-11">
+          <Carousel className="md:w-[1400px] w-[290px] px-5 mx-auto mt-11">
                 <CarouselContent>
-                  <CarouselItem className="basis-1/4 ">
+                  <CarouselItem className="md:basis-1/4 ">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4">
                       <img
                         alt=""
@@ -425,7 +276,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">2022</h3>
                     </div>
                   </CarouselItem>
-                  <CarouselItem className="basis-1/4">
+                  <CarouselItem className="md:basis-1/4">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4">
                       <img
                         alt=""
@@ -435,7 +286,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">2022</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4 ">
+                  <CarouselItem className="md:basis-1/4 ">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4">
                       <img
                         alt=""
@@ -445,7 +296,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">2022</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4">
+                  <CarouselItem className="md:basis-1/4">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4">
                       <img
                         alt=""
@@ -455,7 +306,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">2017</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4">
+                  <CarouselItem className="md:basis-1/4">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4 ">
                       <img
                         alt=""
@@ -465,7 +316,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">2017</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4">
+                  <CarouselItem className="md:basis-1/4">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4">
                       <img
                         alt=""
@@ -476,7 +327,7 @@ const AboutUs = () => {
                     </div>
                   
                   </CarouselItem>  
-                  <CarouselItem className="basis-1/4">
+                  <CarouselItem className="md:basis-1/4">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4">
                       <img
                         alt=""
@@ -486,7 +337,7 @@ const AboutUs = () => {
                        <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl">2022</h3>
                     </div>
                   </CarouselItem> 
-                  <CarouselItem className="basis-1/4">
+                  <CarouselItem className="md:basis-1/4">
                   <div className="block rounded-xl overflow-hidden bg-white pb-4">
                       <img
                         alt=""
@@ -502,12 +353,12 @@ const AboutUs = () => {
               </Carousel>    
           </div>
           <div className="bg-[#FFF] md:h-[876px] md:py-[110px] py-11">
-            <div className="md:w-[1200px] w-[360px] items-center mx-auto justify-center grid grid-cols-2">
+            <div className="md:w-[1200px] w-[360px] items-center mx-auto justify-center md:grid md:grid-cols-2">
             <div className="">
-              <img src="img/abs.jpg" className="object-cover" alt="" />
+              <img src="img/abs.jpg" className="object-cover md:block hidden" alt="" />
             </div>
-            <div className="w-[500px]">
-            <h1 className="md:font-[800] md:text-[24px] md:leading-[58px] text-black text-left mx-auto text-[20px] font-extrabold">More <span className='text-[#009DC4]'>About Us</span> & What <span className='text-[#009DC4]'>We Offer</span></h1>
+            <div className="md:w-[500px] w-[300px] mx-auto">
+            <h1 className="md:font-[800] md:text-[24px] md:leading-[58px] text-black text-left mx-auto text-[28px] font-extrabold">More <span className='text-[#009DC4]'>About Us</span> & What <span className='text-[#009DC4]'>We Offer</span></h1>
             <p className="text-left mb-4">We always bring quality, true value, customers always trust and choose us</p>
             <div className="text-left font-black pt-4">
               <span className="text-[#6366F1] font-black text-left">IOS</span>
@@ -583,18 +434,18 @@ const AboutUs = () => {
             </div>
             </div>
           </div>
-          <div className="bg-white w-[1200px] gap-[70px] pb-3 flex justify-center mx-auto">
+          <div className="bg-white md:w-[1200px] gap-[70px] pb-3 md:flex justify-center mx-auto w-[390px] overflow-hidden">
             <div className="">
-              <img src="img/hr1.jpg" className="mt-[80px]" alt="" />
+              <img src="img/hr1.jpg" className="mt-[80px] w-full object-cover" alt="" />
             </div>
             <div className="">
-              <img src="img/hr3.jpg" alt="" />
-              <img src="img/hr2.jpg" className="mt-[70px]" alt="" />
+              <img src="img/hr3.jpg" className="w-full object-cover" alt="" />
+              <img src="img/hr2.jpg" className="md:mt-[70px] w-full object-cover" alt="" />
             </div>      
           </div>
-          <div className="flex justify-center mx-auto gap-11 my-[100px]">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.163657000406!2d105.75852617409872!3d20.98607588924546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134533dce504063%3A0x32b9b7219061c03c!2zMzAgxJDGsOG7nW5nIExvdWlzIDcsIGtodSDEkcO0IHRo4buLIExvdWlzIENpdHksIEjDoCBO4buZaSwgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1707980272060!5m2!1svi!2s" width="600" height="500"  loading="lazy" className="rounded-3xl"></iframe>
-            <div className="rounded-2xl bg-white p-8 shadow-lg lg:col-span-3 lg:p-12 w-[600px]">
+          <div className="md:flex justify-center mx-auto gap-11 my-[100px]">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3725.163657000406!2d105.75852617409872!3d20.98607588924546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134533dce504063%3A0x32b9b7219061c03c!2zMzAgxJDGsOG7nW5nIExvdWlzIDcsIGtodSDEkcO0IHRo4buLIExvdWlzIENpdHksIEjDoCBO4buZaSwgMTAwMDAwLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1707980272060!5m2!1svi!2s" width="600" height="500"  loading="lazy" className="md:rounded-3xl md:w-[600] md:h-[500] w-[370px] h-[450px] mx-auto"></iframe>
+            <div className="rounded-2xl bg-white p-8 shadow-lg lg:col-span-3 lg:p-12 md:w-[600px] md:mt-0 mt-4">
               <h1 className="md:font-[800] md:text-[24px] md:leading-[58px] text-black text-center mx-auto text-[20px] font-extrabold"><span className='text-[#009DC4]'>Contact Us</span> & Get In <span className='text-[#009DC4]'>Touch</span></h1>
               <form action="#" className="space-y-4">
                 <div>
@@ -652,15 +503,15 @@ const AboutUs = () => {
             </div>
           </div>
           <div className="bg-white mb-[40px]">
-          <div className="rounded-3xl bg-[#d8fbff] h-[200px] mx-auto items-center justify-center">
-            <div className="grid grid-cols-3 w-[800px] mx-auto items-center justify-center pt-[50px]">
+          <div className="rounded-3xl bg-[#d8fbff] md:h-[200px] mx-auto items-center justify-center px-[76px]">
+            <div className="md:grid md:grid-cols-3 md:w-[800px] mx-auto items-center justify-center py-[50px] md:py-0 md:pt-[50px]">
             <div className="text-[16px]">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[50px] h-[50px] mx-auto mb-2">
             <path fillRule="evenodd" d="M1.5 4.5a3 3 0 0 1 3-3h1.372c.86 0 1.61.586 1.819 1.42l1.105 4.423a1.875 1.875 0 0 1-.694 1.955l-1.293.97c-.135.101-.164.249-.126.352a11.285 11.285 0 0 0 6.697 6.697c.103.038.25.009.352-.126l.97-1.293a1.875 1.875 0 0 1 1.955-.694l4.423 1.105c.834.209 1.42.959 1.42 1.82V19.5a3 3 0 0 1-3 3h-2.25C8.552 22.5 1.5 15.448 1.5 6.75V4.5Z" clipRule="evenodd" />
           </svg>
             0582.296.888
             </div>
-            <div className="text-[16px]">
+            <div className="text-[16px] md:mt-0 mt-11">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[50px] h-[50px] mx-auto mb-2">
             <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
             <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
@@ -668,7 +519,7 @@ const AboutUs = () => {
 
           hr@thinkdiff.us
             </div>
-            <div className="text-[16px]">
+            <div className="text-[16px] md:mt-0 mt-11">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-[50px] h-[50px] mx-auto mb-2">
               <path fillRule="evenodd" d="m11.54 22.351.07.04.028.016a.76.76 0 0 0 .723 0l.028-.015.071-.041a16.975 16.975 0 0 0 1.144-.742 19.58 19.58 0 0 0 2.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 0 0-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 0 0 2.682 2.282 16.975 16.975 0 0 0 1.145.742ZM12 13.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" clipRule="evenodd" />
             </svg>
