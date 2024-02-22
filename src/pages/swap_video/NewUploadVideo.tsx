@@ -98,7 +98,7 @@ const NewUploadVideo = () => {
                    nProgress.set(0)
                    nProgress.inc()
                    nProgress.configure({ showSpinner: false })
-                   const response = await axios.get(`https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&src_img=/var/www/build_futurelove/image/image_user/215/video/215_vid_87986.jpg&src_vid_path=${id}`, {
+                   const response = await axios.get(`https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&src_img=${src_res_1}&src_vid_path=${id}`, {
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                         }
