@@ -39,7 +39,7 @@ const Profile = () =>{
       if(localStorage.getItem('user')) {
         setCurrentUser(JSON.parse(localStorage.getItem('user')||''))
       }
-    },[])
+    },[]) 
     let albumData = []
     for(let item of album){
     albumData.push(item.list_sukien_image)

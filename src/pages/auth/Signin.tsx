@@ -18,7 +18,8 @@ const Signin = () => {
     const handleToggle = () => {
         setShowPassword(!showPassword);
       };
-    
+      const curent_date = new Date()
+      const today = curent_date.toLocaleDateString('vi-VN',{day:'numeric',month:'numeric',year:'numeric'})
     const handleSubmit = async (e:any) => {
         e.preventDefault();
        if (!email) {
@@ -60,6 +61,7 @@ const Signin = () => {
                     const account = JSON.stringify(response)
                     localStorage.setItem('accessToken',response.token)
                     localStorage.setItem('user',account)
+                    localStorage.setItem('lastLoginDate',today)
                     navi(`/profile/edit/${response.id_user}`)
             }            
         } catch (error) {

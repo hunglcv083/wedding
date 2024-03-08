@@ -5,7 +5,6 @@ import { useDropzone } from "react-dropzone";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../../components/ui/dialog";
 import { ScrollArea, ScrollBar } from "../../components/ui/scroll-area";
 import { useNavigate, useParams } from "react-router-dom";
-import nProgress from "nprogress";
 import HashLoader from "react-spinners/HashLoader"
 import { useToast } from "../../components/ui/use-toast";
 import { ToastAction } from "../../components/ui/toast";
@@ -94,23 +93,20 @@ const NewUploadVideo = () => {
             if (src_res_1 != null) {
                 try{
                    setIsLoading(true)
-                   nProgress.start()
-                   nProgress.set(0)
-                   nProgress.inc()
-                   nProgress.configure({ showSpinner: false })
                    const response = await axios.get(`https://videoswap.mangasocial.online/getdata/genvideo/swap/imagevid/wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&src_img=${src_res_1}&src_vid_path=${id}`, {
                         headers: {
                             'Authorization': 'Bearer ' + localStorage.getItem('accessToken'),
                         }
                     })
                     setIsLoading(false)
-                    nProgress.set(1)
-                    nProgress.done()
                     const data = response.data                                                         
                     navi(`/funnyvideo/detail/${data.sukien_video.id_user}/${data.sukien_video.id_saved}`)
                 }
                 catch (error) {
+                    setIsLoading(false)
                     console.log(error)
+                    alert('Sorry!:< an error occur!!!Please go back and try again.')
+                    navi(-1)
                 }
             }
         

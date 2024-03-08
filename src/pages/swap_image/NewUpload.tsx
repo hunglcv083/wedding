@@ -5,7 +5,6 @@ import { useDropzone } from "react-dropzone";
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from "../../components/ui/dialog";
 import { ScrollArea, ScrollBar } from "../../components/ui/scroll-area";
 import { useNavigate, useParams } from "react-router-dom";
-import nProgress from "nprogress";
 import HashLoader from "react-spinners/HashLoader"
 import { useToast } from "../../components/ui/use-toast";
 import { ToastAction } from "../../components/ui/toast";
@@ -145,11 +144,7 @@ const NewUpload = () => {
             if (src_res_1 != null && src_res_2 != null) {
                 try{
                    setIsLoading(true)
-                   nProgress.start()
-                   nProgress.set(0)
-                   nProgress.inc()
-                   nProgress.configure({ showSpinner: false })
-                   const response = await axios.get(`https://thinkdiff.us/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
+                   const response = await axios.get(`https://thinkdiff.us/getdata/swap/listimage_wedding?device_them_su_kien=${userData.device_register?userData.device_register:"Desktop"}&ip_them_su_kien=${userData.ip_register}&id_user=${userData.id_user}&list_folder=weddingface${id}`, {
                         headers: {
                             'link1': src_res_1,
                             'link2': src_res_2,
@@ -158,13 +153,14 @@ const NewUpload = () => {
                         
                     })
                     setIsLoading(false)
-                    nProgress.set(1)
-                    nProgress.done()
                     const data = response.data                                                         
                     navi("/generate",{state:{data,src_res_1,src_res_2}})
                 }
                 catch (error) {
+                    setIsLoading(false)
                     console.log(error)
+                    alert('Sorry!:< an error occur!!!Please go back and try again.')
+                    navi(-1)
                 }
             }
         
