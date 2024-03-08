@@ -19,10 +19,13 @@ const Header = () => {
             <header className="bg-white md:w-[1440px]">
               <div className="mx-auto">
                 <div className="flex h-16 items-center justify-between">
-                  <div className="flex-1 md:flex md:items-center md:gap-12">
+                  <div className="md:flex md:items-center md:gap-4">
                     <Link to={'/'}><img src="img\logo.png" alt="" /></Link>
+                    <div className="ml-[-200px] md:flex md:items-center md:gap-4 hidden">
+                      <Link to={'/'}><img src="img\512x512.png" alt=""  className="object-contain h-10"/></Link>
+                      <Link to={'https://play.google.com/store/apps/details?id=com.app.fakewedding'}><img src="img\512x5121.png" className="object-contain h-10" alt="" /></Link>
+                    </div>
                   </div>
-  
                   <div className="md:flex md:items-center md:gap-12">
                     <nav aria-label="Global" className="hidden md:block">
                       <ul className="flex items-center gap-6 text-sm">
@@ -146,7 +149,11 @@ const Header = () => {
                               </span>
                               </button>
                           </li> :  <></> 
-                          }                   
+                          }
+                          <div className="">
+                            <Link to={'/'}><img src="img\512x512.png" alt=""  className="object-contain w-[30%] mx-auto mt-4"/></Link>
+                            <Link to={'https://play.google.com/store/apps/details?id=com.app.fakewedding'}><img src="img\512x5121.png" className="object-contain w-[30%] mx-auto mt-4" alt="" /></Link>
+                          </div>                 
                         </ul>
                         :
                         <button onClick={()=>setIsOpen(true)}>
