@@ -22,7 +22,7 @@ const Header = () => {
                   <div className="md:flex md:items-center md:gap-4">
                     <Link to={'/'}><img src="img\logo.png" alt="" /></Link>
                     <div className="ml-[-200px] md:flex md:items-center md:gap-4 hidden">
-                      <Link to={'/'}><img src="img\512x512.png" alt=""  className="object-contain h-10"/></Link>
+                      <Link to={'https://apps.apple.com/us/app/fake-wedding-make-love-pro/id6478814834'}><img src="img\512x512.png" alt=""  className="object-contain h-10"/></Link>
                       <Link to={'https://play.google.com/store/apps/details?id=com.app.fakewedding'}><img src="img\512x5121.png" className="object-contain h-10" alt="" /></Link>
                     </div>
                   </div>
@@ -151,7 +151,7 @@ const Header = () => {
                           </li> :  <></> 
                           }
                           <div className="">
-                            <Link to={'/'}><img src="img\512x512.png" alt=""  className="object-contain w-[30%] mx-auto mt-4"/></Link>
+                            <Link to={'https://apps.apple.com/us/app/fake-wedding-make-love-pro/id6478814834'}><img src="img\512x512.png" alt=""  className="object-contain w-[30%] mx-auto mt-4"/></Link>
                             <Link to={'https://play.google.com/store/apps/details?id=com.app.fakewedding'}><img src="img\512x5121.png" className="object-contain w-[30%] mx-auto mt-4" alt="" /></Link>
                           </div>                 
                         </ul>
